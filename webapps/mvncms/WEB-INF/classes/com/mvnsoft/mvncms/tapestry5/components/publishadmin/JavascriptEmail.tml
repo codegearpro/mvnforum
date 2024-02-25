@@ -1,0 +1,27 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/src/com/mvnsoft/mvncms/tapestry5/components/publishadmin/JavascriptEmail.tml,v 1.5 2009/07/24 10:47:38 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.5 $
+ - $Date: 2009/07/24 10:47:38 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  <script type="text/javascript">
+    var emailTitle = "${emailTitle}";
+    var emailDomain = "${emailDomain}";
+    var subject = "${subject}";
+    var body = "${body}";
+    var linkName = "${linkName}";
+    var classStyle = "${classStyle}";
+    writeEmail(emailTitle, emailDomain, subject, body, linkName, classStyle);
+  </script>
+</t:container>

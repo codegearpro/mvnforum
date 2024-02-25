@@ -1,0 +1,63 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/UpdateReturnReason.tml,v 1.3 2009/08/14 02:41:37 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.3 $
+ - $Date: 2009/08/14 02:41:37 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.updatereturnreason.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:x="tapestry-library:tapx">
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+
+  <div class="pagedesc">
+    ${message:mvncms.updatereturnreason.message}<br/>
+    ${message:mvncms.updatereturnreason.not_return}
+  </div>
+  
+   <form t:type="Form" t:id="returnContentForm" t:clientValidation="true">
+      <t:publishadmin.TokenField />
+      <input t:type="chenillekit/Hidden" t:name="literal:contentID" t:value="contentID" />
+      <input t:type="chenillekit/Hidden" t:name="literal:actionID" t:value="actionID" />
+      <input t:type="chenillekit/Hidden" t:name="literal:stepID" t:value="stepID" />
+      <t:errors><div>&nbsp;</div></t:errors>
+      <table class="tborder" width="95%" cellspacing="1" cellpadding="3">
+        <tr class="portlet-section-header">
+          <td colspan="2">${message:mvncms.updatereturnreason.add_message}</td>
+        </tr>  
+        <tr class="${prop:evenodd.next}">
+          <td valign="top" width="20%">${message:mvncms.common.content.contentid}</td>
+          <td>${contentID}</td>
+        </tr>
+        <tr class="${prop:evenodd.next}">
+          <td valign="top">${message:mvncms.common.content.title}</td>
+          <td>${contentTitle}</td>
+        </tr>
+        <tr class="${prop:evenodd.next}">
+          <td valign="top">${message:mvncms.common.content.summary}</td>
+          <td>${contentSummary}</td>
+        </tr>
+        <tr class="${prop:evenodd.next}">
+          <td valign="top"><label t:type="Label" for="contentReturnReason">${message:mvncms.updatereturnreason.your_message}<span class="requiredfield"> *</span></label></td>
+          <td>
+            <textarea t:type="TextArea" t:id="contentReturnReason" rows="10" cols="100"/>
+          </td>
+        </tr>
+        <tr class="portlet-section-footer">
+          <td align="center" colspan="2">
+            <input type="submit" value="${message:mvncms.updatereturnreason.return_content}"/>
+            <input type="button" value="${message:mvncms.action.cancel}"/>
+          </td>
+        </tr>
+      </table>
+    </form>
+          
+</t:publishadmin.border>

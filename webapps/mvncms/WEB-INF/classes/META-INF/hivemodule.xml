@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<module id="com.mvnsoft.mvncms.taplet" version="1.0.0">
+  
+  <!-- contribution configuration-id="tapestry.state.ApplicationObjects">
+    <state-object name="user" scope="session">
+      <create-instance class="com.mvnsoft.User" />
+    </state-object>
+  </contribution -->
+
+  <contribution configuration-id="tapestry.InfrastructureOverrides">
+      <property name="Exception" value="Error" />
+  </contribution>
+  
+  <contribution configuration-id="tapestry.url.ServiceEncoders">
+    <page-service-encoder id="page" extension="thtml" service="page" />
+  </contribution>
+  
+  <contribution configuration-id="tapestry.url.ServiceEncoders">
+    <direct-service-encoder id="direct" stateless-extension="direct" stateful-extension="sdirect" />
+  </contribution>
+  
+  <contribution configuration-id="tapestry.url.ServiceEncoders">
+    <asset-encoder id="asset" path="/assets" />
+  </contribution>
+  
+  <contribution configuration-id="tapestry.url.ServiceEncoders">
+    <extension-encoder id="extension" extension="svc" after="*" />
+  </contribution>
+  
+ <implementation service-id="tapestry.multipart.ServletMultipartDecoder">
+   <create-instance class="org.apache.tapestry.multipart.MultipartDecoderImpl,maxSize=-1" model="threaded" />
+ </implementation> 
+
+</module>

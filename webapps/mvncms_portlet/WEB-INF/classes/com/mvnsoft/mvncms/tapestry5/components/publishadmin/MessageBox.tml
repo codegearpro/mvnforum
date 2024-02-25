@@ -1,0 +1,24 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/src/com/mvnsoft/mvncms/tapestry5/components/publishadmin/MessageBox.tml,v 1.8 2009/09/10 07:30:11 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.8 $
+ - $Date: 2009/09/10 07:30:11 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  <t:if test="message">
+      <div class="pagedesc center info" style="color:#009900; background-color:#d4e8fa; font-weight:bold; font-size:14px; text-align:center;">
+        ${message}
+      </div>
+    <div>&nbsp;</div>
+  </t:if>
+</t:container>

@@ -1,0 +1,33 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/src/com/mvnsoft/mvncms/tapestry5/components/publishadmin/ReloadPageWhenBackButtonClicked.tml,v 1.1 2009/09/30 10:42:53 khuongnhv Exp $
+ - $Author: khuongnhv $
+ - $Revision: 1.1 $
+ - $Date: 2009/09/30 10:42:53 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2009 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  
+  <input type="hidden" id="refreshed_by_clicking_back_button" value="no" />
+  
+  <script type="text/javascript">
+      onload = function(){
+          var e = $('refreshed_by_clicking_back_button');
+          if (e.value == "no") {
+             e.value = "yes";
+          }
+          else {
+             e.value = "no";
+             location.reload();
+          }
+      }
+  </script>
+  
+</t:container>

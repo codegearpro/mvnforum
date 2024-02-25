@@ -1,0 +1,46 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/src/com/mvnsoft/mvncms/tapestry5/components/publishadmin/Header.tml,v 1.25 2009/09/09 11:20:51 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.25 $
+ - $Date: 2009/09/09 11:20:51 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  <table border="0" width="95%" class="center">
+    <tr>
+      <td rowspan="2" align="left">
+        <img src="${asset:context:/mvnplugin/mvncms/images/logo.gif}" alt="Logo" />
+      </td>
+      <td align="right" valign="bottom" class="portlet-font">
+        <span class="welcomeHeader">${message:mvncms.common.welcome}</span>&nbsp;<b><span style="font-color: #ff0000;">${onlineUser.memberName}</span></b>&nbsp;
+        <t:if test="isServlet">
+          <t:if test="onlineUser.isMember()">
+            <a t:type="ActionLink" t:id="logout" class="command">${message:mvncms.header.logout}</a>
+            <t:parameter name="else">
+               <a t:type="PageLink" t:page="publishadmin/Login" class="command">${message:mvncms.header.login}</a>
+            </t:parameter>
+          </t:if>
+        </t:if>
+      </td>
+    </tr>
+    <tr>
+      <td align="right" valign="bottom" class="zoneTitle">${message:mvncms.header.title}</td>
+    </tr>
+  </table>
+  <table border="0" width="95%" class="center">
+    <tr>
+      <td>   
+        <t:publishadmin.JSCookMenu name="literal:myMenu" theme="literal:cmThemeOffice2003" menuItems="menuItems" />
+      </td>
+    </tr>
+  </table>
+</t:container>

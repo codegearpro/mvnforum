@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <pollid>0</pollid>
+    
+    <adcms>
+        <banner>
+            <footer>0</footer>
+        </banner>
+
+        <home>
+            <center1>0</center1>
+
+            <left1>0</left1>
+            <left2>0</left2>
+            <left3>0</left3>
+            <left4>0</left4>
+            <left5>0</left5>
+            <left6>0</left6>
+            <left7>0</left7>
+            <left8>0</left8>
+            <left9>0</left9>
+            <left10>0</left10>
+
+            <right1>0</right1>
+            <right2>0</right2>
+            <right3>0</right3>
+            <right4>0</right4>
+            <right5>0</right5>
+            <right6>0</right6>
+            <right7>0</right7>
+            <right8>0</right8>
+            <right9>0</right9>
+            <right10>0</right10>
+        </home>
+        
+    </adcms>
+</layout>

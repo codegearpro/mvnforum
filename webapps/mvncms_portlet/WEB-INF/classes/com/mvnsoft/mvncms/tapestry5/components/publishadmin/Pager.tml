@@ -1,0 +1,31 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/src/com/mvnsoft/mvncms/tapestry5/components/publishadmin/Pager.tml,v 1.1 2009/11/06 05:01:14 nhanld Exp $
+ - $Author: nhanld $
+ - $Revision: 1.1 $
+ - $Date: 2009/11/06 05:01:14 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <span style="font-weight:bold">${pageStatus}</span> <a t:type="PageLink" t:page="Rss2" context="rssContext"><img src="${asset:context:/images/rss.gif}" alt="RSS Feed" title="XML / RSS feed" style="margin-right: 0.5em;" /></a>
+    <a t:type="PageLink" t:page="Rss2WordPress" context="rssContext"><img src="${asset:context:/images/rss_wordpress.gif}" alt="WordPress RSS Feed" title="XML / RSS feed for WordPress" style="margin-right: 0.5em;" /></a> 
+    <t:if test="enableGoOlder">
+       <div class="pagination older">
+        <a t:type="PageLink" t:page="${pageName}" context="nextOffset" >Older</a>
+      </div>
+    </t:if>
+    <t:if test="enableGoNewer">
+      <div class="pagination newer">
+        <a t:type="PageLink" t:page="${pageName}" context="previousOffset" >Newer</a>
+      </div>
+   </t:if>
+   <t:body />
+</t:container>

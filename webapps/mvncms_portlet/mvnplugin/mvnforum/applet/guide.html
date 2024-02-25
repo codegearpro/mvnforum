@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<style type="text/css">
+html, body, div {
+border:0;
+margin:0;
+padding:0;
+font:12px Arial, Helvetica, sans-serif;
+line-height:18px;
+}
+.applet_title{
+  color:#0066ff;
+  font-size:18px;
+  text-align:center;
+  padding:10px 0 0 0;
+}
+.step_color{
+  color:#993333;
+  font-weight:bold;
+  padding:5px 0 3px 0;
+}
+.note{
+  color:#FF0000;
+  font-weight:bold;
+  padding:0 0 0 20px;
+}
+.insertcode{
+  color:#666;
+  font-style:italic;
+}
+.bold{
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+<div class="applet_title">How to use ImageApplet</div>
+<ul>
+  <li> 
+    Configure applet to control your clipboard system    
+  </li>
+  <li>
+    If you want to set for an user, you should
+  </li>
+    <ul>
+      <li>
+        Create file <span class="bold">.java.policy</span> into user.home (if you have no file user.home\<span class="bold">.java.policy</span>) by the way: 
+      </li>
+        <ul>
+          <li class="step_color">
+            Step 1:  Open file "C:\Java\jdk1.5.0_12\bin \policytool.exe".
+          </li>
+          <li class="step_color">
+            Step 2:  Click "Add Policy Entry".<br>
+            <img src="step_2.gif" border="0" alt=""></img>
+          </li>
+          <li class="step_color">
+            Step 3: Click "Add Permission".<br>
+            <img src="step_3.gif" border="0" alt=""></img>
+          </li>
+          <li class="step_color">
+            Step 4: Config same below picture <br>
+            <img src="step_4.gif" border="0" alt="" ></img>
+          </li>
+          <li class="step_color">
+            Step 5: Click "OK", click "Done" 
+          </li>
+          <li class="step_color">
+            Step 6:  Choose File -> Save As 
+          </li>
+          <li class="step_color">
+            Step 7: Type file name: ".java.policy" <br>
+            <img src="step_7.gif" border="0" alt="" ></img>
+          </li>
+        </ul>
+      <li>
+        Edit file .java.policy into user.home (if you have a file user.home\<span class="bold">.java.policy</span>) following:<br>
+        <div class="insertcode">
+          grant { <br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... <br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;permission java.awt.AWTPermission "accessClipboard"; //this row is added <br>
+          };
+        </div>  
+      </li>
+    </ul>
+  <li>
+    If you want to set for all users, you should edit file <span class="bold">.java.policy</span> following:
+  </li>
+    <ul>
+      <li>
+        Open file .java.policy as a text file <br>
+        The system policy file is by default located at java.home/jre/lib/security/<span class="bold">.java.policy</span> (Solaris)<br> java.home\jre\lib\security\<span class="bold">.java.policy</span> (Win32) or jre.home/lib/security/<span class="bold">.java.policy</span> (Solaris) <br>jre.home\lib\security\<span class="bold">.java.policy</span> (Win32) 
+      </li>
+      <li>
+        Add a row "permission java.awt.AWTPermission "accessClipboard";" into <span class="bold">.java.policy</span> <br>
+        <div class="insertcode">
+          .... <br>
+          grant {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;permission java.util.PropertyPermission "java.vm.name", "read"; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;permission java.awt.AWTPermission "accessClipboard"; //<--new row <br>
+          };
+        </div>
+      </li>
+      <li>
+        Save <span class="bold">.java.policy</span>
+      </li>
+    </ul>
+  <li>
+    You should close and reopen your browser to enable <span class="bold">.java.policy</span>
+  </li>
+</ul>
+<div class="note">
+  * Note: restart browsers
+</div>
+</body>
+</html>

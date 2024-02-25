@@ -1,0 +1,152 @@
+<!--
+ - $Header: /home/cvsroot/mvncms-portlet/srcweb/publishadmin/ContactUsDetail.tml,v 1.2 2009/11/25 03:50:15 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.2 $
+ - $Date: 2009/11/25 03:50:15 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:x="tapestry-library:tapx">
+<head>
+  <title>${message:mvncms.contactus.detail.title}</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function validateDelete() {
+        return confirm('Bạn thực sự muốn xóa?');
+    }
+  </script>
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+
+  <table class="box_border" cellspacing="0" cellpadding="0" border="0" width="930" style="margin: 0pt auto;">
+    <tbody>
+      <tr>
+        <td>
+          
+          <div style="border-bottom: 2px solid rgb(0, 153, 0); margin: 10px; font-size: 16px; color: rgb(0, 153, 0); font-weight: bold;">${message:mvncms.contactus.detail.title}</div>
+          
+          <div style="margin: 10px; width: 49%; float: left;">
+             <div style="font-weight: bold; font-size: 16px; color: rgb(7, 94, 187);">
+               ${contactTitle}
+              </div>
+              
+              <t:If test="showAdminAction"><div>(<a class="vb_link" t:type="PageLink" t:page="publishadmin/ContactUsRelyAdmin" t:context="contactID">${getActionLabel(answerName)}</a>)</div></t:If>
+              
+              <div style="padding: 5px 0pt; color: rgb(102, 102, 102); font-style: italic;">${message:mvncms.contactus.creation_date} : ${creationDate}</div>
+              
+              <div>
+                <span>
+                  ${message:mvncms.contactus.sender_name} :
+                  <span style="font-weight: bold;"> ${senderName}</span>
+                </span>
+              </div>
+              
+              <div>
+                <span>
+                  ${message:mvncms.contactus.sender_email} :
+                  <span style="font-weight: bold;">${senderEmail}</span>
+                </span>
+              </div>
+              
+              <div style="padding: 10px 0pt; text-align: justify; line-height: 16px;">
+                ${contactContent}
+              </div>
+              <br />
+
+              <t:if test="showAnswerInfo">
+              <div style="padding: 10px 0pt; text-align: justify; line-height: 16px;">
+                <b>${message:mvncms.contactus.admin.rely.content} :</b>
+                <!-- 
+                <div style="padding: 3px 0pt; color: rgb(102, 102, 102); font-style: italic;">${message:mvncms.contactus.reply_date} : ${answerDate}</div>
+                <div style="padding: 3px 0pt; color: rgb(102, 102, 102); font-style: italic;">${message:mvncms.contactus.reply_name} : ${answerName}</div>
+                 -->
+                <br /><br />
+                <div>${answer}</div>
+              </div>
+              </t:if>
+          </div>
+          
+          <div style="margin: 0pt 10px 10px 0px; float: right; width: 45%;">
+          <form t:type="Form" t:id="createQuestionForm" t:clientValidation="true">
+            <t:publishadmin.TokenField />
+            <t:errors><div>&nbsp;</div></t:errors>
+            
+            <div style="border: 1px solid rgb(204, 204, 204); background-color: rgb(255, 255, 255); margin-top: 20px; padding-bottom: 10px; align: center">
+            <div style="border-bottom: 1px solid rgb(194, 202, 211); margin: 10px; color: rgb(15, 91, 175); font-weight: bold; font-size: 16px;">${message:mvncms.contactus.contact_us}</div>
+              <p style="margin: 3px 0pt 3px 10px;">
+                <label t:type="Label" for="senderNameCreate">${message:mvncms.contactus.sender_name} <span class="requiredfield"> *</span></label>
+                <input t:type="TextField" t:id="senderNameCreate" class="inp"/>
+              </p>
+              <p style="margin: 3px 0pt 3px 10px;">
+                <label t:type="Label" for="senderEmailCreate">${message:mvncms.contactus.sender_email} <span class="requiredfield"> *</span></label>
+                <input t:type="TextField" t:id="senderEmailCreate" class="inp"/>
+              </p>
+              <p style="margin: 3px 0pt 3px 10px;">
+                <label t:type="Label" for="senderPhoneCreate">${message:mvncms.contactus.sender_phone} </label>
+                <input t:type="TextField" t:id="senderPhoneCreate" class="inp"/>
+              </p>
+              <!--  
+              <p style="margin: 3px 0pt 3px 10px;">
+                <label t:type="Label" for="category">${message:mvncms.contactus.category} <span class="requiredfield"> *</span></label>
+                <select t:type="Select" t:id="category" class="inp"/>
+              </p>
+              -->
+              <p style="margin: 3px 0pt 3px 10px;">
+                <label t:type="Label" for="contactTitleCreate">${message:mvncms.contactus.title_of_content} <span class="requiredfield"> *</span></label>
+                <input t:type="TextField" t:id="contactTitleCreate" class="inp"/>
+              </p>
+              <p style="margin: 3px 0pt 3px 10px;">
+                <label t:type="Label" for="contactContentCreate">${message:mvncms.contactus.content} <span class="requiredfield"> *</span></label>
+                <input t:type="TextArea" t:id="contactContentCreate" t:rows="10" class="inp"/>
+              </p>
+              
+              <t:publishadmin.Captcha />
+              <input t:type="chenillekit/Hidden" t:id="contactID" />
+              
+              <p style="border-bottom: 1px solid rgb(194, 202, 211); margin: 3px 10px;"> </p>
+              <p style="text-align: center; margin-top: 10px;">
+                <input type="submit" value="${message:mvncms.contactus.send}" class="btn"/>
+                <input type="reset" value="${message:mvncms.action.reset}" class="btn"/>
+              </p>
+              
+            </div>
+            </form>
+          </div>
+          
+          <t:If test="showOlderContact">
+            <div style="margin: 10px; width: 49%; float: left;">
+              <b>${message:mvncms.contactus.oldercontact} :</b>
+               <ul class="list">    
+                  <div class="ck_paged_loop_pager" t:type="Loop" t:source="contactUsListOlder" t:value="contactUsBean" t:empty="message:mvncms.contactus.table.empty">
+                    <li>
+                      <a class="vb_link" t:type="PageLink" t:page="publishadmin/ContactUsDetail" t:context="contactUsBean.contactID">${contactUsBean.contactTitle}</a>
+                      <span class="date">${getCreationDateFormat(contactUsBean.contactCreationDate)}</span>
+                      <t:If test="showAdminAction">
+                        <div>
+                            <a class="vb_link" t:type="ActionLink" t:id="delete" t:context="contactUsBean.contactID" onclick="return validateDelete();">${message:mvncms.action.delete}</a> &nbsp; | &nbsp;
+                            <a class="vb_link" t:type="PageLink" t:page="publishadmin/ContactUsRelyAdmin" t:context="contactUsBean.contactID">${getActionLabel(contactUsBean.contactAnswer)}</a>  
+                        </div>
+                      </t:If>
+                    </li>
+                  </div>
+              </ul>
+            </div>
+          </t:If>
+          
+         </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

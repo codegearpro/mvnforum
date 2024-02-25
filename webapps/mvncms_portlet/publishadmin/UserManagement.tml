@@ -1,0 +1,110 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/UserManagement.tml,v 1.3 2009/08/26 10:58:11 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.3 $
+ - $Date: 2009/08/26 10:58:11 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2009 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.usermanagement.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+<script type="text/javascript" src="${context:mvnplugin/mvnforum/js/myvietnam.js}" />
+<script type="text/javascript">
+var requiredValueMessage = "${message:mvncms.usermanagement.find_member.javascript_prompt}";
+var invalidemailMessage = " ${message:mvncms.common.js.prompt.invalidemail}"
+<!-- //
+function SubmitForm() {
+  if (ValidateForm()) {
+    document.searchMemberForm.submit();
+  }
+}
+function ValidateForm() {
+  if (document.getElementById("searchMemberID").value == '' && document.getElementById("searchMemberName").value == '' && document.getElementById("searchMemberEmail").value == '') {
+    alert(requiredValueMessage);
+    return false;
+  }
+  if (!isEmail(document.getElementById("searchMemberEmail"), "\"" + document.getElementById("searchMemberEmail").value + "\"")) return false;
+  return true;
+}
+function isEmail(field, strBodyHeader) {
+    emailStr = field.value;
+    if (emailStr.length == 0) return true;
+    if (!complexEmailCheck(emailStr)) {
+        alert(strBodyHeader + invalidemailMessage);
+        field.focus();
+        return false;
+    }
+    return true;
+}
+// -->
+</script>
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  <!-- 
+  <t:publishadmin.searchMemberComponent />
+   -->
+  <t:publishadmin.Messagebox key="successKey" />
+  <form t:type="Form" t:id="searchMemberForm" t:clientValidation="true">
+    <t:errors><div>&nbsp;</div></t:errors>
+    <div>
+      <table class="tborder" width="95%" cellspacing="0" cellpadding="3" align="center">
+        <tr class="portlet-section-header">
+          <td colspan="2">${message:mvncms.usermanagement.find_member}</td>
+        </tr>
+        <tr>
+          <td>
+          <label t:type="Label" for="searchMemberID">${message:mvncms.usermanagement.find_member.by_memberid}:</label> <input t:type="TextField" t:id="searchMemberID" size="10" maxlength="10" />
+          &nbsp;&nbsp;&nbsp;<label t:type="Label" for="searchMemberName">${message:mvncms.usermanagement.find_member.or_by_membername}:</label>&nbsp;&nbsp;<input t:type="TextField" t:id="searchMemberName" size="25" /><br />
+          <label t:type="Label" for="searchMemberEmail">${message:mvncms.usermanagement.find_member.or_by_email}:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input t:type="TextField" t:id="searchMemberEmail" size="40" />
+          <input type="button" name="submitbutton" value="${message:mvncms.usermanagement.find_member}" onclick="javascript:SubmitForm();" class="portlet-form-button" />
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+  <br />
+  
+  <div align="center">
+  <table style="width:95%; text-align:left;" t:type="grid" t:id="memberGrid" t:source="memberBeans" t:row="memberBean" 
+         t:add="memberFullName, delete" 
+         t:include="memberName, memberEmail, memberCreationDate, memberStatus" 
+         t:reorder="memberName, memberFullName, memberEmail, memberCreationDate, memberStatus, delete"
+         t:empty="${message:grid.empty_message}"
+         t:rowsPerPage="50" t:pagerPosition="top" align="center" t:rowClass="prop:evenOdd.next">
+    <t:parameter name="memberNameCell">
+      <t:if test="enabledMember">
+        <a t:type="PageLink" t:context="list:memberID" t:page="publishadmin/ViewMember">${memberBean.memberName}</a>
+        <t:parameter name="else">
+          <a t:type="PageLink" t:context="list:memberID" t:page="publishadmin/ViewMember" class="disabledItem">${memberBean.memberName}</a>
+        </t:parameter>
+      </t:if>
+    </t:parameter>
+    <t:parameter name="memberFullNameCell">
+      ${memberBean.memberFirstname} ${memberBean.memberLastname}
+    </t:parameter>
+    <t:parameter name="memberCreationDateCell">
+      <div class="textcenter">
+        ${memberCreationDate}
+      </div>
+    </t:parameter>
+    <t:parameter name="memberStatusCell">
+      <div class="textcenter">
+        <span style="color:${memberStatusColor}">${memberStatus}</span>
+      </div>
+    </t:parameter>
+    <t:parameter name="deleteCell">
+      <t:if test="canDelete">
+        <a t:type="PageLink" t:context="list:memberID" t:page="publishadmin/DeleteMember">${message:mvncms.action.delete}</a>
+      </t:if>
+    </t:parameter>
+  </table>
+  </div>
+</t:publishadmin.border>

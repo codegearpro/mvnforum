@@ -1,0 +1,128 @@
+/*
+   $Id: style_contactus.css,v 1.11 2009/11/18 08:04:34 minhnn Exp $
+
+   ==================================================
+   ======   Global stylesheet for mvnForum.   =======
+   ==================================================
+
+*/
+.requiredfield {
+    color: #FF0000;
+}
+
+*{
+  margin:0;
+  padding:0;  
+}
+
+label {
+    display:block;
+    float:left;
+    margin-right:0.2em;
+    text-align:left;
+    width:120px;
+}
+
+.inp {
+    background-color:#EFF8FF;
+    border:1px solid #BED0D4;
+    text-indent:2px;
+    width:94%;
+}
+
+.btn {
+    background:transparent url(../images/button_bg.gif) repeat-x scroll 0 0;
+    border-color:#A1C7EB #036C9F #036C9F #A1C7EB;
+    border-style:solid;
+    border-width:1px;
+    color:#FFFFFF;
+    font-size:11px;
+    font-weight:bold;
+    padding:2px;
+}
+
+TABLE.t-data-grid THEAD TR {
+    color: #000;
+    background-color: none;
+}
+
+TABLE.t-data-grid THEAD TR TH {   
+    border-right: none;
+    border-bottom: none;
+}
+
+TABLE.t-data-grid {
+    border-left: none;
+}
+
+TABLE.t-data-grid TBODY TR TD {
+    border-right: none;
+    border-bottom: none;
+}
+
+.date {
+    color:#666666;
+    font-size:11px;
+    font-style:italic;
+    padding:1px 0 5px;
+}
+
+ul.list li {
+    list-style-type:none;
+}
+
+ul.list li {
+    background:transparent url(../images/list_bullet.gif) no-repeat scroll 0 4px;
+    margin-bottom:10px;
+    margin-top:8px;
+    padding-left:12px;
+}
+
+a.vb_link:hover {
+    color:#447D01;
+}
+
+.vb_link, a.vb_link:active, a.vb_link:link {
+    color:#0A56AE;
+    font-size:12px;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+a, a:visited {
+    color:#0F5BAF;
+    font-weight:bold;
+    outline-color:-moz-use-text-color;
+    outline-style:none;
+    outline-width:medium;
+    text-decoration:none;
+}
+
+div.ck_paged_loop_pager a { 
+    text-decoration:underline;
+    color:#999;
+    margin:0px;
+    border:1px solid #fff;
+    padding:1px 4px;
+}
+div.ck_paged_loop_pager a:hover { 
+    color:#0560ca;
+}
+.ck_paged_loop_current {
+    color:#009933;
+    font-weight:bold;
+    border:1px solid #fff;
+    margin:0px;
+    padding:1px 4px;
+}
+
+html > body div.t-error li {
+    margin-left: 20px;
+}
+
+.inpcaptcha {
+    background-color:#EFF8FF;
+    border:1px solid #BED0D4;
+    text-indent:2px;
+    width:64%;
+}

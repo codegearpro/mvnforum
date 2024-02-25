@@ -1,0 +1,52 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/EditGroup.tml,v 1.2 2009/09/07 11:21:54 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.2 $
+ - $Date: 2009/09/07 11:21:54 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2009 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.editgroupinfo.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+
+  <form t:type="Form" t:id="editGroupsForm" t:clientValidation="true">
+    <input t:type="publishadmin/TokenField" />
+    <input t:type="chenillekit/Hidden" t:id="groupID" />
+    <t:errors><div>&nbsp;</div></t:errors>
+    <table class="tborder" width="95%" align="center" cellpadding="3" cellspacing="0">
+      <tr class="portlet-section-header">
+        <td colspan="2">${message:mvncms.editgroupinfo.title}</td>
+      </tr>
+      <tr class="${prop:evenOdd.next}">
+        <td style="width:30%"><label t:type="Label" for="groupName">${message:mvncms.common.group.group_name}<span class="requiredfield"> *</span></label></td>
+        <td style="width:70%"><input t:type="TextField" t:id="groupName" class="long_text" /></td>
+      </tr>
+      <tr class="${prop:evenOdd.next}">
+        <td style="vertical-align:top;"><label t:type="Label" for="groupDesc">${message:mvncms.common.group.group_description}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextArea" t:id="groupDesc" cols="65" rows="5" class="long_text" /></td>
+      </tr>
+      <tr id="vietnameseKeyboardBlock" style="display: none" class="${prop:evenOdd.next}">
+        <td style="width:20%">${message:mvncms.common.vietnamese_key}</td>
+        <td> 
+           <t:publishadmin.VietnameseKeyboardComponent inputList="literal:groupName,groupDesc" />
+        </td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input type="submit" value="${message:mvncms.action.save}" class="portlet-form-button" />&nbsp;
+          <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+        </td>
+      </tr>
+    </table>
+  </form>
+
+</t:publishadmin.border>

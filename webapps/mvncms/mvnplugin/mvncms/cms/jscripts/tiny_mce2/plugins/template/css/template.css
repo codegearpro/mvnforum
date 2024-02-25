@@ -1,0 +1,48 @@
+#frmbody {
+    padding: 10px;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+}
+
+.frmRow {
+    margin-bottom: 10px;
+}
+
+#templatesrc {
+    border: none;
+    width: 320px;
+    height: 240px;
+}
+
+.title {
+    padding-bottom: 5px;
+}
+
+.mceActionPanel {
+    padding-top: 5px;
+}
+
+/*css for template_legal_documents.html page */
+table.tblvb {
+    width: 100%;
+    color: #333333;
+    border-collapse:collapse;
+}
+table.tblvb tr th{
+  border:1px solid #c3c8cc;
+  padding:3px;  
+}
+table.tblvb tr td{
+  border:1px solid #c3c8cc;
+  padding:3px; 
+}
+table.tblvb th {
+  background-color:#b3dcfa;
+  color:#224c73;
+}
+table.tblvb tr.row1 {
+    background: #eaf2f8;
+}
+table.tblvb tr.row2 {
+    background: #f1efef;
+}

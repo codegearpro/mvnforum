@@ -1,0 +1,107 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/ViewChart.tml,v 1.19 2009/07/01 03:26:21 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.19 $
+ - $Date: 2009/07/01 03:26:21 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.viewchart.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:x="tapestry-library:tapx">
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <table border="0" width="95%" cellspacing="0" cellpadding="3" class="center">
+    <tr>
+      <td valign="top" style="width: 200px;">
+        <table cellspacing="0" cellpadding="3" width="100%" class="center">
+          <tr>
+            <td class="highlight">${message:mvncms.viewchart.chart}</td>
+          </tr>
+        </table>
+        <table border="0" class="tborder" width="100%" cellspacing="0" cellpadding="3">
+          <tr t:type="loop" source="cmscharts" value="currentChart" class="prop:evenodd.next">
+            <td>
+              <t:If test="${equalChart}">
+                <a href="#" t:type="PageLink" page="publishadmin/viewchart" context="currentChart.id">
+                  <b><span value="${currentChart.name}">${currentChart.name}</span></b>
+                </a>
+                <t:parameter name="else">
+                  <a href="#" t:type="PageLink" page="publishadmin/viewchart" context="currentChart.id">
+                    <span value="${currentChart.name}">${currentChart.name}</span>
+                  </a>
+                </t:parameter>
+              </t:If>
+            </td>
+          </tr>
+        </table>
+      </td>
+      
+      <td valign="top">
+        <table cellspacing="0" cellpadding="3" width="100%" class="center">
+          <tr>
+            <td class="highlight">${message:mvncms.viewchart.viewchart}</td>
+          </tr>
+        </table>
+        <table border="0" class="center">
+          <tr class="portlet-font">
+            <td>
+              <div t:type="if" test="${STATUS_PERCENTAGE_CHART_OR_EDITOR_PROGRESS_CHART}">
+                <t:form t:id="EDITOR_PROGRESS_CHART_FORM">
+                  <span><label t:type="Label" for="selectWriter">${message:mvncms.viewchart.writer}</label></span> &nbsp;
+                  <select t:type="select" t:id="selectWriter" />
+                  <t:If test="${EDITOR_PROGRESS_CHART}"> 
+                    <span><label t:type="Label" for="startDateWriter">${message:mvncms.viewchart.startdate}</label></span><x:datefield t:id="startDateWriter" format="literal:dd/MM/yyyy" />
+                    <span><label t:type="Label" for="endDateWriter">${message:mvncms.viewchart.enddate}</label></span> <x:datefield t:id="endDateWriter" format="literal:dd/MM/yyyy" />
+                  </t:If>  
+                  <input type="submit" value="${message:mvncms.workflow.quickview}" class="portlet-form-button" />
+                </t:form>
+              </div>  
+              <div t:type="if" test="${PUBLISH_CONTENT_COUNT_CHART}">
+                <t:form t:id="PUBLISH_CONTENT_COUNT_CHART_FORM"> 
+                  <span><label t:type="Label" for="startDateCountContent">${message:mvncms.viewchart.startdate}</label></span> <x:datefield t:id="startDateCountContent" format="literal:dd/MM/yyyy" />
+                  <span><label t:type="Label" for="endDateCountContent">${message:mvncms.viewchart.enddate}</label></span> <x:datefield t:id="endDateCountContent" format="literal:dd/MM/yyyy" />
+                  <input type="submit" value="${message:mvncms.workflow.quickview}" class="portlet-form-button" />
+                </t:form>
+              </div>
+              <div t:type="if" test="${CONTENT_COUNT_PERCENTAGE_CHART}">
+                <t:form t:id="CONTENT_COUNT_PERCENTAGE_CHART_FORM">
+                  <span><label t:type="Label" for="contentStatuses">${message:mvncms.viewchart.status}</label></span> &nbsp;
+                  <select t:type="select" t:id="contentStatuses" />
+                  <input type="submit" value="${message:mvncms.workflow.quickview}" class="portlet-form-button" />
+                </t:form>  
+              </div>  
+              <div t:type="if" test="${PEOPLE_ACCESS_CHART}">
+                <t:form t:id="PEOPLE_ACCESS_CHART_FORM">
+                  <span><label t:type="Label" for="startDatePeopleAccess">${message:mvncms.viewchart.startdate}</label></span> <x:datefield t:id="startDatePeopleAccess" format="literal:dd/MM/yyyy" />
+                  <span><label t:type="Label" for="endDatePeopleAccess">${message:mvncms.viewchart.enddate}</label></span> <x:datefield t:id="endDatePeopleAccess" format="literal:dd/MM/yyyy" />
+                  <input type="submit" value="${message:mvncms.workflow.quickview}" class="portlet-form-button" />
+                </t:form>
+              </div>         
+              <div t:type="if" test="${MOST_WRITERS_CHART}">
+                <t:form t:id="MOST_WRITERS_CHART_FORM">
+                  <span><label t:type="Label" for="startDateMostWriter">${message:mvncms.viewchart.startdate}</label></span> <x:datefield t:id="startDateMostWriter" format="literal:dd/MM/yyyy" />
+                  <span><label t:type="Label" for="endDateMostWriter">${message:mvncms.viewchart.enddate}</label></span> <x:datefield t:id="endDateMostWriter" format="literal:dd/MM/yyyy" />
+                  <input type="submit" value="${message:mvncms.workflow.quickview}" class="portlet-form-button" />
+                </t:form>
+              </div>
+            </td>
+          </tr>  
+          <tr>
+            <td align="center">
+              <t:OutputRaw value="toolTip" />
+              <img src="${fileURL}" usemap="${fileName}" border="0" alt="" />
+            </td>
+          </tr>
+        </table>  
+      </td>
+    </tr>
+  </table>
+</t:publishadmin.border>

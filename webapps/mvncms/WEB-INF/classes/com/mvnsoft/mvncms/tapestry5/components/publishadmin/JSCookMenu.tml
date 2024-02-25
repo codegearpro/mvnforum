@@ -1,0 +1,22 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/src/com/mvnsoft/mvncms/tapestry5/components/publishadmin/JSCookMenu.tml,v 1.8 2009/10/30 09:35:38 nhanld Exp $
+ - $Author: nhanld $
+ - $Revision: 1.8 $
+ - $Date: 2009/10/30 09:35:38 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+<div id="${name}" style="background-color:#bfd6fd"></div>
+<script type="text/javascript">
+  <t:OutputRaw t:value="${javascript}" />
+</script>
+</t:container>

@@ -1,0 +1,59 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/DeleteContentPropDefinedValue.tml,v 1.1 2009/12/03 04:27:59 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.1 $
+ - $Date: 2009/12/03 04:27:59 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.deletecontentpropdefinedvalue.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    
+  <t:publishadmin.JavascriptCurrentPassword t:passwordField="literal:currentPassword" t:md5pwField="literal:md5pw" />
+    
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <form t:type="Form" t:id="deleteContentPropDefinedValueForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <t:errors><div>&nbsp;</div></t:errors>
+    <div><input t:type="chenillekit/Hidden" t:id="definedValueID" /></div>
+    <table border="0" class="tborder center" width="95%" cellspacing="0" cellpadding="3">
+      <tr class="portlet-section-header">
+        <th colspan="2" align="left">${message:mvncms.deletecontentpropdefinedvalue.title}</th>
+      </tr>
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.contentproperty.name}</td>
+        <td>${contentPropertyBean.propertyName}</td>
+      </tr>
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.contentproperty.datatype}</td>
+        <td><t:publishadmin.BeanAtributeDisplay beanName="literal:ContentPropertyDataType" inputString="contentPropertyBean.propertyDataType" /></td>
+      </tr>
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.contentpropdefinedvaluemanagement.value}</td>
+        <td>${definedValueString}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="currentPassword">${message:mvncms.common.password.current}<span class="requiredfield"> *</span></label></td>
+        <td>
+          <input t:type="PasswordField" t:id="currentPassword" t:value="currentPassword" t:onkeypress="checkEnter(event);" />
+          <input t:type="chenillekit/Hidden" t:id="md5pw" />
+        </td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input type="submit" onclick="javascript:PrepareSubmitForm()" value="${message:mvncms.action.delete}" class="portlet-form-button" />
+          <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+        </td>
+      </tr>
+    </table>
+  </form>
+
+</t:publishadmin.border>

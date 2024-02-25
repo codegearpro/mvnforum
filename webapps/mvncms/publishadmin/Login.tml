@@ -1,0 +1,49 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/Login.tml,v 1.16 2009/09/14 08:49:03 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.16 $
+ - $Date: 2009/09/14 08:49:03 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.login.form" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+
+  <t:if test="isServlet">
+      <a t:type="ActionLink" t:id="Login">Login to Portal</a>
+    <t:parameter name="else">
+    <form t:type="Form" t:id="loginForm" t:clientValidation="true">
+      <t:publishadmin.TokenField />
+      <t:errors><div>&nbsp;</div></t:errors>
+      <table border="0" width="95%" cellspacing="0" cellpadding="3" class="tborder center">
+        <tr class="portlet-section-header">
+          <td colspan="2">${message:mvncms.login.form}</td>
+        </tr>
+        <tr class="${prop:evenodd.next}">
+          <td><label t:type="Label" for="username">${message:mvncms.login.username}<span class="requiredfield"> *</span></label></td>
+          <td><input t:type="TextField" t:id="username" /></td>
+        </tr> 
+        <tr class="${prop:evenodd.next}">
+          <td><label t:type="Label" for="password">${message:mvncms.login.password}<span class="requiredfield"> *</span></label></td>
+          <td><input t:type="PasswordField" t:id="password" /></td>
+        </tr> 
+        <tr class="portlet-section-footer">
+          <td colspan="2" align="center">
+            <input type="submit" value="${message:mvncms.header.login}" class="portlet-form-button" />
+            <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    </t:parameter>
+  </t:if>
+</t:publishadmin.border>

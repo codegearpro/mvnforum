@@ -1,0 +1,53 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/src/com/mvnsoft/mvncms/tapestry5/components/publishadmin/Footer.tml,v 1.12 2009/09/08 11:26:38 minhnn Exp $
+ - $Author: minhnn $
+ - $Revision: 1.12 $
+ - $Date: 2009/09/08 11:26:38 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  <div>&nbsp;</div>
+  <hr class="hrfooter" />
+   
+  <table width="95%" cellspacing="0" cellpadding="0" class="center">
+    <tr> 
+      <td align="right" class="pageFooter">
+        <t:if test="showGMT">
+        ${message:mvncms.common.footer.timezone} ${message:mvncms.common.footer.timezone.gmt} ${onlineUser.getTimeZoneFormat()}<br />
+          <t:parameter name="else">
+             ${message:mvncms.common.footer.timezone} ${onlineUser.getTimeZoneFormat()}<br />
+          </t:parameter>
+        </t:if>
+        ${currentTimestamp}
+      </td>
+    </tr>
+  </table>
+
+  <hr class="hrfooter" />
+  <div>&nbsp;</div>
+  <div class="pageFooter" style="text-align: center;">
+    <!--
+    We request you retain the full copyright notice below including the link to www.MyVietnam.net
+  
+    NOTE: In case you need to remove this "Powered by mvnCMS", please contact us at 
+    web site www.MyVietnam.net to order a special "Copyright notice Removal" license 
+    with a small license fee. After receiving this special license, you can remove 
+    the copyright notice in this footer.jsp file.
+  
+    MyVietnam.net Group
+    -->
+    Powered by <a href="http://www.MyVietnam.net" target="_blank"><span>${mvnCmsInfoService.getProductDesc()}</span></a> 
+    (Build: <span>${mvnCmsInfoService.getProductReleaseDate()}</span>)<br />
+    Copyright &copy; 2002-2009 by <a href="http://www.MyVietnam.net" target="_blank">MyVietnam.net</a>
+    <p>&nbsp;</p>
+  </div>
+</t:container>

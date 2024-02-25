@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <poll>0</poll>
+    <tsbd>false</tsbd>
+    <tcdt>false</tcdt>
+    
+    <album>
+        <enable>false</enable>
+        <member>admin</member>
+        <albumid>0</albumid>
+        <adzone>0</adzone>
+    </album>
+    
+    <scrollads>
+        <left></left>
+        <right></right>
+    </scrollads>
+    
+    <adleftside>
+        <a>0</a>
+        <b>0</b>
+        <c>0</c>
+        <d>0</d>
+        <e>0</e>
+        <f>0</f>
+        <g>0</g>
+        <h>0</h>
+        <i>0</i>
+        <j>0</j>
+    </adleftside>
+    
+    <adrightside>
+        <a>0</a>
+        <b>0</b>
+        <c>0</c>
+        <d>0</d>
+        <e>0</e>
+        <f>0</f>
+        <g>0</g>
+        <h>0</h>
+        <i>0</i>
+        <j>0</j>
+    </adrightside>
+    
+    <banner>
+        <header>0</header>
+        <footer>0</footer>
+    </banner>
+    
+    <pos1a>
+        <viewmode1a>0</viewmode1a>
+        <channel1a>0</channel1a>
+    </pos1a>
+    <pos1c>
+        <url1c></url1c>
+    </pos1c>
+    
+    <pos2a>
+        <viewmode2a>0</viewmode2a>
+        <channel2a>0</channel2a>
+    </pos2a>
+    <pos2b>
+        <viewmode2b>0</viewmode2b>
+        <channel2b>0</channel2b>
+    </pos2b>
+    <pos2c>
+        <url2c></url2c>
+    </pos2c>
+    
+    <pos3a>
+        <viewmode3a>0</viewmode3a>
+        <channel3a>0</channel3a>
+    </pos3a>
+    <pos3b>
+        <viewmode3b>0</viewmode3b>
+        <channel3b>0</channel3b>
+    </pos3b>
+    <pos3c>
+        <url3c></url3c>
+    </pos3c>
+    
+    <pos4a>
+        <viewmode4a>0</viewmode4a>
+        <channel4a>0</channel4a>
+    </pos4a>
+    <pos4b>
+        <viewmode4b>0</viewmode4b>
+        <channel4b>0</channel4b>
+    </pos4b>
+    <pos4c>
+        <url4c></url4c>
+    </pos4c>
+    
+    <pos5a>
+        <viewmode5a>0</viewmode5a>
+        <channel5a>0</channel5a>
+    </pos5a>
+    <pos5b>
+        <viewmode5b>0</viewmode5b>
+        <channel5b>0</channel5b>
+    </pos5b>
+    <pos5c>
+        <url5c></url5c>
+    </pos5c>
+    
+    <pos6a>
+        <viewmode6a>0</viewmode6a>
+        <channel6a>0</channel6a>
+    </pos6a>
+    <pos6b>
+        <viewmode6b>0</viewmode6b>
+        <channel6b>0</channel6b>
+    </pos6b>
+    <pos6c>
+        <url6c></url6c>
+    </pos6c>
+    
+    <pos7a>
+        <viewmode7a>0</viewmode7a>
+        <channel7a>0</channel7a>
+    </pos7a>
+    <pos7b>
+        <viewmode7b>0</viewmode7b>
+        <channel7b>0</channel7b>
+    </pos7b>
+    <pos7c>
+        <url7c></url7c>
+    </pos7c>
+    
+    <pos8a>
+        <viewmode8a>0</viewmode8a>
+        <channel8a>0</channel8a>
+    </pos8a>
+    <pos8b>
+        <viewmode8b>0</viewmode8b>
+        <channel8b>0</channel8b>
+    </pos8b>
+    <pos8c>
+        <url8c></url8c>
+    </pos8c>
+    
+    <pos9a>
+        <viewmode9a>0</viewmode9a>
+        <channel9a>0</channel9a>
+    </pos9a>
+    <pos9b>
+        <viewmode9b>0</viewmode9b>
+        <channel9b>0</channel9b>
+    </pos9b>
+    <pos9c>
+        <url9c></url9c>
+    </pos9c>
+    
+    <pos10a>
+        <viewmode10a>0</viewmode10a>
+        <channel10a>0</channel10a>
+    </pos10a>
+    <pos10b>
+        <viewmode10b>0</viewmode10b>
+        <channel10b>0</channel10b>
+    </pos10b>
+    <pos10c>
+        <url10c></url10c>
+    </pos10c>
+    
+    <channel>
+        <no1></no1>
+        <no2></no2>
+        <no3></no3>
+        <no4></no4>
+        <no5></no5>
+    </channel>
+</layout>

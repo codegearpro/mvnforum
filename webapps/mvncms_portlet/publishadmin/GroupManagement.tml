@@ -1,0 +1,66 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/GroupManagement.tml,v 1.2 2009/08/25 03:41:30 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.2 $
+ - $Date: 2009/08/25 03:41:30 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2009 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.groupmanagement.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+  
+  <div style="width:95%; text-align:right; margin:0 auto;">
+    <a t:type="PageLink" t:page="publishadmin/AddGroup" href="#">${message:mvncms.addgroup.title}</a>&nbsp;&nbsp;
+  </div><br />
+
+  <div align="center">
+    <table style="width:95%; text-align:left;" t:type="grid" t:source="groupsBeans" t:row="groupsBean"
+    t:add="groupNameDesc, editGroupPermission, listMember, edit, delete" 
+    t:include="groupCreationDate" 
+    t:reorder="groupNameDesc, groupCreationDate, listMember, editGroupPermission, edit, delete" 
+    t:rowsPerPage="50" t:pagerPosition="top" align="center" width="95%" t:rowClass="prop:evenOdd.next">
+      
+      <t:parameter name="groupNameDescCell">
+        <b>${groupsBean.groupName}</b>
+        <br/>${groupsBean.groupDesc}
+      </t:parameter>
+      <t:parameter name="listMemberCell">
+        <div class="textcenter">
+          <a t:type="PageLink" t:context="list:groupID" t:page="publishadmin/ListMemberGroup" class="command">${numberOfMembers}</a>
+        </div>
+      </t:parameter>
+      <t:parameter name="editCell">
+        <div class="textcenter">
+          <a t:type="PageLink" t:id="edit" t:context="list:groupID" t:page="publishadmin/EditGroup">${message:mvncms.action.edit}</a>
+        </div>
+      </t:parameter>
+      <t:parameter name="deleteCell">
+        <div class="textcenter">
+          <t:if test="canDelete">
+            <a t:type="PageLink" t:id="delete" t:context="list:groupID" t:page="publishadmin/DeleteGroup">${message:mvncms.action.delete}</a>
+            <t:parameter name="else">
+              ${message:mvncms.common.not_applicable}
+            </t:parameter>         
+          </t:if>
+        </div>
+      </t:parameter>
+      <t:parameter name="editGroupPermissionCell">
+        <div class="textcenter">
+          <a t:type="PageLink" t:id="editPermission" t:context="list:groupID" t:page="publishadmin/EditGroupPermission">${message:mvncms.editgrouppermission.title}</a>
+        </div>
+      </t:parameter>
+    </table>
+  </div>
+ 
+</t:publishadmin.border>

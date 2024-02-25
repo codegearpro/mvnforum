@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page-handlers>
+
+  <page name="common" virtual="true">
+    <handler name="ExtraContentsWebHandler@Announcement" />
+    <handler name="ExtraContentsWebHandler@Marquee" />
+    <handler name="SelectChannelWebHandler" />
+  </page>
+
+  <page name="CDS_URL_PAGE_LIST_MODE_1" action="" uri="/mvnplugin/mvncms/cds/standard/khxhnv/listcontents_mode_1.jsp">
+    <include page="common" />
+    
+    <handler name="ExtraContentsWebHandler@HotNews" />
+    <handler name="ExtraContentsWebHandler@Impressive" />
+    <handler name="ExtraContentsWebHandler@MostView" />
+    <handler name="ListContentsHomeWebHandler@Khxhnv" />
+    <handler name="ListContentsHomeWebHandler@Channels" />
+    <handler name="OnlineUserStatistic" />
+    <handler name="PrepareAlbumWebHandler" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_MODE_0" action="" uri="/mvnplugin/mvncms/cds/standard/khxhnv/listcontents_mode_0.jsp">
+    <include page="common" />
+
+    <handler name="ListContentsChannelWebHandler@Khxhnv" />
+    <handler name="TaxonomyWebHandler" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW" action="content" uri="/mvnplugin/mvncms/cds/standard/khxhnv/viewcontent.jsp">
+    <include page="common" />
+
+    <handler name="ExtraContentsWebHandler@ViewContent" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="FeedbackWebHandler" />
+    <handler name="ListContentsChannelWebHandler@Khxhnv" />
+    <handler name="TaxonomyWebHandler" />
+    <handler name="PrepareNewContentsWebHandler@Khxhnv" />
+    <handler name="InterviewWebHandler" />
+  </page>
+  
+  <page name="search" action="/search" uri="/mvnplugin/mvncms/cds/standard/khxhnv/search.jsp">
+    <include page="common" />
+      
+    <handler name="SearchPageWebHandler" />
+    <handler name="PrepareChannelsWebHandler" />
+    <handler name="TaxonomyWebHandler" />
+  </page>
+
+  <page name="print" action="/print" uri="/mvnplugin/mvncms/cds/standard/khxhnv/print.jsp">
+    <handler name="PrintWebHandler" />
+    <handler name="FeedbackWebHandler" />
+  </page>
+  
+  <page name="contentfeedbackprocess" action="/contentfeedbackprocess" uri="/mvnplugin/mvncms/cds/standard/khxhnv/addfeedbackresult.jsp">
+    <handler name="ProcessAddContentFeedbackWebHandler" />
+  </page>
+
+  <page name="addinterviewitemprocess" action="/addinterviewitemprocess" uri="/mvnplugin/mvncms/cds/standard/khxhnv/addinterviewitemresult.jsp">
+    <handler name="ProcessAddInterviewItemWebHandler" />
+  </page>
+
+  <page name="viewalbum" action="/viewalbum" uri="/mvnplugin/mvnforum/user/slideshowx.jsp">
+    <handler name="ProcessViewAlbumWebHandler" />
+  </page>
+
+  <page name="viewweatherinfo" action="/viewweatherinfo" uri="/mvnplugin/mvncms/cds/standard/khxhnv/weather_info.jsp">
+    <handler name="ExtraInfoWebHandler@WEATHER" />
+  </page>
+
+  <page name="viewgoldrateinfo" action="/viewgoldrateinfo" uri="/mvnplugin/mvncms/cds/standard/khxhnv/goldrate_info.jsp">
+    <handler name="ExtraInfoWebHandler@GOLDPRICE" />
+  </page>
+
+  <page name="viewmoneyrateinfo" action="/viewmoneyrateinfo" uri="/mvnplugin/mvncms/cds/standard/khxhnv/moneyrate_info.jsp">
+    <handler name="ExtraInfoWebHandler@MONEYRATE" />
+  </page>
+
+  <page name="sendmail" action="/sendmail" uri="/mvnplugin/mvncms/cds/standard/khxhnv/sendmail.jsp">
+    <handler name="SendMailWebHandler" />
+  </page>
+
+  <page name="confighome" action="/confighome" uri="/mvnplugin/mvncms/cds/standard/khxhnv/confighome.jsp">
+    <handler name="KHXHNVConfigHomeWebHandler" />
+  </page>
+  
+  <web-handlers>
+    <web-handler name="SearchPageWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.SearchPageWebHandler" />
+    <web-handler name="PrepareChannelsWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.PrepareChannelsWebHandler" />
+    <web-handler name="ProcessAddContentFeedbackWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ProcessAddContentFeedbackWebHandler" />
+    <web-handler name="ProcessAddInterviewItemWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ProcessAddInterviewItemWebHandler" />
+    <web-handler name="OnlineUserStatistic" class="com.mvnsoft.mvncms.cds.standard.handler.impl.OnlineUserStatistic" />
+    <web-handler name="ProcessViewAlbumWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.khxhnv.ProcessViewAlbumWebHandler" />
+
+    <web-handler name="ExtraInfoWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ExtraInfoWebHandler" virtual="true" />
+
+    <web-handler name="ExtraInfoWebHandler@WEATHER" id="@WEATHER" ref="ExtraInfoWebHandler" />
+
+    <web-handler name="ExtraInfoWebHandler@GOLDPRICE" id="@GOLDPRICE" ref="ExtraInfoWebHandler" />
+
+    <web-handler name="ExtraInfoWebHandler@MONEYRATE" id="@MONEYRATE" ref="ExtraInfoWebHandler" />
+  
+    <web-handler name="ExtraContentsWebHandler@Impressive" id="@Impressive" ref="ExtraContentsWebHandler">
+      <!-- Config type for Impressive news -->
+      <property name="type" value="-1" />
+      <property name="order" value="ContentCreationDate:DESC" />
+    </web-handler>
+
+    <web-handler name="ExtraContentsWebHandler@Announcement" id="@Announcement" ref="ExtraContentsWebHandler">
+      <!-- Config type for Announcement news -->
+      <property name="type" value="-1" />
+      <property name="order" value="ContentCreationDate:DESC" />
+      <property name="rows" value="5" />
+    </web-handler>
+    
+    <!--  preview this handler -->
+    <web-handler name="ListContentsHomeWebHandler@Khxhnv" id="@Khxhnv" ref="ListContentsHomeWebHandler">
+      <property name="type" value="-1" />
+      <property name="rows" value="3" />
+      <property name="order" value="ContentCreationDate:DESC" />
+    </web-handler>
+
+    <web-handler name="ListContentsHomeWebHandler@Channels" id="@Channels" ref="ListContentsHomeWebHandler">
+      <property name="parent" value="-1" />
+      <property name="type" value="-1" />
+      <property name="rows" value="3" />
+      <property name="order" value="ContentCreationDate:DESC" />
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandler@Khxhnv" id="@Khxhnv" ref="ListContentsChannelWebHandler">
+      <property name="order" value="ContentCreationDate:DESC" />
+      <property name="rows" value="12" />
+      <property name="list" value="4" />
+    </web-handler>
+    
+    <web-handler name="PrepareNewContentsWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.PrepareNewContentsWebHandler" virtual="true">
+      <property name="rows" value="10" />
+      <property name="order" value="ContentCreationDate:DESC" />
+    </web-handler>    
+    
+    <web-handler name="PrepareAlbumWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.khxhnv.PrepareAlbumWebHandler" />
+    
+    <web-handler name="KHXHNVConfigHomeWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.khxhnv.KHXHNVConfigHomeWebHandler" />
+  </web-handlers>
+</page-handlers>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page-handlers>
+  <page name="common" virtual="true">
+    <handler name="ExtraContentsWebHandler@HotNews" />
+    <handler name="ExtraContentsWebHandler@MostView" />
+    <handler name="ExtraContentsWebHandler@Project" />
+    <handler name="ExtraContentsWebHandler@AboutUs" />
+  </page>
+
+  <page name="CDS_URL_PAGE_LIST_MODE_1" action="" uri="/mvnplugin/mvncms/cds/standard/khaidong/listcontents_mode_1.jsp">
+    <include page="common" />
+    <handler name="TopNewsWebHandler@Home" />
+    <handler name="ListContentsHomeWebHandler@KhaiDong" />
+  </page>
+
+  <page name="CDS_URL_PAGE_LIST_MODE_0" action="" uri="/mvnplugin/mvncms/cds/standard/khaidong/listcontents_mode_0.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@KhaiDong" />
+  </page>
+
+  <page name="CDS_URL_PAGE_VIEW" action="content" uri="/mvnplugin/mvncms/cds/standard/khaidong/viewcontent.jsp">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ExtraContentsWebHandler@ViewContent" />
+    <handler name="FeedbackWebHandler" />
+  </page>
+
+  <page name="search" action="/search" uri="/mvnplugin/mvncms/cds/standard/khaidong/search.jsp">
+    <include page="common" />
+    <handler name="SearchPageWebHandler" />
+    <handler name="PrepareChannelsWebHandler" />
+  </page>
+
+  <page name="confighome" action="/confighome" uri="/mvnplugin/mvncms/cds/standard/khaidong/confighome.jsp">
+    <handler name="KhaiDongConfigHomeWebHandler" />
+  </page>
+
+  <page name="print" action="/print" uri="/mvnplugin/mvncms/cds/standard/khaidong/print.jsp">
+    <handler name="PrintWebHandler" />
+  </page>
+  
+  <page name="contentfeedbackprocess" action="/contentfeedbackprocess" uri="/mvnplugin/mvncms/cds/standard/khaidong/addfeedbackresult.jsp">
+    <handler name="ProcessAddContentFeedbackWebHandler" />
+  </page>
+    
+  <page name="sendmail" action="/sendmail" uri="/mvnplugin/mvncms/cds/standard/khaidong/sendmail.jsp">
+    <handler name="SendMailWebHandler" />
+  </page>
+  
+  <page name="emailtofriends" action="/emailtofriends" uri="/mvnplugin/mvncms/cds/standard/khaidong/emailtofriends.jsp">
+  </page>
+  
+  <page name="contact" action="/contact" uri="/mvnplugin/mvncms/cds/standard/khaidong/contact.jsp">
+    <include page="common" />
+  </page>
+  
+  <page name="sendcontact" action="/sendcontact" uri="/mvnplugin/mvncms/cds/standard/khaidong/sendcontact.jsp">
+    <include page="common" />
+    <handler name="SendContactWebHandler" />
+  </page>
+  
+  <web-handlers>
+
+    <web-handler name="TopNewsWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.TopNewsWebHandler" virtual="true" />
+
+    <web-handler name="TopNewsWebHandler@Home" id="@Home" ref="TopNewsWebHandler">
+      <property name="rows" value="1" />
+    </web-handler>
+
+    <web-handler name="ListContentsHomeWebHandler@KhaiDong" id="@KhaiDong" ref="ListContentsHomeWebHandler" />
+
+    <web-handler name="ListContentsChannelWebHandler@KhaiDong" id="@KhaiDong" ref="ListContentsChannelWebHandler" />
+
+    <web-handler name="SearchPageWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.SearchPageWebHandler" />
+
+    <web-handler name="PrepareChannelsWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.PrepareChannelsWebHandler" />
+    
+    <web-handler name="KhaiDongConfigHomeWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.khaidong.KhaiDongConfigHomeWebHandler" />
+    
+    <web-handler name="ProcessAddContentFeedbackWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ProcessAddContentFeedbackWebHandler" />
+    
+    <web-handler name="SendContactWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.SendContactWebHandler" />
+    
+    <web-handler name="ExtraContentsWebHandler@Project" id="@Project" ref="ExtraContentsWebHandler">
+      <property name="type" value="-1" />
+      <property name="order" value="ContentCreationDate:DESC" />
+      <property name="rows" value="5" />
+      <property name="channel" value="2" />
+    </web-handler>
+    
+    <web-handler name="ExtraContentsWebHandler@AboutUs" id="@AboutUs" ref="ExtraContentsWebHandler">
+      <property name="type" value="-1" />
+      <property name="order" value="ContentCreationDate:DESC" />
+      <property name="rows" value="1" />
+      <property name="channel" value="3" />
+    </web-handler>
+
+  </web-handlers>
+</page-handlers>

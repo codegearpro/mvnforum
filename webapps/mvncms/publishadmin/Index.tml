@@ -1,0 +1,284 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/Index.tml,v 1.46 2010/02/22 10:19:31 trungth Exp $
+ - $Author: trungth $
+ - $Revision: 1.46 $
+ - $Date: 2010/02/22 10:19:31 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.index.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <div class="textcenter"><h1>${message:mvncms.common.welcome} ${memberName} ${message:mvncms.home.tocms}</h1></div>
+  
+  <t:If test="CheckAuthenticated">
+  
+    <center>
+      <div class="mvn_tabSet" id="tabsetcomponent" style="width: 95%; display: ${enableDisplay};">
+      
+          <t:If test="CheckAdminSystem">
+            <t:publishadmin.TabSetComponent panelIds="list:'tab1','tab2','tab3','tab4','tab5','tab6','tab7','tab8'" activePanelId="activePanel" />
+            <t:parameter name="else"> 
+              <t:publishadmin.TabSetComponent panelIds="list:'tab1','tab2','tab3','tab4'" activePanelId="activePanel" />
+            </t:parameter>
+          </t:If>
+          
+        <div class="mvn_tabSetContent" style="text-align:left;">
+          <div id="tab1" style="display:none;">
+            <table class="tborder" width="100%" cellspacing="0" cellpadding="3">
+              <tr class="portlet-section-header">
+                <td colspan="2">${message:mvnforum.admin.index.mvncms_info}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td style="width: 30%">${message:mvnforum.admin.index.product_name}</td>
+                <td>${mvnCmsInfo.productName}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td>${message:mvnforum.admin.index.product_desc}</td>
+                <td>${mvnCmsInfo.productDesc}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td>${message:mvnforum.admin.index.product_version}</td>
+                <td>${mvnCmsInfo.productVersion}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td>${message:mvnforum.admin.index.product_release_date}</td>
+                <td>${mvnCmsInfo.productReleaseDate}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td>${message:mvnforum.admin.index.product_homepage}</td>
+                <td><a href="{mvnCmsInfo.productHomepage}">${mvnCmsInfo.productHomepage}</a></td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td><img src="${asset:context:/mvnplugin/mvncms/images/icons/group.gif}" style="border: 0" alt="mvnForum Professional Services"/>
+                <span style="color:#008000">${message:mvnforum.admin.index.mvnforum_professional_services}</span></td>
+                <td><a href="http://www.myvietnam.net/myvietnam/myvietnam/mvnforumservices">${message:mvnforum.admin.index.mvnforum_professional_services_information}</a></td>
+              </tr>
+            </table>
+          </div>
+      
+          <div id="tab2" style="display:none;">
+            <table class="tborder" width="100%" cellspacing="0" cellpadding="3">
+              <tr class="portlet-section-header">
+                <td colspan="2">${message:mvnforum.admin.index.mvnforum_info}:</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td style="width: 30%">${message:mvnforum.admin.index.product_name}</td>
+                <td>${mvnForumInfo.productName}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td>${message:mvnforum.admin.index.product_desc}</td>
+                <td>${mvnForumInfo.productDesc}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td>${message:mvnforum.admin.index.product_version}</td>
+                <td>${mvnForumInfo.productVersion}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td>${message:mvnforum.admin.index.product_release_date}</td>
+                <td>${mvnForumInfo.productReleaseDate}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td>${message:mvnforum.admin.index.product_homepage}</td>
+                <td><a href="${mvnForumInfo.productHomepage}">${mvnForumInfo.productHomepage}</a></td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td><a href="#" onclick="javascript: document.getElementById('mvnforumimage').src='http://www.mvnforum.com/mvnforum/getmvnforumimage?version=${mvnForumInfo.productVersion}&amp;date=${mvnForumInfo.productReleaseDate}'; return false;">${message:mvnforum.admin.index.check_latest_version_now}</a></td>
+                <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/emptyspace.gif}" alt="Latest mvnForum version" id="mvnforumimage" style="border: 0"/></td>
+              </tr>
+            </table>
+          </div>
+      
+          <div id="tab3" style="display:none;">
+            <table class="tborder" width="100%" cellspacing="0" cellpadding="3">
+              <tr class="portlet-section-header">
+                <td colspan="2">${message:mvnforum.admin.index.myvietnam_framework_information}:</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td style="width: 30%">${message:mvnforum.admin.index.product_name}</td>
+                <td>${mvnCoreInfo.productName}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td>${message:mvnforum.admin.index.product_desc}</td>
+                <td>${mvnCoreInfo.productDesc}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td>${message:mvnforum.admin.index.product_version}</td>
+                <td>${mvnCoreInfo.productVersion}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td>${message:mvnforum.admin.index.product_release_date}</td>
+                <td>${mvnCoreInfo.productReleaseDate}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td>${message:mvnforum.admin.index.product_homepage}</td>
+                <td><a href="${mvnCoreInfo.productHomepage}">${mvnCoreInfo.productHomepage}</a></td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td><a href="#" onclick="javascript: document.getElementById('mvncoreimage').src='http://www.mvnforum.com/mvnforum/getmvncoreimage?version=${mvnCoreInfo.productVersion}&amp;date=${mvnCoreInfo.productReleaseDate}'; return false;">${message:mvnforum.admin.index.check_latest_version_now}</a></td>
+                <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/emptyspace.gif}" alt="Latest mvnCore version" id="mvncoreimage" style="border: 0"/></td>
+              </tr>
+            </table>
+          </div>
+          
+          <div id="tab4" style="display:none;">
+            <table class="tborder" width="100%" cellspacing="0" cellpadding="3">
+              <tr class="portlet-section-header">
+                <td colspan="2">${message:mvnforum.admin.index.mvnad_info}:</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td style="width: 30%">${message:mvnforum.admin.index.product_name}</td>
+                <td>${mvnAdInfo.productName}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td>${message:mvnforum.admin.index.product_desc}</td>
+                <td>${mvnAdInfo.productDesc}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td>${message:mvnforum.admin.index.product_version}</td>
+                <td>${mvnAdInfo.productVersion}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td>${message:mvnforum.admin.index.product_release_date}</td>
+                <td>${mvnAdInfo.productReleaseDate}</td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td>${message:mvnforum.admin.index.product_homepage}</td>
+                <td><a href="${mvnAdInfo.productHomepage}">${mvnAdInfo.productHomepage}</a></td>
+              </tr>
+             <tr class="${prop:evenodd.next}">
+                <td><a href="#" onclick="javascript: document.getElementById('mvnadimage').src='http://www.mvnforum.com/delivery/getmvnadimage?version=${mvnAdInfo.productVersion}&amp;date=${mvnAdInfo.productReleaseDate}'; return false;">${message:mvnforum.admin.index.check_latest_version_now}</a></td>
+                <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/emptyspace.gif}" alt="Latest mvnAd version" id="mvnadimage" style="border: 0"/></td>
+              </tr>
+            </table>
+          </div>
+          
+          <t:If test="CheckAdminSystem">
+            <div id="tab5" style="display:none;">
+              <table class="tborder" width="100%" cellspacing="0" cellpadding="3">
+                <tr class="portlet-section-header">
+                  <td colspan="2">${message:mvnforum.admin.index.application_server_info}:</td>
+                </tr>
+                <t:If test="isPortal">
+                  <tr class="${prop:evenodd.next}">
+                    <td style="width: 30%">${message:mvnforum.admin.index.portal_info}</td>
+                    <td>${portalInfo}</td>
+                  </tr>
+                </t:If>
+                <t:If test="servletInfo">
+                  <tr class="${prop:evenodd.next}">
+                    <td style="width: 30%">${message:mvnforum.admin.index.application_server}</td>
+                    <td>${servletInfo.ServerInfo}</td>
+                  </tr>
+                  <tr class="${prop:evenodd.next}">
+                    <td>${message:mvnforum.admin.index.servlet_version}</td>
+                    <td>${servletInfo.ServletVersion}</td>
+                  </tr>
+                </t:If>
+              </table>
+            </div>
+            
+            <div id="tab6" style="display:none;">
+               <table class="tborder" width="100%" cellspacing="0" cellpadding="3">
+                <tr class="portlet-section-header">
+                  <td colspan="2">${message:mvnforum.admin.index.database_info}:</td>
+                </tr>
+                <tr class="${prop:evenodd.next}">
+                  <td style="width: 30%">${message:mvnforum.admin.index.database_name}</td>
+                  <td>${databaseInfo.DatabaseProductName}</td>
+                </tr>
+                <tr class="${prop:evenodd.next}">
+                  <td>${message:mvnforum.admin.index.database_version}</td>
+                  <td>${databaseInfo.DatabaseProductVersion}</td>
+                </tr>
+                <tr class="${prop:evenodd.next}">
+                  <td>${message:mvnforum.admin.index.database_url}</td>
+                  <td>${databaseInfo.DatabaseUrl}</td>
+                </tr>
+                <tr class="${prop:evenodd.next}">
+                  <td>${message:mvnforum.admin.index.database_username}</td>
+                  <td>${databaseInfo.DatabaseUsername}</td>
+                </tr>
+                <tr class="${prop:evenodd.next}">
+                  <td>${message:mvnforum.admin.index.jdbc_driver_name}</td>
+                  <td>${databaseInfo.DriverName}</td>
+                </tr>
+                <tr class="${prop:evenodd.next}">
+                  <td>${message:mvnforum.admin.index.jdbc_driver_version}</td>
+                  <td>${databaseInfo.DriverVersion}</td>
+                </tr>
+              </table>
+            </div>
+          
+            <div id="tab7" style="display:none;">
+              <table class="tborder" width="100%" cellspacing="0" cellpadding="3">
+                <tr class="portlet-section-header">
+                  <td colspan="2">${message:mvnforum.admin.index.system_info}:</td>
+                </tr>
+                <tr class="${prop:evenodd.next}">
+                  <td style="width: 30%">${message:mvnforum.admin.index.os_name}</td>
+                  <td>${systemInfo.OsName}</td>
+                </tr>
+                <tr class="${prop:evenodd.next}">
+                  <td>${message:mvnforum.admin.index.os_version}</td>
+                  <td>${systemInfo.OsVersion}</td>
+                </tr>
+                <tr class="${prop:evenodd.next}">
+                  <td>${message:mvnforum.admin.index.cpu}</td>
+                  <td>${systemInfo.Cpu}</td>
+                </tr>
+              </table>
+            </div>
+          
+            <div id="tab8" style="display:none;">
+              <table class="tborder" width="100%" cellspacing="0" cellpadding="3">
+                <tr class="portlet-section-header">
+                  <td colspan="2">${message:mvnforum.admin.index.virtual_machine_info}:</td>
+                </tr>
+                <tr class="${prop:evenodd.next}">
+                  <td style="width: 30%">${message:mvnforum.admin.index.virtual_machine_name}</td>
+                  <td>${systemInfo.VmName}</td>
+                </tr>
+                <tr class="${prop:evenodd.next}">
+                  <td>${message:mvnforum.admin.index.virtual_machine_vendor}</td>
+                  <td>${systemInfo.VmVendor}</td>
+                </tr>
+                <tr class="${prop:evenodd.next}">
+                  <td>${message:mvnforum.admin.index.virtual_machine_version}</td>
+                  <td>${systemInfo.VmVersion}</td>
+                </tr>
+                <tr class="${prop:evenodd.next}">
+                  <td>${message:mvnforum.admin.index.virtual_machine_runtime_name}</td>
+                  <td>${systemInfo.RuntimeName}</td>
+                </tr>
+                <tr class="${prop:evenodd.next}">
+                  <td>${message:mvnforum.admin.index.virtual_machine_runtime_version}</td>
+                  <td>${systemInfo.RuntimeVersion}</td>
+                </tr>
+                <tr class="${prop:evenodd.next}">
+                  <td>${message:mvnforum.admin.index.virtual_machine_total_memory}</td>
+                  <td>${systemInfo.TotalMemoryKB} KB</td>
+                </tr>
+                <tr class="${prop:evenodd.next}">
+                  <td>${message:mvnforum.admin.index.virtual_machine_free_memory}</td>
+                  <td>${systemInfo.FreeMemoryKB} KB</td>
+                </tr>
+              </table>
+            </div>
+          </t:If>
+        </div>
+      </div>
+    </center>
+    
+  </t:If>
+
+</t:publishadmin.border>

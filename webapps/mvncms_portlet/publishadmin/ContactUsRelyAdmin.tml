@@ -1,0 +1,84 @@
+<!--
+ - $Header: /home/cvsroot/mvncms-portlet/srcweb/publishadmin/ContactUsRelyAdmin.tml,v 1.1 2009/11/24 09:15:14 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.1 $
+ - $Date: 2009/11/24 09:15:14 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:x="tapestry-library:tapx">
+<head>
+  <title>${message:mvncms.contactus.admin.rely.title}</title>
+</head>
+<body>
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+
+  <table class="box_border" cellspacing="0" cellpadding="0" border="0" width="930" style="margin: 0pt auto;">
+    <tbody>
+      <tr>
+        <td>
+        
+        <div style="border-bottom: 2px solid rgb(0, 153, 0); margin: 10px; font-size: 16px; color: rgb(0, 153, 0); font-weight: bold;">${message:mvncms.contactus.admin.rely.title}</div>
+
+        <div style="margin: 10px; width: 49%; float: left;">
+            <div style="font-weight: bold; font-size: 16px; color: rgb(7, 94, 187);">
+             ${contactTitle}
+            </div>
+
+            <div style="padding: 5px 0pt; color: rgb(102, 102, 102); font-style: italic;">${message:mvncms.contactus.creation_date} : ${creationDate}</div>
+
+            <div>
+              <span>
+                ${message:mvncms.contactus.sender_name} :
+                <span style="font-weight: bold;"> ${senderName}</span>
+              </span>
+              <span>
+                ${message:mvncms.contactus.sender_email}
+                <span style="font-weight: bold;">${senderEmail}</span>
+              </span>
+            </div>
+
+            <div style="padding: 10px 0pt; text-align: justify; line-height: 16px;">
+               ${contactContent}
+            </div>
+        </div>
+
+        <div style="margin: 0pt 10px 10px 0px; float: right; width: 45%;">
+          <form t:type="Form" t:id="relyQuestionForm" t:clientValidation="true">
+              <t:publishadmin.TokenField />
+              <t:errors><div>&nbsp;</div></t:errors>
+              
+              <div style="border: 1px solid rgb(204, 204, 204); background-color: rgb(255, 255, 255); margin-top: 20px; padding-bottom: 10px; align: center">
+              <div style="border-bottom: 1px solid rgb(194, 202, 211); margin: 10px; color: rgb(15, 91, 175); font-weight: bold; font-size: 16px;">${message:mvncms.contactus.admin.rely.title}</div>
+                <p style="margin: 3px 0pt 3px 10px;">
+                  <label t:type="Label" for="contactAnswer">${message:mvncms.contactus.admin.rely.content} <span class="requiredfield"> *</span></label>
+                  <input t:type="TextArea" t:rows="10" t:id="contactAnswer" class="inp"/>
+                </p>
+
+                <p style="border-bottom: 1px solid rgb(194, 202, 211); margin: 3px 10px;"> </p>
+
+                <p style="text-align: center; margin-top: 10px;">
+                  <input t:type="chenillekit/Hidden" t:id="contactID" />
+                  <input type="submit" value="${actionLabel}" class="btn"/>
+                  <input type="reset" value="${message:mvncms.action.reset}" class="btn"/>
+                </p>
+              </div>
+            </form>
+          </div>
+         </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

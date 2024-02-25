@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app
+    xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"
+    version="1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd
+                        http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"
+    id="mvnforum_portlet">
+
+    <portlet>
+        <description xml:lang="en">mvnPublish Admin Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>mvnPublishAdminPortlet</portlet-name>
+        <display-name>AdminCMSPortlet</display-name>
+        <portlet-class>org.apache.tapestry5.portlet.ApplicationPortlet</portlet-class>
+        <init-param>
+            <name>tapestry.modulename</name>
+            <value>mvnPublishAdminPortlet</value>
+        </init-param>
+        <init-param>
+            <name>tapestry.app-package</name>
+            <value>com.mvnsoft.mvncms.tapestry5</value>
+        </init-param>
+        <init-param>
+            <name>tapestry.default-page</name>
+            <value>publishadmin/index</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>mvnPublish Admin</title>
+            <keywords>MVN, CMS, Publish, Content, Collaboration, Admin</keywords>
+        </portlet-info>
+    </portlet>
+    
+    <portlet>
+        <description xml:lang="en">Contact Portlet</description>
+        <portlet-name>ContactUsPortlet</portlet-name>
+        <display-name>ContactUsPortlet</display-name>
+        <portlet-class>org.apache.tapestry5.portlet.ApplicationPortlet</portlet-class>
+        <init-param>
+            <name>tapestry.modulename</name>
+            <value>mvnPublishAdminPortlet</value>
+        </init-param>
+        <init-param>
+            <name>tapestry.app-package</name>
+            <value>com.mvnsoft.mvncms.tapestry5</value>
+        </init-param>
+        <init-param>
+            <name>tapestry.default-page</name>
+            <value>publishadmin/contactus</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Contact Us</title>
+            <keywords>MVN, CMS, Publish, Content, Collaboration, Admin, Contact Us, Contact</keywords>
+        </portlet-info>
+    </portlet>
+    
+    <portlet>
+        <description xml:lang="en">Website Link Portlet</description>
+        <portlet-name>WebLinkPortlet</portlet-name>
+        <display-name>WebLinkPortlet</display-name>
+        <portlet-class>org.apache.tapestry5.portlet.ApplicationPortlet</portlet-class>
+        <init-param>
+            <name>tapestry.modulename</name>
+            <value>mvnPublishAdminPortlet</value>
+        </init-param>
+        <init-param>
+            <name>tapestry.app-package</name>
+            <value>com.mvnsoft.mvncms.tapestry5</value>
+        </init-param>
+        <init-param>
+            <name>tapestry.default-page</name>
+            <value>publishadmin/weblink</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Website link</title>
+            <keywords>MVN, CMS, Publish, Content, Collaboration, Web, Link</keywords>
+        </portlet-info>
+    </portlet>
+
+    <portlet>
+        <description xml:lang="en">Content Display System Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>CDSPortlet</portlet-name>
+        <portlet-class>com.mvnsoft.mvncms.cds.portlet.CDSPortlet</portlet-class>
+        <init-param>
+            <name>template</name>
+            <value>template1</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>MVN CMS Portlet</title>
+            <keywords>MVN, CMS, Publish, Content, Collaboration</keywords>
+        </portlet-info>
+        <portlet-preferences>
+           <preference>
+              <name>newschannelid</name>
+              <value>0</value>
+           </preference>
+           <preference>
+              <name>numberrows</name>
+              <value>2</value>
+           </preference>           
+        </portlet-preferences>
+    </portlet>
+  
+  <portlet>
+        <description xml:lang="en">Contents displayed in channel tabs Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>ContentsInChannelTabsPortlet</portlet-name>
+        <portlet-class>com.mvnsoft.mvncms.cds.portlet.ContentsInChannelTabsPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+            <portlet-mode>EDIT</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>        
+        <portlet-info>
+            <title>Contents In Channel Tabs Portlet</title>
+            <keywords>MVN, CMS, Publish, Content, Collaboration</keywords>
+        </portlet-info>        
+        <portlet-preferences>
+           <preference>
+              <name>channelidlist</name>
+             <value>0</value>
+           </preference>
+           <preference>
+              <name>numberrows</name>
+              <value>10</value>
+           </preference>
+        </portlet-preferences>
+    </portlet>
+    
+    <portlet>
+        <description xml:lang="en">Hot and latest news Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>HotAndLatestNewsPortlet</portlet-name>
+        <portlet-class>com.mvnsoft.mvncms.cds.portlet.HotAndLatestNewsPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Hot And Latest News Portlet</title>
+            <keywords>MVN, CMS, Publish, Content, Collaboration</keywords>
+        </portlet-info>
+        <portlet-preferences>
+           <preference>
+              <name>newschannelid</name>
+              <value>0</value>
+           </preference>
+           <preference>
+              <name>numberrows</name>
+              <value>2</value>
+           </preference>
+        </portlet-preferences>
+    </portlet>
+  
+    <portlet>
+        <description xml:lang="en">Hot News Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>HotNewsPortlet</portlet-name>
+        <portlet-class>com.mvnsoft.mvncms.cds.portlet.HotNewsPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Hot News Portlet</title>
+            <keywords>MVN, CMS, Content, Collaboration</keywords>
+        </portlet-info>
+    </portlet>
+    
+    <portlet>
+        <description xml:lang="en">Latest news Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>LatestNewsPortlet</portlet-name>
+        <portlet-class>com.mvnsoft.mvncms.cds.portlet.LatestNewsPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Latest News Portlet</title>
+            <keywords>MVN, CMS, Content, Collaboration</keywords>
+        </portlet-info>
+    </portlet>
+    
+    <portlet>
+        <description xml:lang="en">Search content Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>SearchPortlet</portlet-name>
+        <portlet-class>com.mvnsoft.mvncms.cds.portlet.SearchPortlet</portlet-class>
+        <init-param>
+            <name>template</name>
+            <value>template1</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Search Portlet</title>
+            <keywords>MVN, CMS, Content, Collaboration</keywords>
+        </portlet-info>
+        <portlet-preferences>
+           <preference>
+              <name>newschannelid</name>
+              <value>0</value>
+           </preference>
+        </portlet-preferences>
+    </portlet>
+    
+    <portlet>
+        <description xml:lang="en">Single Content Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>SingleContentPortlet</portlet-name>
+        <portlet-class>com.mvnsoft.mvncms.cds.portlet.SingleContentPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Single Content Portlet</title>
+            <keywords>MVN, Collaboration</keywords>
+        </portlet-info>
+        <portlet-preferences>
+            <preference>
+                <name>contentid</name>
+                <value>0</value>
+            </preference>
+        </portlet-preferences>
+    </portlet>
+    
+    <portlet>
+        <description xml:lang="en">About Us Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>IntroducePortlet</portlet-name>
+        <portlet-class>com.mvnsoft.mvncms.cds.portlet.IntroducePortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Introduce Portlet</title>
+            <keywords>MVN, Collaboration</keywords>
+        </portlet-info>
+        <portlet-preferences>
+           <preference>
+              <name>channelidlist</name>
+             <value>0</value>
+           </preference>
+        </portlet-preferences>
+    </portlet>
+    
+    <portlet>
+        <description xml:lang="en">Contact Us Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>ContactPortlet</portlet-name>
+        <portlet-class>com.mvnsoft.mvncms.cds.portlet.ContactPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Contact Portlet</title>
+            <keywords>MVN, Contact, Collaboration</keywords>
+        </portlet-info>
+        <portlet-preferences>
+            <preference>
+                <name>contentid</name>
+                <value>0</value>
+            </preference>
+        </portlet-preferences>
+    </portlet>
+    
+    <portlet>
+        <description xml:lang="en">News in single channel Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>NewsPortlet</portlet-name>
+        <portlet-class>com.mvnsoft.mvncms.cds.portlet.NewsPortlet</portlet-class>
+        <init-param>
+            <name>template</name>
+            <value>template1</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>News Portlet</title>
+            <keywords>MVN, News, Publish, Collaboration</keywords>
+        </portlet-info>
+        <portlet-preferences>
+           <preference>
+              <name>newschannelid</name>
+              <value>0</value>
+           </preference>
+           <preference>
+              <name>numberrows</name>
+              <value>10</value>
+           </preference>
+        </portlet-preferences>
+    </portlet>
+    
+    <portlet>
+        <description xml:lang="en">GIS Metadata Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>MetaDataPortlet</portlet-name>
+        <portlet-class>com.mvnsoft.mvncms.cds.portlet.MetaDataPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>MetaData Portlet</title>
+            <keywords>MVN, CMS, Content, Collaboration</keywords>
+        </portlet-info>
+    </portlet>
+
+    <portlet>
+        <description xml:lang="en">Admin Ad Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>AdminAdPortlet</portlet-name>
+        <portlet-class>com.mvnsoft.mvnad.portlet.core.AdminAdPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>mvnAd Administration</title>
+            <keywords>MVN, Ad, Collaboration, Administration</keywords>
+        </portlet-info>
+    </portlet>
+
+    <portlet>
+        <description xml:lang="en">User Ad Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>UserAdPortlet</portlet-name>
+        <portlet-class>com.mvnsoft.mvnad.portlet.core.UserAdPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>mvnAd</title>
+            <keywords>MVN, Ad</keywords>
+        </portlet-info>
+    </portlet>
+    
+    <portlet>
+        <description xml:lang="en">Display Ad Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>DisplayAdPortlet</portlet-name>
+        <portlet-class>com.mvnsoft.mvnad.portlet.core.DisplayAdPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>mvnAd - Display Ad Portlet</title>
+            <keywords>MVN, Ad</keywords>
+        </portlet-info>
+        <portlet-preferences>
+            <preference>
+                <name>zones</name>
+                <value>0</value>
+            </preference>
+            <preference>
+                <name>vertical</name>
+                <value>true</value>
+            </preference>
+        </portlet-preferences>
+    </portlet>
+
+    <portlet>
+        <description xml:lang="en">User Forum Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>UserForumPortlet</portlet-name>
+        <display-name>UserForumPortlet</display-name>
+        <portlet-class>com.mvnforum.portlet.core.UserForumPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>mvnForum</title>
+            <keywords>MVN, Forum, Collaboration</keywords>
+        </portlet-info>
+    </portlet>
+
+    <portlet>
+        <description xml:lang="en">Admin Forum Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>AdminForumPortlet</portlet-name>
+        <display-name>AdminForumPortlet</display-name>
+        <portlet-class>com.mvnforum.portlet.core.AdminForumPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>mvnForum Administration</title>
+            <keywords>MVN, Forum, Collaboration, Administration</keywords>
+        </portlet-info>
+    </portlet>
+
+    <portlet>
+        <description xml:lang="en">Recent Threads Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>RecentThreadsPortlet</portlet-name>
+        <display-name>RecentThreadsPortlet</display-name>
+        <portlet-class>com.mvnforum.portlet.core.RecentThreadsPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Recent Threads</title>
+            <keywords>MVN, Forum, Collaboration</keywords>
+        </portlet-info>
+    </portlet>
+
+    <portlet>
+        <description xml:lang="en">Hot Threads Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>HotThreadsPortlet</portlet-name>
+        <display-name>HotThreadsPortlet</display-name>
+        <portlet-class>com.mvnforum.portlet.core.HotThreadsPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Hot Threads</title>
+            <keywords>MVN, Forum, Collaboration</keywords>
+        </portlet-info>
+    </portlet>
+    
+    <portlet>
+        <portlet-name>AlbumPortlet</portlet-name>
+        <portlet-class>com.mvnforum.portlet.user.AlbumPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Album Library Portlet</title>
+            <keywords>MVN, Album, Forum, Collaboration</keywords>
+        </portlet-info>
+        <portlet-preferences>
+           <preference>
+              <name>albumportletid</name>
+              <value>0</value>
+           </preference>
+        </portlet-preferences>
+    </portlet>
+    
+    <portlet>
+        <portlet-name>PollPortlet</portlet-name>
+        <portlet-class>com.mvnforum.portlet.user.PollPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Poll Portlet</title>
+            <keywords>MVN, Poll, Collaboration</keywords>
+        </portlet-info>
+        <portlet-preferences>
+            <preference>
+                <name>pollid</name>
+                <value>0</value>
+            </preference>
+        </portlet-preferences>
+    </portlet>
+    
+    <!-- -->
+    <portlet>
+        <description xml:lang="en">User Management Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>UserManagementPortlet</portlet-name>
+        <display-name>UserManagementPortlet</display-name>
+        <portlet-class>com.mvnforum.portlet.core.UserManagementPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Register Member</title>
+            <keywords>Forum, Collaboration</keywords>
+        </portlet-info>
+    </portlet>
+            <!-- -->
+
+</portlet-app>

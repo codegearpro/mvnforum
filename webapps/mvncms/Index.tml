@@ -1,0 +1,21 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/Index.tml,v 1.4 2009/09/14 08:47:05 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.4 $
+ - $Date: 2009/09/14 08:47:05 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<html title="About tutorial1"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+    [<a t:type="pagelink" t:page="publishadmin/Login">publishadmin/Login</a>]
+    [<a t:type="pagelink" t:page="publishadmin/Index">publishadmin/Index</a>]
+</html>

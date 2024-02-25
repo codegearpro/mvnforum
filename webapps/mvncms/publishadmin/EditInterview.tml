@@ -1,0 +1,96 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/EditInterview.tml,v 1.17 2009/08/14 02:41:37 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.17 $
+ - $Date: 2009/08/14 02:41:37 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.editinterview.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:x="tapestry-library:tapx">
+ 
+ <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <form t:type="Form" t:id="editInterviewForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <t:errors><div>&nbsp;</div></t:errors>
+    <table border="0" width="95%" cellspacing="0" cellpadding="3" class="tborder center">
+      <tr class="portlet-section-header" align="center">
+        <td colspan="2">${message:mvncms.interview.info}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}"> 
+        <td style="width: 40%;">${message:mvncms.common.interview.id}</td>
+        <td>${interviewID}</td>
+      </tr> 
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interview.contentid}</td>
+        <td>${contentID}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interview.member_name}</td>
+        <td>${memberName}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="interviewSubject">${message:mvncms.common.interview.subject}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="interviewSubject" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="interviewSummary">${message:mvncms.common.interview.summary}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextArea" t:id="interviewSummary" cols="57" rows="3" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="interviewContent">${message:mvncms.common.interview.content}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextArea" t:id="interviewContent" cols="57" rows="3" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="interviewNote">${message:mvncms.common.interview.note}</label></td>
+        <td><input t:type="TextField" t:id="interviewNote" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="interviewDistributor">${message:mvncms.common.interview.distributors}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="interviewDistributor" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="interviewAnswerer">${message:mvncms.common.interview.answerers}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="interviewAnswerer" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interview.start_date}</td>
+        <td>
+            <input t:type="RadioGroup" t:id="startDate">
+              <input t:type="Radio" t:id="asSoonAsPossible" label="literal:message:mvncms.interview.startpossible" class="noborder"/>${message:mvncms.common.interview.start_possible}<br /> 
+              <input t:type="Radio" t:id="hasPublishStartDate" class="noborder"/>${message:mvncms.common.interview.start_date}<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<x:datefield t:id="publishStartDate" format="literal:dd/MM/yyyy" />
+            </input>
+        </td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interview.end_date}</td>
+        <td>
+           <input t:type="RadioGroup" t:id="endDate">
+              <input t:type="Radio" t:id="neverExpire" class="noborder"/>${message:mvncms.common.interview.end_never}<br /> 
+              <input t:type="Radio" t:id="hasPublishEndDate" class="noborder"/>${message:mvncms.common.interview.end_date}<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<x:datefield t:id="publishEndDate" format="literal:dd/MM/yyyy" />
+            </input>
+       </td>  
+      </tr> 
+      <tr id="vietnameseKeyboardBlock" style="display: none" class="${prop:evenodd.next}">
+         <td>${message:mvncms.common.vietnamese_key}</td>
+         <td><t:publishadmin.VietnameseKeyboardComponent inputList="literal:cityName,weatherType" /></td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input t:type="chenillekit/Hidden" t:id="interviewID" />
+          <input type="submit" value="${message:mvncms.action.edit}" class="portlet-form-button" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</t:publishadmin.border>

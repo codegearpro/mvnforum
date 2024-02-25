@@ -1,0 +1,106 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/EditContentPermission.tml,v 1.22 2009/04/24 09:07:10 trungth Exp $
+ - $Author: trungth $
+ - $Revision: 1.22 $
+ - $Date: 2009/04/24 09:07:10 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.editcontentpermission.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+    
+  <table border="0" width="95%" cellspacing="0" cellpadding="3" class="center">
+    <tr>
+      <td style="width: 20%;">${message:mvncms.common.group.id}</td>
+      <td>${groupID}</td>
+    </tr>          
+    <tr>
+      <td>${message:mvncms.common.group.name}</td>
+      <td>${groupName}</td>
+    </tr>  
+    
+    <t:if test="enableAllChannels">
+      <tr>
+        <td>${message:mvncms.common.channel.name}</td>
+        <td>${message:mvncms.contentpermissionmanagement.allchannels}</td>
+      </tr>
+      <t:parameter name="else">
+      <tr>
+        <td>${message:mvncms.common.channel.channelid}</td>
+        <td>${channelID}</td>
+      </tr>          
+      <tr>
+        <td>${message:mvncms.common.channel.name}</td>
+        <td>${channelName}</td>
+      </tr>
+    </t:parameter>          
+    </t:if>
+  </table>
+  <div>&nbsp;</div>
+
+  <form t:type="Form" t:id="editContentForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <div>
+      <input t:type="chenillekit/Hidden" t:id="groupID" />
+      <input t:type="chenillekit/Hidden" t:id="channelID" />
+    </div>
+    <t:errors><div>&nbsp;</div></t:errors>
+    <table class="tborder center" width="95%" cellspacing="0" cellpadding="3">
+      <tr class="portlet-section-header">
+        <td align="center">${message:mvncms.common.permission.contentworkflow.step}</td>
+        <td align="center">${message:mvncms.common.permission.contentworkflow.can_view_step}</td>
+        <td align="center">${message:mvncms.common.permission.contentworkflow.can_view_content}</td>
+        <td align="center">${message:mvncms.common.permission.contentworkflow.can_goto}</td>
+        <td align="center">${message:mvncms.common.permission.contentworkflow.can_edit}</td>
+        <td align="center">${message:mvncms.common.permission.contentworkflow.can_deploy}</td>
+        <td align="center">${message:mvncms.common.permission.contentworkflow.can_delete}</td>
+        <td align="center">${message:mvncms.common.permission.contentworkflow.can_write_content}</td>
+      </tr>
+      <tr t:type="Loop" t:source="allSteps" t:value="currentStepID" class="prop:evenodd.next">
+        <td align="center">
+          ${currentStepName}
+        </td>
+        <td align="center">
+           <checkbox t:type="Checkbox" t:id="canViewStep" class="noborder" />
+        </td>
+        <td align="center">
+          <checkbox t:type="Checkbox" t:id="canViewContent" class="noborder" />
+        </td>
+        <td align="center">
+          <checkbox t:type="Checkbox" t:id="canGoTo" class="noborder" />
+        </td>
+        <td align="center">
+          <checkbox t:type="Checkbox" t:id="canEdit" class="noborder" />
+        </td>
+        <td align="center">
+          <checkbox t:type="Checkbox" t:id="canDeploy" class="noborder" />
+        </td>
+        <td align="center">
+          <checkbox t:type="Checkbox" t:id="canDelete" class="noborder" />
+        </td>
+        <td align="center">
+          <t:if test="checkCanWrite">
+            <checkbox t:type="Checkbox" t:id="canWrite" class="noborder" />
+          </t:if>
+        </td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="8" align="center">
+          <input type="submit" value="${message:mvncms.action.save}" class="portlet-form-button" />
+        </td>
+      </tr>
+    </table>
+  </form>
+  
+</t:publishadmin.border>

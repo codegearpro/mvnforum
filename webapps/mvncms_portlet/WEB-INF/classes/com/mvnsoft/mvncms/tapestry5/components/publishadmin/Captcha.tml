@@ -1,0 +1,32 @@
+<!--
+ - $Header: /home/cvsroot/mvncms-portlet/src/com/mvnsoft/mvncms/tapestry5/components/publishadmin/Captcha.tml,v 1.4 2009/12/09 09:18:53 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.4 $
+ - $Date: 2009/12/09 09:18:53 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+  <p style="margin: 3px 0pt 3px 10px;">
+      <label style="width: 80px;">${message:mvncms.captcha.image.title}</label>
+      <img style="height: 60px; width: 200px;" id="captchaimg" src="${link}" alt="${message:mvncms.captcha.image}" />
+      &nbsp;&nbsp;<a style="padding-bottom: 5px;" href="javascript:void(0);" id="reloadcaptcha">${message:mvncms.captcha.reload}</a>
+  </p>
+  <p style="margin: 3px 0pt 3px 10px;">
+    <label t:type="Label" for="captchaResponse" style="width: 80px;">${message:mvncms.captcha.comfirm}(<span class="requiredfield">*</span>)</label>
+    <input t:type="TextField" size="30" t:id="captchaResponse" class="inpcaptcha"/>
+  </p>
+<script type="text/javascript">
+$('reloadcaptcha').observe('click', function(event) {
+  $('captchaimg').src='${reloadLink}';
+});
+</script>
+</t:container>

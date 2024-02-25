@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<baseElement>
+    <mvnforum_portlet>
+        <use_shared_session>true</use_shared_session>
+        <portal_context_path>/pluto</portal_context_path>
+        <portal_download_pattern>/mvndownload</portal_download_pattern>
+        <forum_portlet_download_pattern>/download</forum_portlet_download_pattern>
+    </mvnforum_portlet>
+</baseElement>

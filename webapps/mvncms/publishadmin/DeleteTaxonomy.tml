@@ -1,0 +1,59 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/DeleteTaxonomy.tml,v 1.15 2009/08/14 02:41:37 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.15 $
+ - $Date: 2009/08/14 02:41:37 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.taxonomymanagement.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+  <t:publishadmin.JavascriptCurrentPassword t:passwordField="literal:currentPassword" t:md5pwField="literal:md5pw" />
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+
+  <form t:type="Form" t:id="deleteTaxonomyForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <input t:type="chenillekit/Hidden" t:id="taxonomyID" />
+    <t:errors><div>&nbsp;</div></t:errors>
+    <table border="0" class="tborder center" width="95%" cellspacing="0" cellpadding="3">
+      <tr class="portlet-section-header">
+        <th colspan="2" align="left"><span>${message:mvncms.deletetaxonomy.title}</span></th>
+      </tr>
+      <tr class="portlet-section-body">
+        <td><span> ${message:mvncms.common.taxonomy.taxonomyID}</span></td>
+        <td><span>${taxonomyID}</span></td>
+      </tr>
+      <tr class="portlet-section-alternate">
+        <td><span>${message:mvncms.common.taxonomy.taxonomyname}</span></td>
+        <td><span>${taxonomyName}</span></td>
+      </tr>
+      <tr class="portlet-section-body">
+        <td><span>${message:mvncms.common.taxonomy.taxonomycreationdate}</span></td>
+        <td><span>${taxonomyCreationDate}</span></td>
+      </tr>
+      <tr class="portlet-section-alternate">
+        <td><label t:type="Label" for="currentPassword">${message:mvncms.common.password.current}<span class="requiredfield"> *</span></label></td>
+        <td>
+          <input t:type="PasswordField" t:id="currentPassword" t:value="currentPassword" t:onkeypress="checkEnter(event);" />
+          <input t:type="chenillekit/Hidden" t:id="md5pw" />
+        </td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input type="submit" onclick="javascript:PrepareSubmitForm()" value="${message:mvncms.action.delete}" class="portlet-form-button" />
+          <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+        </td>
+      </tr>
+    </table>
+  </form>
+    
+</t:publishadmin.border>

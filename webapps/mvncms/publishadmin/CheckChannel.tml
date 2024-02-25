@@ -1,0 +1,34 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/CheckChannel.tml,v 1.12 2009/04/24 09:07:10 trungth Exp $
+ - $Author: trungth $
+ - $Revision: 1.12 $
+ - $Date: 2009/04/24 09:07:10 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.login.form" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+
+  <form t:type="Form" t:id="checkChannelForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <t:errors><div>&nbsp;</div></t:errors>
+    <table border="0" width="95%" cellspacing="0" cellpadding="3" class="tborder center">
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="left">
+          <b><span id="result">${message:mvncms.checkchannel.result}</span></b><br />  
+          <span id="checkResult">${checkResult}</span><br />
+          <input type="submit" value="${message:mvncms.checkchannel.fixchannel}" id="fixChannelButton" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</t:publishadmin.border>

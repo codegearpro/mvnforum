@@ -1,0 +1,337 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/EditMember.tml,v 1.2 2009/09/07 11:21:54 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.2 $
+ - $Date: 2009/09/07 11:21:54 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2009 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.editmember.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  
+  <t:publishadmin.JavascriptCurrentPassword t:passwordField="literal:MemberCurrentMatkhau" t:md5pwField="literal:md5pw" />
+
+<script type="text/javascript">
+var requiredfieldMessage = '${message:mvncms.common.js.prompt.fieldrequired}'; 
+<!-- //
+function getKeyCode(evt) {
+  if (typeof(evt)=='string') return evt.charCodeAt(0);
+  return document.all? event.keyCode: (evt && evt.which)? evt.which: 0;
+}
+function checkEnter(event) {
+  var agt = navigator.userAgent.toLowerCase();
+
+  // Maybe, Opera make an onclick event when user press enter key
+  // on the text field of the form
+  if (agt.indexOf('opera') >= 0) return;
+
+  // enter key is pressed
+  if (getKeyCode(event) == 13)
+    SubmitForm();
+}
+function isBlank(field, strBodyHeader) {
+    strTrimmed = trim(field.value);
+    if (strTrimmed.length > 0) return false;
+    alert("\"" + strBodyHeader + "\" " + requiredfieldMessage);
+    field.focus();
+    return true;
+}
+//-->
+function SubmitForm() {
+  if (ValidateForm()) {
+    document.editMemberForm.submit();
+  }
+}
+function ValidateForm() {
+  <t:if test="enableShowFirstName">
+    <t:if test="requireRegisterFirstname">
+      if (isBlank(document.editMemberForm.memberFirstname, '${message:mvncms.common.member.first_name}')) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowLastName">
+    <t:if test="requireRegisterLastname">
+      if (isBlank(document.editMemberForm.memberLastname, '${message:mvncms.common.member.last_name}')) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowAddress">
+    <t:if test="requireRegisterAddress">
+      if (isBlank(document.editMemberForm.memberAddress, '${message:mvncms.common.member.address}')) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowCity">
+    <t:if test="requireRegisterCity">
+      if (isBlank(document.editMemberForm.memberCity, '${message:mvncms.common.member.city}')) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowState">
+    <t:if test="requireRegisterState">
+      if (isBlank(document.editMemberForm.memberState, '${message:mvncms.common.member.state}')) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowCountry">
+    <t:if test="requireRegisterCountry">
+      if (isBlank(document.editMemberForm.memberCountry, '${message:mvncms.common.member.country}')) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowPhone">
+    <t:if test="requireRegisterPhone">
+      if (isBlank(document.editMemberForm.memberPhone, '${message:mvncms.common.member.phone}')) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowMobile">
+    <t:if test="requireRegisterMobile">
+      if (isBlank(document.editMemberForm.memberMobile, '${message:mvncms.common.member.mobile}')) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowFax">
+    <t:if test="requireRegisterFax">
+      if (isBlank(document.editMemberForm.memberFax, '${message:mvncms.common.member.fax}')) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowCareer">
+    <t:if test="requireRegisterCareer">
+      if (isBlank(document.editMemberForm.memberCareer, '${message:mvncms.common.member.career}')) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowHomepage">
+    <t:if test="requireRegisterHomepage">
+      if (isBlank(document.editMemberForm.memberHomepage, '${message:mvncms.common.member.homepage}')) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowCoolLink1">
+    <t:if test="requireRegisterLink1">
+      if (isBlank(document.editMemberForm.memberCoolLink1, '${message:mvncms.common.member.cool_link} 1")) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowCoolLink2">
+    <t:if test="requireRegisterLink2">
+      if (isBlank(document.editMemberForm.memberCoolLink2, '${message:mvncms.common.member.cool_link} 2")) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowYahoo">
+    <t:if test="requireRegisterYahoo">
+      if (isBlank(document.editMemberForm.memberYahoo, '${message:mvncms.common.member.yahoo}')) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowYahoo">
+    <t:if test="requireRegisterYahoo">
+      if (isBlank(document.editMemberForm.memberYahoo, '${message:mvncms.common.member.yahoo}')) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowYahoo">
+    <t:if test="requireRegisterYahoo">
+      if (isBlank(document.editMemberForm.memberYahoo, '${message:mvncms.common.member.yahoo}')) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowAOL">
+    <t:if test="requireRegisterAOL">
+      if (isBlank(document.editMemberForm.memberAol, '${message:mvncms.common.member.aol}')) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowICQ">
+    <t:if test="requireRegisterICQ">
+      if (isBlank(document.editMemberForm.memberIcq, '${message:mvncms.common.member.icq}')) return false;
+    </t:if>
+  </t:if>
+  <t:if test="enableShowMSN">
+    <t:if test="requireRegisterMSN">
+      if (isBlank(document.editMemberForm.memberMsn, '${message:mvncms.common.member.msn}')) return false;
+    </t:if>
+  </t:if>
+  return true;
+}
+</script>
+   
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <form t:type="Form" t:id="editMemberForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <input t:type="chenillekit/Hidden" t:id="memberID" />
+    <t:errors><div>&nbsp;</div></t:errors>
+    
+    <div>
+      <table class="tborder" width="95%" align="center" cellpadding="3" cellspacing="0">
+        <tr class="portlet-section-header">
+          <td colspan="2">${message:mvncms.editmember.title}</td>
+        </tr>
+        <tr class="${prop:evenOdd.next}">
+          <td style="width:30%">${message:mvncms.common.member.login_name}</td>
+          <td style="width:70%">${memberBean.memberName}</td>
+        </tr>
+        <t:if test="enableShowStatus">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberStatus">${message:mvncms.common.member.status}</label></td>
+            <td><select t:type="Select" t:id="memberStatus" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowFirstName">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberFirstname">${message:mvncms.common.member.first_name}</label><t:if test="requireRegisterFirstname"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberFirstname" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowLastName">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberLastname">${message:mvncms.common.member.last_name}</label><t:if test="requireRegisterLastname"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberLastname" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowBirthday">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberBirthday">${message:mvncms.common.member.birthday}</label><t:if test="requireRegisterBirthday"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="DateSelector" t:id="memberBirthday" value="memberBirthday" firstYear="1940" lastYear="2003" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowGender">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberGender">${message:mvncms.common.member.gender}</label><t:if test="requireRegisterGender"><span class="requiredfield"> *</span></t:if></td>
+            <td><select t:type="Select" t:id="memberGender" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowEmailVisible">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberEmailVisible">${message:mvncms.common.member.show_email}</label></td>
+            <td><t:checkbox style="background:transparent;border-width:0" t:id="memberEmailVisible" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowNameVisible">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberNameVisible">${message:mvncms.common.member.name_visible}</label></td>
+            <td><t:checkbox style="background:transparent;border-width:0" t:id="memberNameVisible" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowPostsPerPage">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberPostsPerPage">${message:mvncms.common.member.posts_per_page}</label></td>
+            <td><select t:type="Select" t:id="memberPostsPerPage" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <tr class="${prop:evenOdd.next}">
+          <td><label t:type="Label" for="memberLanguage">${message:mvncms.common.member.language}</label></td>
+          <td><select t:type="Select" t:id="memberLanguage" class="long_text" /></td>
+        </tr>
+        <tr class="${prop:evenOdd.next}">
+          <td><label t:type="Label" for="memberTimeZone">${message:mvncms.common.member.time_zone}</label></td>
+          <td><select t:type="Select" t:id="memberTimeZone" class="long_text" /></td>
+        </tr>
+        <t:if test="enableShowAddress">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberAddress">${message:mvncms.common.member.address}</label><t:if test="requireRegisterAddress"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberAddress" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowCity">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberCity">${message:mvncms.common.member.city}</label><t:if test="requireRegisterCity"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberCity" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowState">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberState">${message:mvncms.common.member.state}</label><t:if test="requireRegisterState"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberState" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowCountry">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberCountry">${message:mvncms.common.member.country}</label><t:if test="requireRegisterCountry"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberCountry" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowPhone">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberPhone">${message:mvncms.common.member.phone}</label><t:if test="requireRegisterPhone"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberPhone" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowMobile">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberMobile">${message:mvncms.common.member.mobile}</label><t:if test="requireRegisterMobile"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberMobile" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowFax">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberFax">${message:mvncms.common.member.fax}</label><t:if test="requireRegisterFax"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberFax" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowCareer">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberCareer">${message:mvncms.common.member.career}</label><t:if test="requireRegisterCareer"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberCareer" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowHomepage">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberHomepage">${message:mvncms.common.member.homepage}</label><t:if test="requireRegisterHomepage"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberHomepage" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowCoolLink1">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberCoolLink1">${message:mvncms.common.member.cool_link} 1</label><t:if test="requireRegisterLink1"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberCoolLink1" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowCoolLink2">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberCoolLink2">${message:mvncms.common.member.cool_link} 2</label><t:if test="requireRegisterLink2"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberCoolLink2" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowYahoo">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberYahoo">${message:mvncms.common.member.yahoo}</label><t:if test="requireRegisterYahoo"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberYahoo" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowAOL">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberAol">${message:mvncms.common.member.aol}</label><t:if test="requireRegisterAol"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberAol" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowICQ">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberIcq">${message:mvncms.common.member.icq}</label><t:if test="requireRegisterIcq"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberIcq" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <t:if test="enableShowMSN">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="memberMsn">${message:mvncms.common.member.msn}</label><t:if test="requireRegisterMsn"><span class="requiredfield"> *</span></t:if></td>
+            <td><input t:type="TextField" t:id="memberMsn" class="long_text" /></td>
+          </tr>
+        </t:if>
+        <tr class="${prop:evenOdd.next}">
+          <td><label t:type="Label" for="MemberCurrentMatkhau">${message:mvncms.common.password.current}<span class="requiredfield"> *</span></label></td>
+          <td>
+            <input t:type="PasswordField" t:id="MemberCurrentMatkhau" t:value="MemberCurrentMatkhau" t:onkeypress="checkEnter(event);" size="30" />
+            <input t:type="chenillekit/Hidden" t:id="md5pw" />
+          </td>
+        </tr>
+        <tr id="vietnameseKeyboardBlock" style="display: none" class="${prop:evenOdd.next}">
+          <td style="width:20%">${message:mvncms.common.vietnamese_key}</td>
+          <td> 
+             <t:publishadmin.VietnameseKeyboardComponent inputList="literal:memberFirstname,memberLastname,memberAddress,memberCity,memberState,memberCountry" />
+          </td>
+        </tr>
+        <tr class="portlet-section-footer">
+          <td colspan="2" align="center">
+            <input type="submit" value="${message:mvncms.action.update}" class="portlet-form-button" />&nbsp;
+            <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+
+</t:publishadmin.border>

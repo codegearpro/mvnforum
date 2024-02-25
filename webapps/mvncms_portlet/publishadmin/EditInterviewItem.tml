@@ -1,0 +1,79 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/EditInterviewItem.tml,v 1.19 2009/09/08 02:43:40 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.19 $
+ - $Date: 2009/09/08 02:43:40 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.editinterviewitem.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <form t:type="Form" t:id="editInterviewItemForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <t:errors><div>&nbsp;</div></t:errors>
+    <input t:type="chenillekit/Hidden" t:id="interviewItemID" />
+    <table border="0" width="95%" cellspacing="0" cellpadding="3" class="tborder center">
+      <tr class="portlet-section-header" align="center">
+        <td colspan="2">${message:mvncms.common.interviewitem.question.info}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}"> 
+        <td style="width: 40%;"><label t:type="Label" for="interviewItemName">${message:mvncms.common.interviewitem.name}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="interviewItemName" /></td>
+      </tr> 
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="interviewItemGender">${message:mvncms.common.interviewitem.gender}</label></td>
+        <td>
+          <t:radiogroup t:id="interviewItemGender">
+            <t:radio t:id="male" style="background:transparent;border-width:0" /><label t:type="Label" for="male">${message:mvncms.common.interviewitem.gender.male}</label><br />
+            <t:radio t:id="female" style="background:transparent;border-width:0" /><label t:type="Label" for="female">${message:mvncms.common.interviewitem.gender.female}</label>
+          </t:radiogroup>
+        </td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="interviewItemOccupation">${message:mvncms.common.interviewitem.occupation}</label></td>
+        <td><input t:type="TextField" t:id="interviewItemOccupation" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+      <td><label t:type="Label" for="interviewItemAddress">${message:mvncms.common.interviewitem.address}</label></td>
+        <td><input t:type="TextField" t:id="interviewItemAddress" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="interviewItemEmail">${message:mvncms.common.interviewitem.email}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="interviewItemEmail" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="interviewItemPhone">${message:mvncms.common.interviewitem.phone}</label></td>
+        <td><input t:type="TextField" t:id="interviewItemPhone" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="interviewItemQuestionContent">${message:mvncms.common.interviewitem.question}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextArea" t:id="interviewItemQuestionContent" /></td>
+      </tr>
+       <tr id="vietnameseKeyboardBlock" style="display: none" class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.vietnamese_key}</td>
+        <td>
+          <t:publishadmin.VietnameseKeyboardComponent inputList="literal:interviewItemName,interviewItemOccupation,interviewItemAddress,interviewItemQuestionContent" />
+        </td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input t:type="chenillekit/Hidden" t:id="interviewID" />
+          <input t:type="chenillekit/Hidden" t:id="contentID" />
+          <input type="submit" value="${message:mvncms.action.edit}" class="portlet-form-button" />
+          <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+        </td>
+      </tr>
+    </table>
+  </form>
+   
+</t:publishadmin.border>

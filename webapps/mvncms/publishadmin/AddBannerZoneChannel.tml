@@ -1,0 +1,45 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/AddBannerZoneChannel.tml,v 1.10 2009/08/14 02:41:37 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.10 $
+ - $Date: 2009/08/14 02:41:37 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<t:publishadmin.border title="message:mvncms.addbannerzonechannel.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+  
+  <form t:type="Form" t:id="addBannerZoneChannelForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <table border="0" class="tborder center" width="95%" cellspacing="0" cellpadding="3">
+      <tr class="portlet-section-body">
+        <td><label t:type="Label" for="zoneID">${message:mvncms.addbannerzonechannel.zonename}<span class="requiredfield"> *</span></label></td>
+        <td><select t:type="Select" t:id="zoneID" /></td>
+      </tr>
+      <tr class="portlet-section-body">
+        <td><label t:type="Label" for="bannerID">${message:mvncms.addbannerzonechannel.bannername}<span class="requiredfield"> *</span></label></td>
+        <td><select t:type="Select" t:id="bannerID" /></td>
+      </tr>
+      <tr class="portlet-section-body">
+        <td><label t:type="Label" for="channelID">${message:mvncms.common.channel.name}<span class="requiredfield"> *</span></label></td>
+        <td><select t:type="Select" t:id="channelID" /></td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input type="submit" value="${message:mvncms.action.create}" class="portlet-form-button" />
+          <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</t:publishadmin.border>

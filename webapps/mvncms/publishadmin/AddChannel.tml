@@ -1,0 +1,135 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/AddChannel.tml,v 1.19 2009/08/14 02:41:37 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.19 $
+ - $Date: 2009/08/14 02:41:37 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.addchannel.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <table width="95%" cellspacing="0" cellpadding="0" class="center" border="0">
+    <tr>
+      <td style="width: 20%;" valign="top" class="no_wrap">
+        <table class="tborder" width="100%" cellspacing="0" cellpadding="3"> 
+          <tr class="portlet-section-header">
+            <td align="center" class="no_wrap">${message:mvncms.common.channel.choose_parent_channel}</td>
+          </tr>
+          <tr class="portlet-section-body">
+            <td><span t:type="publishadmin/ChannelTree" t:channelModelID="literal:channelParentID" /></td>
+          </tr>
+        </table>
+      </td>
+      <td>&nbsp;&nbsp;</td>
+      <td valign="top" style="width: 100%;" class="no_wrap">  
+        <form t:type="Form" t:id="addChannelForm" t:clientValidation="true">
+          <t:publishadmin.TokenField />
+          <table class="tborder" width="100%" cellspacing="0" cellpadding="3">
+            <tr class="portlet-section-header">
+              <th colspan="2" align="left">${message:mvncms.addchannel.title}</th>
+            </tr>  
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelParentID">${message:mvncms.common.channel.parentid}<span class="requiredfield"> *</span></label> </td>
+              <td><select t:type="Select" t:id="channelParentID" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="forumID">${message:mvncms.common.channel.forumid}</label></td>
+              <td><input t:type="TextField" t:id="forumID" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelFeedCode">${message:mvncms.common.channel.feedcode}<span class="requiredfield"> *</span></label> </td>
+              <td><input t:type="TextField" t:id="channelFeedCode" size="60" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelNiceName">${message:mvncms.common.channel.nicename}<span class="requiredfield"> *</span></label> </td>
+              <td><input t:type="TextField" t:id="channelNiceName" size="60" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelName">${message:mvncms.common.channel.name}<span class="requiredfield"> *</span></label></td>
+              <td><input t:type="TextField" t:id="channelName" size="60" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelDesc">${message:mvncms.common.channel.desc}<span class="requiredfield"> *</span></label></td>
+              <td><input t:type="TextArea" t:id="channelDesc" cols="59" rows="5" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelTagLine">${message:mvncms.common.channel.tagline}</label></td>
+              <td><input t:type="TextField" t:id="channelTagLine" size="60" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelHeader">${message:mvncms.common.channel.header}</label></td>
+              <td><input t:type="TextField" t:id="channelHeader" size="60" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelFooter">${message:mvncms.common.channel.footer}</label></td>
+              <td><input t:type="TextField" t:id="channelFooter" size="60" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelKeyword">${message:mvncms.common.channel.keyword}</label></td>
+              <td><input t:type="TextField" t:id="channelKeyword" size="60" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelPassword">${message:mvncms.common.channel.password}</label></td>
+              <td><input t:type="TextField" t:id="channelPassword" size="60" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelImage">${message:mvncms.common.channel.image}</label></td>
+              <td><input t:type="TextField" t:id="channelImage" size="60" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelImageTitle">${message:mvncms.common.channel.imagetitle}</label></td>
+              <td><input t:type="TextField" t:id="channelImageTitle" size="60" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelImageCaption">${message:mvncms.common.channel.imagecaption}</label></td>
+              <td><input t:type="TextField" t:id="channelImageCaption" size="60" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelTemplate">${message:mvncms.common.channel.template}</label></td>
+              <td><input t:type="TextField" t:id="channelTemplate" size="60" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelCSSSkin">${message:mvncms.common.channel.cssskin}</label></td>
+              <td><input t:type="TextField" t:id="channelCSSSkin" size="60" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelOrder">${message:mvncms.common.channel.order}</label></td>
+              <td><input t:type="TextField" t:id="channelOrder" size="60" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelRank">${message:mvncms.common.channel.rank}</label></td>
+              <td><input t:type="TextField" t:id="channelRank" size="60" /></td>
+            </tr>
+            <tr class="${prop:evenodd.next}">
+              <td><label t:type="Label" for="channelViewMode">${message:mvncms.common.channel.viewmode}</label></td>
+              <td><select t:type="Select" t:id="channelViewMode" /></td>
+            </tr>
+            <tr id="vietnameseKeyboardBlock" style="display: none" class="${prop:evenodd.next}">
+              <td>${message:mvncms.common.vietnamese_key}</td>
+              <td>
+                <t:publishadmin.VietnameseKeyboardComponent inputList="literal:channelName,channelDesc,channelKeyword,channelImageTitle" />
+              </td>
+            </tr>
+            <tr class="portlet-section-footer">
+              <td colspan="2" align="center">
+                <input type="submit" value="${message:mvncms.action.create}" class="portlet-form-button" />
+                <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+              </td>
+            </tr>
+          </table>
+        </form>
+      </td>
+    </tr>
+  </table>
+  
+</t:publishadmin.border>

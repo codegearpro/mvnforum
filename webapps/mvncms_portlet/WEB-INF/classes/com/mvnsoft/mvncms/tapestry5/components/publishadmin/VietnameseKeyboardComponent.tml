@@ -1,0 +1,39 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/src/com/mvnsoft/mvncms/tapestry5/components/publishadmin/VietnameseKeyboardComponent.tml,v 1.13 2009/10/29 02:48:32 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.13 $
+ - $Date: 2009/10/29 02:48:32 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  
+  <t:If test="vietnameseLocale">
+    <script type="text/javascript">
+      var va = "${inputList}".split(',');
+      if (document.getElementById("vietnameseKeyboardBlock")) {
+        document.getElementById("vietnameseKeyboardBlock").style.display = "";
+      }
+    </script>
+    <div>
+      <input id="him_auto" class="noborder" onclick="setMethod(0);" type="radio" name="viet_method"/>${message:mvncms.common.vietnamese_key.auto}
+      <input id="him_telex" class="noborder" onclick="setMethod(1);" type="radio" name="viet_method"/>${message:mvncms.common.vietnamese_key.telex}
+      <input id="him_vni" class="noborder" onclick="setMethod(2);" type="radio" name="viet_method" checked="checked"/>${message:mvncms.common.vietnamese_key.vni}
+      <input id="him_viqr" class="noborder" onclick="setMethod(3);" type="radio" name="viet_method"/>${message:mvncms.common.vietnamese_key.viqr} 
+      <input id="him_off" class="noborder" onclick="setMethod(-1);" type="radio" name="viet_method"/>${message:mvncms.common.vietnamese_key.off} 
+    </div>
+    <t:parameter name="else">
+      <script type="text/javascript">
+        var va = "";
+      </script>
+    </t:parameter>
+  </t:If>
+  <script type="text/javascript" src="${context:/mvnplugin/mvncms/cms/jscripts/avim.js}"></script>
+</t:container>

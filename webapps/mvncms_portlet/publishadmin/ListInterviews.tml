@@ -1,0 +1,51 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/ListInterviews.tml,v 1.24 2009/07/15 11:21:13 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.24 $
+ - $Date: 2009/07/15 11:21:13 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.listinterview.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  
+  <script type="text/javascript" src="${asset:context:/mvnplugin/mvncms/cms/jscripts/overlib/overlib.js}" />
+  
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+
+  <t:publishadmin.MessageBox key="successKey" />
+ 
+  <div class="textcenter">
+    <table t:type="grid" t:id="gridInterview" t:source="interviewBeans" t:row="interviewBean" t:rowsPerPage="postsPerPage" t:pagerPosition="top" t:add="view,edit,delete,workflow" t:include="interviewID,interviewSubject,contentID" style="margin:0px auto;" width="95%" t:rowClass="prop:evenodd.next">[Grid here]
+      <t:parameter name="viewCell">
+        <div class="textcenter">
+          <a t:type="PageLink" t:id="view" t:context="interviewBean.interviewID" t:page="PublishAdmin/ViewInterview"><img src="${asset:context:/mvnplugin/mvncms/images/icons/information.gif}" onmouseover="${onMouseOver}" onmouseout="return nd();" alt="" /></a>
+        </div>
+      </t:parameter>
+      <t:parameter name="editCell">
+        <div class="textcenter">
+          <a t:type="PageLink" t:id="edit" t:context="interviewBean.interviewID" t:page="PublishAdmin/EditInterview">${message:mvncms.action.edit}</a>
+        </div>
+      </t:parameter>
+      <t:parameter name="deleteCell">
+        <div class="textcenter">
+          <a t:type="PageLink" t:id="delete" t:context="interviewBean.interviewID" t:page="PublishAdmin/DeleteInterview">${message:mvncms.action.delete}</a>
+        </div>
+      </t:parameter>
+      <t:parameter name="workflowCell">
+        <div class="textcenter">
+          <a t:type="PageLink" t:id="workflow" t:context="list:interviewBean.contentID,stepID" t:page="PublishAdmin/InterviewManagement">${message:mvncms.workflow.title}</a>
+        </div>
+      </t:parameter>
+    </table>
+  </div>
+  <div>&nbsp;</div>
+   
+</t:publishadmin.border>

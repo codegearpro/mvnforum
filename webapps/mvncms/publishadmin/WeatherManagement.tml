@@ -1,0 +1,102 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/WeatherManagement.tml,v 1.35 2009/09/10 04:35:25 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.35 $
+ - $Date: 2009/09/10 04:35:25 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.weathermanagement.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  <script type="text/javascript">
+    function addC() {
+        document.getElementById('weatherTemperature').value += document.getElementById('escapeC').innerHTML + 'C';
+    }
+    function addF() {
+        document.getElementById('weatherTemperature').value += document.getElementById('escapeC').innerHTML + 'F';
+    }
+    function validateDelete() {
+        return confirm('Do you want to delete?');
+    }
+  </script>
+  
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+
+  <div><span style="display: none" id="escapeC">&#176;</span></div>
+  <form t:type="Form" t:id="addWeatherForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <t:errors><div>&nbsp;</div></t:errors>
+    <table border="0" width="95%" cellspacing="0" cellpadding="3" class="tborder center">
+      <tr class="portlet-section-header">
+        <td colspan="2">${message:mvncms.weathermanagement.add}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td style="width: 40%;"><label t:type="Label" for="cityName">${message:mvncms.common.weather.cityname} ${message:mvncms.common.weather.cityname_ex}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="cityName" /></td>
+      </tr> 
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="weatherType">${message:mvncms.common.weather.type} ${message:mvncms.common.weather.type_ex}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="weatherType" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="weatherTemperature">${message:mvncms.common.weather.temperature} ${message:mvncms.common.weather.temperature_ex}<span class="requiredfield"> *</span></label></td>
+        <td>
+            <input t:type="TextField" t:id="weatherTemperature" />
+            <input type="button" value="${message:mvncms.action.append} &#176;C" onclick="javascript:addC()" />
+            <input type="button" value="${message:mvncms.action.append} &#176;F" onclick="javascript:addF()" />
+        </td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="display">${message:mvncms.common.weather.display}</label></td>
+        <td><checkbox t:type="Checkbox" t:id="display" class="noborder" /></td>
+      </tr>
+      <tr id="vietnameseKeyboardBlock" style="display: none" class="${prop:evenodd.next}">
+        <td>
+          ${message:mvncms.common.vietnamese_key}
+        </td>
+        <td>
+          <t:publishadmin.VietnameseKeyboardComponent inputList="literal:cityName,weatherType" />
+        </td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input type="submit" value="${message:mvncms.action.create}" class="portlet-form-button" />
+          <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+        </td>
+      </tr>
+    </table>
+  </form>
+  <div>&nbsp;</div>
+  
+  <div class="textcenter">
+    <table t:type="Grid" t:source="weathers" t:row="weather" t:rowsPerPage="postsPerPage" t:pagerPosition="top" t:add="edit, delete" t:empty="${message:grid.empty_message}" t:include="cityName, weatherType, weatherTemperature, visible, weatherTypeModifiedDate"
+           style="margin:0px auto;" width="95%" t:rowClass="prop:evenodd.next">[Grid here]
+      <t:parameter name="visibleCell">
+        <t:publishadmin.BeanAtributeDisplay beanName="literal:weather" atribute="literal:visible" input="weather.visible" />
+      </t:parameter>
+      <t:parameter name="editCell">
+        <a t:type="PageLink" t:page="publishadmin/EditWeather" t:context="weather.cityID" href="#">${message:mvncms.action.edit}</a>
+      </t:parameter>
+      <t:parameter name="deleteCell">
+        <form t:type="form" t:id="delWeatherForm" >
+          <t:publishadmin.TokenField />
+          <div>
+            <input t:type="chenillekit/Hidden" t:id="cityID" value="cityID" /> 
+            <input type="submit" onclick="return validateDelete();" value="${message:mvncms.action.delete}"/>
+          </div>
+        </form>
+      </t:parameter>
+     </table>
+   </div>
+   <div>&nbsp;</div>
+  
+</t:publishadmin.border>

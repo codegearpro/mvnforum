@@ -1,0 +1,29 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/MiscTasks.tml,v 1.1 2009/06/01 09:22:27 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.1 $
+ - $Date: 2009/06/01 09:22:27 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.misctasks.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+  
+  <div class="pagedesc">
+    <t:ActionLink t:id="rebuildContentIndex">${message:mvncms.misctasks.rebuild_content_index.title}</t:ActionLink><br />
+    <t:ActionLink t:id="rebuildAlbumIndex">${message:mvncms.misctasks.rebuild_album_index.title}</t:ActionLink><br />
+    <t:ActionLink t:id="clearContentCache">${message:mvncms.misctasks.clear_content_cache.title}</t:ActionLink><br />
+  </div>  
+        
+</t:publishadmin.border>

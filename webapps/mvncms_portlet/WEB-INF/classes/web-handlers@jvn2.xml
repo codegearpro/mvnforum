@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page-handlers>
+  <page name="common" virtual="true">
+    <handler name="ExtraContentsWebHandler@Marquee" />
+    <handler name="ExtraContentsWebHandler@MostView" />
+    <handler name="TaxonomyWebHandler" />
+    <handler name="InterviewWebHandler" />
+    <handler name="ForumLinkWebHandler" />
+    <handler name="SelectChannelWebHandler" />
+    <handler name="PrepareAlbumWebHandler" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW" action="content" uri="/mvnplugin/mvncms/cds/standard/jvn2/viewcontent.jsp">
+    <include page="common" />
+    
+    <handler name="SingleContentWebHandler" />
+    <handler name="ExtraContentsWebHandler@ViewContent" />
+    <handler name="FeedbackWebHandler" />
+    <handler name="PrepareNewContentsWebHandler@Jvn" />
+    <handler name="OnlineInterviewWebHandler" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_MODE_0" action="" uri="/mvnplugin/mvncms/cds/standard/jvn2/listcontents_mode_0.jsp">
+    <include page="common" />
+    
+    <handler name="ListContentsChannelWebHandler@Jvn" />
+  </page>
+
+  <page name="CDS_URL_PAGE_LIST_MODE_1" action="" uri="/mvnplugin/mvncms/cds/standard/jvn2/listcontents_mode_1.jsp">
+    <include page="common" />
+    
+    <handler name="ListContentsHomeWebHandler@Jvn" />
+    <handler name="ExtraContentsWebHandler@HotNews" />
+    <handler name="ExtraContentsWebHandler@FeatureHome" />
+   
+    <handler name="LiveFeedWebHandler@Announce" />
+    <handler name="LiveFeedWebHandler@Job" />
+    <handler name="LiveFeedWebHandler@Jvn" />
+    <handler name="LiveFeedWebHandler@JWorld" />
+    
+    <handler name="ForumRecentThreadWebHandler" />
+    <handler name="ForumWebHandler" />
+  </page>
+
+  <page name="search" action="/search" uri="/mvnplugin/mvncms/cds/standard/jvn2/search.jsp">
+    <include page="common" />
+      
+    <handler name="SearchPageWebHandler" />
+    <handler name="PrepareChannelsWebHandler" />
+  </page>
+
+  <page name="print" action="/print" uri="/mvnplugin/mvncms/cds/standard/jvn2/print.jsp">
+    <handler name="PrintWebHandler" />
+    <handler name="FeedbackWebHandler" />
+  </page>
+
+  <page name="contentfeedbackprocess" action="/contentfeedbackprocess" uri="/mvnplugin/mvncms/cds/standard/jvn2/addfeedbackresult.jsp">
+    <handler name="ProcessAddContentFeedbackWebHandler" />
+  </page>
+  
+  <page name="addinterviewitemprocess" action="/addinterviewitemprocess" uri="/mvnplugin/mvncms/cds/standard/jvn2/addinterviewitemresult.jsp">
+    <handler name="ProcessAddInterviewItemWebHandler" />
+  </page>
+
+  <page name="listevents" action="/listevents" uri="/mvnplugin/mvncms/cds/standard/jvn2/listevents.jsp">
+    <include page="common" />
+  
+    <handler name="ProcessListEventsWebHandler" />
+    <handler name="PrepareChannelsWebHandler" />
+  </page>
+  
+  <page name="viewevent" action="/viewevent" uri="/mvnplugin/mvncms/cds/standard/jvn2/viewevent.jsp">
+    <include page="common" />
+    
+    <handler name="ProcessViewEventWebHandler" />
+    <handler name="PrepareChannelsWebHandler" />
+  </page>
+  
+  <page name="sendmail" action="/sendmail" uri="/mvnplugin/mvncms/cds/standard/jvn2/sendmail.jsp">
+    <handler name="SendMailWebHandler" />
+  </page>
+
+  <page name="confighome" action="/confighome" uri="/mvnplugin/mvncms/cds/standard/jvn2/confighome.jsp">
+    <handler name="JVNConfigHomeWebHandler" />
+  </page>
+  
+  <page name="configchannel" action="/configchannel" uri="/mvnplugin/mvncms/cds/standard/jvn2/configchannel.jsp">
+    <handler name="JVNConfigChannelWebHandler" />
+  </page>
+
+  <page name="emailtofriends" action="/emailtofriends" uri="/mvnplugin/mvncms/cds/standard/jvn2/emailtofriends.jsp">
+  </page>
+
+  <page name="rsssummary" action="/rsssummary" uri="rsssummary.jsp" />
+  <page name="ad" action="/ad" uri="ad.jsp" />
+  
+  <page name="newsinmvnforumlistmode" action="/newsinmvnforumlistmode" uri="/mvnplugin/mvncms/cds/standard/jvn2/news_in_mvnforum_list.jsp">
+    <handler name="NewsInMvnforumWebHandler" />
+  </page>
+  
+  <page name="newsinmvnforumtabmode" action="/newsinmvnforumtabmode" uri="/mvnplugin/mvncms/cds/standard/jvn2/news_in_mvnforum_tab.jsp">
+    <handler name="NewsInMvnforumWebHandler" />
+  </page>
+  
+  <web-handlers>
+    <web-handler name="RSSHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.LiveFeedWebHandler" virtual="true">
+      <property name="item-path" value="/rss/channel/item" />
+      <property name="link-node" value="link" />
+      <property name="title-node" value="title" />
+      <property name="size" value="5" />
+      <property name="url" value=".." />
+      <property name="timeout" value="5" /><!-- minutes-->
+    </web-handler>
+
+    <web-handler name="LiveFeedWebHandler@Announce" id="@Announce" ref="RSSHandler">
+      <property name="url" value="http://www.javavietnam.org/javavn/mvnforum/rss2?forum=1&amp;sort=ThreadLastPostDate&amp;order=DESC" />
+      <property name="timeout" value="30" /><!-- minutes-->
+    </web-handler>
+
+    <web-handler name="LiveFeedWebHandler@Job" id="@Job" ref="RSSHandler">
+      <property name="url" value="http://www.javavietnam.org/javavn/mvnforum/rss2?forum=35&amp;sort=ThreadLastPostDate&amp;order=DESC" />
+      <property name="timeout" value="30" /><!-- minutes-->
+    </web-handler>
+
+    <web-handler name="LiveFeedWebHandler@Jvn" id="@Jvn" ref="RSSHandler">
+      <property name="url" value="http://www.javavietnam.org/javavn/mvnforum/rss2?sort=ThreadLastPostDate&amp;order=DESC" />
+      <property name="timeout" value="30" /><!-- minutes-->
+    </web-handler>
+
+    <web-handler name="LiveFeedWebHandler@JWorld" id="@JWorld" ref="RSSHandler">
+      <property name="url" value="http://feeds.pheedo.com/techtarget/tsscom/home" />
+      <property name="timeout" value="30" /><!-- minutes-->
+      <!-- minutes-->
+    </web-handler>
+
+    <web-handler name="SearchPageWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.SearchPageWebHandler" />
+    <web-handler name="PrepareChannelsWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.PrepareChannelsWebHandler" />
+    <web-handler name="ProcessAddContentFeedbackWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ProcessAddContentFeedbackWebHandler" />
+    <web-handler name="ProcessAddInterviewItemWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ProcessAddInterviewItemWebHandler" />
+    <web-handler name="ProcessListEventsWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ProcessListEventsWebHandler" />
+    <web-handler name="ProcessViewEventWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ProcessViewEventWebHandler" />
+    
+    <web-handler name="JVNConfigHomeWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.jvn.JVNConfigHomeWebHandler" />
+    <web-handler name="JVNConfigChannelWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.jvn.JVNConfigChannelWebHandler" />
+    
+    <web-handler name="PrepareNewContentsWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.PrepareNewContentsWebHandler" virtual="true">
+      <property name="rows" value="10" />
+      <property name="order" value="ContentCreationDate:DESC" />
+    </web-handler>    
+  
+    <web-handler name="ExtraContentsWebHandler@FeatureHome" id="@FeatureHome" ref="ExtraContentsWebHandler">
+      <property name="type" value="1" />
+      <property name="order" value="ContentCreationDate:DESC" />
+      <property name="channel" value="true" />
+    </web-handler>
+    
+    <web-handler name="PrepareAlbumWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.jvn.PrepareAlbumWebHandler" />
+
+    <web-handler name="ListContentsChannelWebHandler@Jvn" id="@Jvn" ref="ListContentsChannelWebHandler" />
+    <web-handler name="ListContentsHomeWebHandler@Jvn" id="@Jvn" ref="ListContentsHomeWebHandler" />
+    <web-handler name="PrepareNewContentsWebHandler@Jvn" id="@Jvn" ref="PrepareNewContentsWebHandler" />
+    
+    <web-handler name="ForumRecentThreadWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ForumRecentThreadWebHandler" />
+    <web-handler name="ForumWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ForumWebHandler" />
+    <web-handler name="OnlineInterviewWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.OnlineInterviewWebHandler" />
+      
+    <web-handler name="NewsInMvnforumWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.NewsInMvnforumWebHandler">
+      <property name="rows" value="4" />
+      <!-- channels
+        -1: all channels and we will ignore 'listchannels' value below
+      -->
+      <property name="channels" value="-1" />
+      <property name="listchannels" value="2,5,9,12,11" />
+      <!-- property name="dispatch" value="include" / -->
+    </web-handler>
+    
+  </web-handlers>
+
+</page-handlers>

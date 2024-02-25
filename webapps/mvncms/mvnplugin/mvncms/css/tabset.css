@@ -1,0 +1,78 @@
+/*
+   $Id: tabset.css,v 1.5 2009/10/30 08:56:37 trungth Exp $
+
+   ==================================================
+   ======   Global stylesheet for mvnForum.   =======
+   ==================================================
+
+*/
+
+html {
+  overflow: -moz-scrollbars-vertical;
+}
+div.mvn_tabSet {
+}
+
+div.mvn_tab {
+  /*background: url( white-top-bottom.gif ) repeat-x scroll 0 -1px;*/
+  color: black;
+  border-bottom:1px solid #c0c0c0;
+  border-top:1px solid #c0c0c0;
+  border-right:1px solid #c0c0c0;
+  border-left:1px solid #c0c0c0;
+  /*border: 1px solid #98c0f4;*/
+  background-color:#e0edfd;
+  float: left;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-left: 2px;
+  cursor: pointer;
+  width: 100px;
+  text-decoration:none;
+  line-height: 20px;
+  width: 85px;
+}
+div.mvn_tab:hover{
+  /*background: url( white-top-bottom.gif ) repeat-x scroll 0 -1px;*/
+  color:#fff;
+  border-bottom:1px solid #c0c0c0;
+  border-top:1px solid #c0c0c0;
+  border-right:1px solid #c0c0c0;
+  border-left:1px solid #c0c0c0;
+  /*border: 1px solid #98c0f4;*/
+  background-color:#639bfa;
+  float: left;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-left: 2px;
+  cursor: pointer;
+  width: 100px;
+  text-decoration:none;
+}
+
+div.activated {
+  font-weight: bold;
+  color: #993300;
+  background-color:#fff;
+  border-bottom:1px solid #fff;
+
+}
+
+div.mvn_tabSetContent {
+  clear: left;
+  border-left: 1px solid silver;
+  border-right: 1px solid silver;
+  border-bottom: 1px solid silver;
+  padding: 5px;
+}
+
+div.tabsetcomponent_panel {
+  background: url(../images/icons/tab-line.gif) repeat-x left bottom;
+  position: relative;
+  line-height:26px;
+  height:26px;
+}

@@ -1,0 +1,62 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/AddMember.tml,v 1.2 2009/09/07 11:21:54 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.2 $
+ - $Date: 2009/09/07 11:21:54 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2009 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.addmember.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+  <t:publishadmin.NavigationLink links="navigationLinks" /> 
+
+  <form t:type="Form" t:id="addMemberForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    
+    <t:errors><div>&nbsp;</div></t:errors>
+    
+    <div>
+      <table class="tborder" width="95%" align="center" cellpadding="3" cellspacing="0">
+      <tr class="portlet-section-header">
+        <td colspan="2">${message:mvncms.addmember.info}</td>
+      </tr>
+      <tr class="${prop:evenOdd.next}">
+        <td style="width:30%"><label t:type="Label" for="memberName">${message:mvncms.common.member.login_name}<span class="requiredfield"> *</span></label></td>
+        <td style="width:70%"><input t:type="TextField" t:id="memberName" class="long_text"/></td>
+      </tr>
+      <tr class="${prop:evenOdd.next}">
+        <td><label t:type="Label" for="memberPassword">${message:mvncms.common.member.password}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="memberPassword" class="long_text"/></td>
+      </tr>
+      <tr class="${prop:evenOdd.next}">
+        <td><label t:type="Label" for="confirmPassword">${message:mvncms.common.member.password} (${message:mvncms.action.retype})<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="confirmPassword" class="long_text"/></td>
+      </tr>
+      <tr class="${prop:evenOdd.next}">
+        <td><label t:type="Label" for="memberEmail">${message:mvncms.common.member.email}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="memberEmail" class="long_text"/></td>
+      </tr>
+      <tr class="${prop:evenOdd.next}">
+        <td><label t:type="Label" for="confirmEmail">${message:mvncms.common.member.email} (${message:mvncms.action.retype})<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="confirmEmail" class="long_text"/></td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input type="submit" value="${message:mvncms.action.add}" class="portlet-form-button" />&nbsp;
+          <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+        </td>
+      </tr>
+    </table>
+
+    </div>
+</form>
+
+</t:publishadmin.border>

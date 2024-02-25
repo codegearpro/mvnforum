@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+    <display-name>MVN Collaboration Portlet WebApp</display-name>
+    <description>MVN mvnForum, mvnAd, mvnPublish Portlet Web Application</description>
+
+    <context-param>
+        <!-- The only significant configuration for Tapestry 5, this informs Tapestry
+              of where to look for pages, components and mixins. -->
+        <param-name>tapestry.app-package</param-name>
+        <param-value>com.mvnsoft.mvncms.tapestry5</param-value>
+    </context-param>
+
+    <!-- filters -->
+    <filter>
+        <filter-name>Error404</filter-name>
+        <filter-class>net.myvietnam.mvncore.servlet.filter.Error404Filter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>mvncms5</filter-name>
+        <filter-class>org.apache.tapestry5.TapestryFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>fixAssetPath</filter-name>
+        <filter-class>com.mvnsoft.mvncms.tapestry5.servlet.FixAssetPathFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>MvnCorePortletCommonServletFilter</filter-name>
+        <filter-class>com.mvnsoft.mvncore.servlet.filter.MvnCorePortletCommonServletFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>Error404</filter-name>
+        <url-pattern>/publishadmin/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>fixAssetPath</filter-name>
+        <url-pattern>/cmsadmin/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>mvncms5</filter-name>
+        <url-pattern>/cmsadmin/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>mvncms5</filter-name>
+        <url-pattern>/assets/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>MvnCorePortletCommonServletFilter</filter-name>
+        <url-pattern>/PlutoInvoker/*</url-pattern>
+    </filter-mapping>
+    <!-- /filters -->
+
+    <!-- listeners -->
+    <listener>
+        <listener-class>com.mvnsoft.mvncms.MVNCMSContextListener</listener-class>
+    </listener>
+    <!-- /listeners -->
+
+    <!-- servlets -->
+    <servlet>
+<servlet-name>mvnPublishAdminPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>mvnPublishAdminPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>ContactUsPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>ContactUsPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>WebLinkPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>WebLinkPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>CDSPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>CDSPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>ContentsInChannelTabsPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>ContentsInChannelTabsPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>HotAndLatestNewsPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>HotAndLatestNewsPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>HotNewsPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>HotNewsPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>LatestNewsPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>LatestNewsPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>SearchPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>SearchPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>SingleContentPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>SingleContentPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>IntroducePortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>IntroducePortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>ContactPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>ContactPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>NewsPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>NewsPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>MetaDataPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>MetaDataPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>AdminAdPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>AdminAdPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>UserAdPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>UserAdPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>DisplayAdPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>DisplayAdPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>UserForumPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>UserForumPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>AdminForumPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>AdminForumPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>RecentThreadsPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>RecentThreadsPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>HotThreadsPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>HotThreadsPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>AlbumPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>AlbumPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>PollPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>PollPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+<servlet-name>UserManagementPortlet</servlet-name>
+<servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+<init-param>
+<param-name>portlet-name</param-name>
+<param-value>UserManagementPortlet</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+        <servlet-name>MVNDownload</servlet-name>
+        <display-name>My Vietnam download plugin</display-name>
+        <description>My Vietnam download plugin</description>
+        <servlet-class>com.mvnforum.portlet.core.DownloadServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ForumMobileServlet</servlet-name>
+        <servlet-class>com.mvnforum.mobile.ForumMobileServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>DeliveryServlet</servlet-name>
+        <servlet-class>com.mvnsoft.mvnad.delivery.DeliveryServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>DisplayChart</servlet-name>
+        <servlet-class>org.jfree.chart.servlet.DisplayChart</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MVNCDSServlet</servlet-name>
+        <servlet-class>com.mvnsoft.mvncms.cds.standard.CDSServlet</servlet-class>
+        <init-param>
+          <param-name>template</param-name>
+          <param-value>template1</param-value>
+        </init-param>
+    </servlet>
+    <!-- /servlets -->
+
+    <!-- servlet-mappings -->
+    <servlet-mapping>
+<servlet-name>mvnPublishAdminPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/mvnPublishAdminPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>ContactUsPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/ContactUsPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>WebLinkPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/WebLinkPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>CDSPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/CDSPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>ContentsInChannelTabsPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/ContentsInChannelTabsPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>HotAndLatestNewsPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/HotAndLatestNewsPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>HotNewsPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/HotNewsPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>LatestNewsPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/LatestNewsPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>SearchPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/SearchPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>SingleContentPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/SingleContentPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>IntroducePortlet</servlet-name>
+<url-pattern>/PlutoInvoker/IntroducePortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>ContactPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/ContactPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>NewsPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/NewsPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>MetaDataPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/MetaDataPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>AdminAdPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/AdminAdPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>UserAdPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/UserAdPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>DisplayAdPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/DisplayAdPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>UserForumPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/UserForumPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>AdminForumPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/AdminForumPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>RecentThreadsPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/RecentThreadsPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>HotThreadsPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/HotThreadsPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>AlbumPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/AlbumPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>PollPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/PollPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>UserManagementPortlet</servlet-name>
+<url-pattern>/PlutoInvoker/UserManagementPortlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+        <servlet-name>MVNDownload</servlet-name>
+        <url-pattern>/download/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ForumMobileServlet</servlet-name>
+        <url-pattern>/m/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DeliveryServlet</servlet-name>
+        <url-pattern>/delivery/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DisplayChart</servlet-name>
+        <url-pattern>/servlet/DisplayChart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MVNCDSServlet</servlet-name>
+        <url-pattern>/cms/*</url-pattern>
+    </servlet-mapping>
+    <!-- /servlet-mappings -->
+
+    <session-config>
+        <session-timeout>120</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <taglib>
+        <taglib-uri>http://jsptags.com/tags/navigation/pager</taglib-uri>
+        <taglib-location>/WEB-INF/pager-taglib.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>mvntaglib</taglib-uri>
+        <taglib-location>/WEB-INF/mvntaglib.tld</taglib-location>
+    </taglib>
+</web-app>

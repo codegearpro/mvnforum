@@ -1,0 +1,41 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/MaxHttpRequest.tml,v 1.5 2009/04/24 03:03:58 nhanld Exp $
+ - $Author: nhanld $
+ - $Revision: 1.5 $
+ - $Date: 2009/04/24 03:03:58 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  <head>
+    <title>Content Management System - Max HTTP Request Error</title>
+  </head>
+  <body>
+    <table width="100%">
+      <tr>
+        <td>
+          <table width="80%" border="5" cellspacing="0" class="center" cellpadding="3">
+            <tr>
+              <td align="center" style="font-size: large">
+                &nbsp;<br/>
+                ${floodMessage}
+                <br/>
+                <br/>
+                &nbsp;<br/>
+                Powered by <a href="http://www.mvnforum.com" target="_blank">mvnForum</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

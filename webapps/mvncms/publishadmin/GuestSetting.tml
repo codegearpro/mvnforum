@@ -1,0 +1,54 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/GuestSetting.tml,v 1.25 2009/04/24 09:07:10 trungth Exp $
+ - $Author: trungth $
+ - $Revision: 1.25 $
+ - $Date: 2009/04/24 09:07:10 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.guestsetting.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+ 
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+
+  <form t:type="Form" t:id="guestSettingForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <t:errors><div>&nbsp;</div></t:errors>
+    <table border="0" width="95%" cellspacing="0" cellpadding="3" class="tborder center">
+      <tr class="portlet-section-header">
+        <td colspan="2">${message:mvncms.guestsetting.title}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="postsPerPage">${message:mvncms.guestsetting.postsperpage}</label></td>
+        <td><select t:type="Select" t:id="postsPerPage" /></td>
+      </tr> 
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="localeName">${message:mvncms.guestsetting.language}</label></td>
+        <td><select t:type="Select" t:id="localeName" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="timeZone">${message:mvncms.guestsetting.timezone}</label></td>
+        <td><select t:type="Select" t:id="timeZone" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}"> 
+        <td><label t:type="Label" for="saveCookie">${message:mvncms.guestsetting.savecookie}</label></td>
+        <td><checkbox t:type="Checkbox" t:id="saveCookie" class="noborder" /></td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input type="submit" value="${message:mvncms.action.save}" class="portlet-form-button" />
+          <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</t:publishadmin.border>

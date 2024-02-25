@@ -1,0 +1,1 @@
+[mvnForum] - Forum Name: "${threadWatch.forumName}" - Thread title: "${threadWatch.threadTopic}" - [THREADID = ${threadWatch.threadID}] - [MEMBERNAME = ${threadWatch.memberReceiveMail}]

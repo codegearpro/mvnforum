@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvnforum_member>
+<!-- note: 
+# database means this field will be stored in database
+# disable means this field will be disabled
+-->
+  <MemberName>database</MemberName>
+  <MemberPassword>database</MemberPassword>
+  <MemberFirstEmail>database</MemberFirstEmail>
+  <MemberEmail>database</MemberEmail>
+  <MemberEmailVisible>database</MemberEmailVisible>
+  <MemberNameVisible>database</MemberNameVisible>
+  <MemberFirstIP>database</MemberFirstIP>
+  <MemberLastIP>database</MemberLastIP>
+  <MemberViewCount>database</MemberViewCount>
+  <MemberPostCount>database</MemberPostCount>
+  <MemberCreationDate>database</MemberCreationDate>
+  <MemberModifiedDate>database</MemberModifiedDate>
+  <MemberExpireDate>database</MemberExpireDate>
+  <MemberLastLogon>database</MemberLastLogon>
+  <MemberOption>database</MemberOption>
+  <MemberStatus>database</MemberStatus>
+  <MemberActivateCode>database</MemberActivateCode>
+  <MemberTempPassword>database</MemberTempPassword>
+  <MemberMessageCount>database</MemberMessageCount>
+  <MemberMessageOption>database</MemberMessageOption>
+  <MemberPostsPerPage>database</MemberPostsPerPage>
+  <MemberWarnCount>database</MemberWarnCount>
+  <MemberVoteCount>database</MemberVoteCount>
+  <MemberVoteTotalStars>database</MemberVoteTotalStars>
+  <MemberRewardPoints>database</MemberRewardPoints>
+  <MemberTitle>database</MemberTitle>
+  <MemberTimeZone>database</MemberTimeZone>
+  <MemberSignature>database</MemberSignature>
+  <MemberAvatar>database</MemberAvatar>
+  <MemberSkin>database</MemberSkin>
+  <MemberLanguage>database</MemberLanguage>
+  <MemberFirstname>database</MemberFirstname>
+  <MemberLastname>database</MemberLastname>
+  <MemberGender>database</MemberGender>
+  <MemberBirthday>database</MemberBirthday>
+  <MemberAddress>database</MemberAddress>
+  <MemberCity>database</MemberCity>
+  <MemberState>database</MemberState>
+  <MemberCountry>database</MemberCountry>
+  <MemberPhone>database</MemberPhone>
+  <MemberMobile>database</MemberMobile>
+  <MemberFax>database</MemberFax>
+  <MemberCareer>database</MemberCareer>
+  <MemberHomepage>database</MemberHomepage>
+  <MemberYahoo>database</MemberYahoo>
+  <MemberAol>database</MemberAol>
+  <MemberIcq>database</MemberIcq>
+  <MemberMsn>database</MemberMsn>
+  <MemberCoolLink1>database</MemberCoolLink1>
+  <MemberCoolLink2>database</MemberCoolLink2>
+</mvnforum_member>

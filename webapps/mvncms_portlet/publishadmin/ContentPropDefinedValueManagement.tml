@@ -1,0 +1,89 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/ContentPropDefinedValueManagement.tml,v 1.5 2010/04/06 08:18:59 khuongnhv Exp $
+ - $Author: khuongnhv $
+ - $Revision: 1.5 $
+ - $Date: 2010/04/06 08:18:59 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.contentpropdefinedvaluemanagement.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+  
+  <form t:type="Form" t:id="addContentPropDefinedValueForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <input t:type="chenillekit/Hidden" t:id="propertyID"/>
+    <t:errors><div>&nbsp;</div></t:errors>
+    <table border="0" class="tborder center" width="95%" cellspacing="0" cellpadding="3">
+      <tr class="portlet-section-header">
+        <th colspan="2" align="left">${message:mvncms.contentpropdefinedvaluemanagement.add}</th>
+      </tr>
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.contentproperty.name}</td>
+        <td>${contentPropertyBean.propertyName}</td>
+      </tr>
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.contentproperty.datatype}</td>
+        <td><t:publishadmin.BeanAtributeDisplay beanName="literal:ContentPropertyDataType" inputString="contentPropertyBean.propertyDataType" /></td>
+      </tr>
+      <t:if test="dataTypeDate">
+        <tr class="${prop:evenOdd.next}">
+          <td><label t:type="Label" for="definedValueDate">${message:mvncms.contentpropdefinedvaluemanagement.value}</label></td>
+          <td><input t:type="DateSelector" t:id="definedValueDate" value="definedValueDate" firstYear="1975" lastYear="2015" /></td>
+        </tr>
+        <t:parameter name="else">
+          <tr class="${prop:evenOdd.next}">
+            <td><label t:type="Label" for="definedValueString">${message:mvncms.contentpropdefinedvaluemanagement.value}</label></td>
+            <td><input t:type="TextField" t:id="definedValueString" size="50" /></td>
+          </tr>
+        </t:parameter>
+      </t:if>
+      <tr id="vietnameseKeyboardBlock" style="display: none">
+        <td>${message:mvncms.common.vietnamese_key}</td>
+        <td>
+          <t:publishadmin.VietnameseKeyboardComponent inputList="literal:definedValueString" />
+        </td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input type="submit" value="${message:mvncms.action.create}" class="portlet-form-button" />
+          <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+        </td>
+      </tr>
+    </table>
+  </form>
+  <div>&nbsp;</div>
+
+  <div class="textcenter">
+    <table t:type="grid" t:id="contentPropertyGrid" t:source="contentPropDefinedValues" t:row="bean"
+      t:add="definedValue, edit, delete" 
+      t:include="definedValueID"
+      t:order="definedValueID, definedValue, edit, delete"
+      t:rowsPerPage="postsPerPage" t:pagerPosition="top" align="center" width="95%"
+       t:rowClass="prop:evenOdd.next" t:empty="${message:grid.empty_message}">
+      
+      <t:parameter name="editCell">
+         <a t:type="PageLink" t:id="edit" t:context="list:bean.definedValueID" t:page="publishadmin/EditContentPropDefinedValue" href="#">${message:mvncms.action.edit}</a>
+      </t:parameter>
+      <t:parameter name="deleteCell">
+        <t:if test="canDelete">
+          <a t:type="ActionLink" t:id="delete" t:context="list:bean.definedValueID" href="#">${message:mvncms.action.delete}</a>
+        </t:if>
+      </t:parameter>
+      <t:parameter name="definedValueCell">
+         ${definedValue}
+      </t:parameter>
+    </table>
+  </div>
+  
+</t:publishadmin.border>

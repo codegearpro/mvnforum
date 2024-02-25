@@ -1,0 +1,417 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/EditContent.tml,v 1.49 2010/04/08 09:41:43 khuongnhv Exp $
+ - $Author: khuongnhv $
+ - $Revision: 1.49 $
+ - $Date: 2010/04/08 09:41:43 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.editcontent.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+<script type="text/javascript" src="${asset:context:/mvnplugin/mvncms/cms/jscripts/tree.js}" />
+  <script type="text/javascript">
+    function useImageAsDefault(fileName) {
+      if (fileName.indexOf("S") == 0) {
+        //Don't know why tapestry insert character 'S' before the name of image (only when use hidden field)
+        //So, remove this character 'S'
+        fileName = fileName.substring(1);
+      }
+      document.getElementById("contentDefaultImage").value = fileName;
+    }
+  </script>
+  
+  <script type="text/javascript">
+  var current_upload_path = ${currentUploadPath};
+    tinyMCE.init({
+      theme : "advanced",
+      mode : "textareas",
+      plugins : "advimage,media,table,template",
+      visual : false,
+      theme_advanced_toolbar_location : "top",
+      theme_advanced_buttons1_add : "fontselect,fontsizeselect",
+      theme_advanced_buttons2_add : "media,forecolor,backcolor,template",
+      theme_advanced_buttons3_add : "tablecontrols",
+      table_styles : "Header 1=header1;Header 2=header2;Header 3=header3",
+      table_cell_styles : "Header 1=header1;Header 2=header2;Header 3=header3;Table Cell=tableCel1",
+      table_row_styles : "Header 1=header1;Header 2=header2;Header 3=header3;Table Row=tableRow1", 
+      template_templates : [
+      {
+        title : "template 1",
+        src : "${pathOfTemplates}/template1.html",
+        description : ""
+      },
+      {
+        title : "template 2",
+        src : "${pathOfTemplates}/template2.html",
+        description : ""
+      },
+      {
+        title : "template 3",
+        src : "${pathOfTemplates}/template3.html",
+        description : ""
+      },
+      {
+        title : "Van ban phap quy",
+        src : "${pathOfTemplates}/template_legal_documents.html",
+        description : ""
+      },
+      {
+        title : "Bieu mau hanh chinh",
+        src : "${pathOfTemplates}/template_administration.html",
+        description : ""
+      }]
+    });
+  </script>
+  
+  <script type="text/javascript">
+    function showUploadFile(fileNumber) {
+      document.getElementById("uploadfile" + fileNumber).style.display = '';
+      document.getElementById("uploadmore" + fileNumber).style.display = 'none';
+    }
+  </script>
+  
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+   <t:publishadmin.MessageBox key="successKey" />
+  <table width="95%" cellspacing="0" cellpadding="0" class="center" border="0">
+    
+      <tr>
+          <td colspan="3" align="center">
+            <a href="${previewLink}" target="_blank">
+              ${message:mvncms.action.preview}
+            </a>
+          </td>
+      </tr>
+    
+      <tr>
+        <td style="width: 20%" valign="top" class="no_wrap">
+         
+     <!-- When use rich text area, clientValidationEnabled must be false -->
+          <form t:type="Form" t:id="uploadForm" t:clientValidation="true">
+            <t:publishadmin.TokenField />
+            <div>
+              <input t:type="chenillekit/Hidden" t:id="contentID"/>
+              <input t:type="chenillekit/Hidden" t:id="stepID"/>
+            </div>
+            <table class="tborder" width="100%" cellspacing="0" cellpadding="3"> 
+              <tr class="portlet-section-header">
+                <th align="center" colspan="2">${message:mvncms.common.content.uploadfile}</th>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td colspan="2">
+                  <input t:type="Upload" t:id="uploadFile"/>
+                </td>
+              </tr>
+              <!-- 
+              <tr class="${prop:evenodd.next}">
+                <td><label t:type="Label" for="imageWidth">${message:mvncms.common.content.imagewidth}</label></td>
+                <td><input t:type="TextField" t:id="imageWidth" size="10"/></td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td><label t:type="Label" for="imageHeight">${message:mvncms.common.content.imageheight}</label></td>
+                <td><input t:type="TextField" t:id="imageHeight" size="10"/></td>
+              </tr>
+               -->
+              <tr class="portlet-section-footer">
+                <td align="center" colspan="2">
+                  <input type="submit" value="Upload" class="portlet-form-button" />
+                </td>
+              </tr>
+            </table>
+          </form>
+          <t:If test="showImage">
+            <br />
+            <table class="tborder" width="100%" cellspacing="0" cellpadding="3"> 
+              <tr class="portlet-section-header">
+                <td align="center">${message:mvncms.editcontent.subhead}</td>
+              </tr> 
+              <tr t:type="Loop" t:source="uploadedFileArrayByAsset" t:value="currentFileByAsset" class="${prop:evenodd.next}">
+                <td>
+                    <form t:type="Form">
+                      <t:publishadmin.TokenField />
+                      <div>
+                        <input t:type="chenillekit/Hidden" value="${currentFileByAsset.fileName}" t:id="imageNameHidden"/>
+                        <input type="hidden" id="formID" value=""/>
+                      </div>
+                      <table width="100%">
+                        <tr>
+                          <td align="right">
+                            <t:If test="currentFileByAsset.canDisplayContent">
+                              <script type="text/javascript">                              
+                                <!-- //
+                                 var useItURL = "<a href=\"#\" class=\"command\" onclick=\"useImageAsDefault('" + findImageNameHidden() + "');\">";
+                                //-->
+                                 useItURL = useItURL + '${message:mvncms.editcontent.use_this_image}';
+                                <!-- //
+                                 useItURL = useItURL + "</a>"
+                                 document.write(useItURL);
+                                //-->
+                              </script>
+                              &nbsp;|&nbsp;</t:If><a t:type="ActionLink" t:id="delete" t:context="list:currentFileByAsset.fileName,contentID,stepID" class="command">${message:mvncms.action.delete}</a>                  
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="center">
+                            <t:If test="currentFileByAsset.canDisplayContent">
+                              <table class="noborder" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td><img src="${currentFileByAsset.asset}" alt="" style="width: 160px;"/></td>
+                                </tr>
+                                <tr>
+                                  <td><input t:type="TextField" size="30" t:value="currentFileByAsset.fullPath"/></td>
+                                </tr>
+                                <tr>
+                                  <td><input t:type="TextField" size="30" t:value="currentFileByAsset.fileName"/></td>
+                                </tr>
+                              </table>
+                            
+                              <t:parameter name="else">
+                                <t:If test="currentFileByAsset.canDisplayContentMovie">
+                                  <table class="noborder" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                      <td><embed src="${currentFileByAsset.asset}" height='200' type='application/x-mplayer2' EnableContextMenu='0' AutoStart='1' loop='1' ShowStatusBar='0' ShowControls='0'/></td>
+                                    </tr>
+                                    <tr>
+                                      <td><input t:type="TextField" size="30" t:value="currentFileByAsset.fullPath"/></td>
+                                    </tr>
+                                    <tr>
+                                      <td><input t:type="TextField" size="30" t:value="currentFileByAsset.fileName"/></td>
+                                    </tr>
+                                  </table>
+                                  
+                                  <t:parameter name="else">
+                                    <t:If test="currentFileByAsset.canDisplayContentFlash">
+                                      <table class="noborder" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                          <td><embed src="${currentFileByAsset.asset}" id='previewFlash' quality='high' scale='noborder' wmode='transparent' bgcolor='#000000' type='application/x-shockwave-flash' pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash'/></td>
+                                        </tr>
+                                        <tr>
+                                          <td><input t:type="TextField" size="30" t:value="currentFileByAsset.fullPath"/></td>
+                                        </tr>
+                                        <tr>
+                                          <td><input t:type="TextField" size="30" t:value="currentFileByAsset.fileName"/></td>
+                                        </tr>
+                                      </table>
+                                        <t:parameter name="else">
+                                          <table class="noborder" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td><img src="${currentFileByAsset.iconAsset}" alt=""/><br/></td>
+                                            </tr>
+                                            <tr>
+                                              <td><input t:type="TextField" size="30" t:value="currentFileByAsset.fullPath"/></td>
+                                            </tr>
+                                            <tr>
+                                              <td><input t:type="TextField" size="30" t:value="currentFileByAsset.fileName"/></td>
+                                            </tr>
+                                        </table>
+                                      </t:parameter>
+                                    </t:If>
+                                  </t:parameter>
+                                </t:If>
+                              </t:parameter>  
+                            </t:If>
+                          </td>
+                        </tr>
+                      </table>    
+                    </form>
+                </td>
+              </tr>
+            </table>
+          </t:If>
+          <div>&nbsp;</div>
+          <div>
+            <t:if test="${showAlbumTable}">
+            <table class="tborder" width="100%" cellspacing="0" cellpadding="3"> 
+              <tr class="portlet-section-header">
+                <td align="center">${message:mvncms.workflow.album.content}</td>
+              </tr> 
+              <tr class="${prop:evenodd.next}">
+                <td align="right">
+                  <t:If test="showAddAlbumLink">
+                    <a href="${genericAddLink}" class="command" target="_blank">
+                      ${message:mvncms.workflow.addalbum}
+                    </a>
+                  </t:If>
+                </td>
+              </tr>
+              <tr t:type="Loop" t:source="albumAvatarArrayByAsset" t:value="currentAlbumAvatarByAsset" class="${prop:evenodd.next}">
+                <td>
+                    <form t:type="Form">
+                      <t:publishadmin.TokenField />
+                      <table>
+                        <tr>
+                          <td align="center">
+                            <a href="${currentAlbumAvatarByAsset.slideShowLink}" class="command">
+                              <img src="${currentAlbumAvatarByAsset.asset}" alt="" width="160" border="0"/>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="center">
+                            <a href="${currentAlbumAvatarByAsset.viewLink}" class="command" target="_blank">
+                              ${message:mvncms.action.view}
+                            </a>
+                            <t:If test="showAddAlbumLink">
+                              &nbsp;|&nbsp;
+                              <a href="${currentAlbumAvatarByAsset.deleteLink}" class="command" target="_blank">
+                                ${message:mvncms.action.delete}
+                              </a>
+                            </t:If>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="center">
+                            <input t:type="TextField" size="30" t:value="${currentAlbumAvatarByAsset.slideShowLink}"/>
+                          </td>
+                        </tr>
+                      </table>
+                    </form>
+                </td>
+              </tr>
+            </table>
+            </t:if>
+          </div>
+          <t:If test="showContentReturnReason">
+            <br />
+            <table class="tborder" width="100%" cellspacing="0" cellpadding="3"> 
+              <tr class="portlet-section-header">
+                <td>${message:mvncms.workflow.returnreason}</td>
+              </tr>  
+              <tr class="${prop:evenodd.next}">
+                <td>${contentReturnReason}</td>
+              </tr>
+            </table>
+          </t:If>
+    
+        </td>
+        <td>&nbsp;&nbsp;</td>
+        <td valign="top" class="no_wrap" style="width: 100%;">  
+          <form t:type="Form" t:id="editContentForm" t:clientValidation="true">
+            <t:publishadmin.TokenField />
+            <t:errors><div>&nbsp;</div></t:errors>
+            <input t:type="chenillekit/Hidden" t:name="literal:contentID" t:value="contentID" />
+            <input t:type="chenillekit/Hidden" t:name="literal:stepID" t:value="stepID" />
+            <table class="tborder" width="100%" cellspacing="0" cellpadding="3">
+              <tr class="portlet-section-header">
+                <td colspan="2">${message:mvncms.editcontent.title}</td>
+              </tr>  
+             
+              <tr class="${prop:evenodd.next}">
+                <td><label t:type="Label" for="contentType">${message:mvncms.common.content.type}</label></td>
+                <td>
+                  <select t:type="Select" t:id="contentType" t:value="contentType"></select>
+                </td>
+              </tr>
+              <t:If test="legalDocument">
+                <tr class="${prop:evenodd.next}">
+                  <td colspan="2">
+                    <a t:type="PageLink" t:page="publishadmin/EditContentPropertyLegalDocument" t:context="list:contentID" href="#" class="command">${message:mvncms.editlegaldocument.title}</a>
+                  </td>
+                </tr>
+              </t:If>
+              <t:If test="officialProcedure">
+                <tr class="${prop:evenodd.next}">
+                  <td colspan="2">
+                    <a t:type="PageLink" t:page="publishadmin/EditContentPropertyOfficialProcedure" t:context="list:contentID" href="#" class="command">${message:mvncms.editofficialprocedure.title}</a>
+                  </td>
+                </tr>
+              </t:If>
+              <t:If test="contentPropertyLanguageVi">
+                <tr class="${prop:evenodd.next}">
+                  <td colspan="2">
+                    <a t:type="PageLink" t:page="publishadmin/EditContentPropertyLanguageVi" t:context="list:contentID" href="#" class="command">${message:mvncms.editcontentpropertylanguagevi.title}</a>
+                  </td>
+                </tr>
+              </t:If>
+              <t:If test="contentPropertyVNBC">
+                <tr class="${prop:evenodd.next}">
+                  <td colspan="2">                    
+                    <a t:type="PageLink" t:page="publishadmin/EditContentPropertyVNBCLibrary" t:context="list:contentID" href="#" class="command">${message:mvncms.editVNBCLibrary.title}</a>
+                  </td>
+                </tr>
+              </t:If>
+              <tr class="${prop:evenodd.next}">
+                <td valign="top"><label t:type="Label" for="contentNiceName">${message:mvncms.common.content.nicename}<span class="requiredfield"> *</span></label></td>
+                <td>
+                  <input t:type="TextField" t:id="contentNiceName" size="90"/>
+                </td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td><label t:type="Label" for="contentTitle">${message:mvncms.common.content.title}<span class="requiredfield"> *</span></label></td>
+                <td><input t:type="TextField" t:id="contentTitle" size="90"/></td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td valign="top"><label t:type="Label" for="contentSummary">${message:mvncms.common.content.summary}<span class="requiredfield"> *</span></label></td>
+                <td>
+                  <textarea t:type="TextArea" t:id="contentSummary" rows="10" cols="100"/>
+                </td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td colspan="2"><label t:type="Label" for="hideSummary">${message:mvncms.common.content.hidesummary}</label><input t:type="Checkbox" t:id="hideSummary" class="noborder" t:value="checked"/></td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td valign="top"><label t:type="Label" for="contentBody">${message:mvncms.common.content.body}<span class="requiredfield"> *</span></label></td>
+                <td>
+                  <textarea t:type="TextArea" t:id="contentBody" rows="20" cols="100"/>
+                </td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td><label t:type="Label" for="contentLead">${message:mvncms.common.content.lead}</label></td>
+                <td><input t:type="TextField" size="90" t:id="contentLead"/></td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td><label t:type="Label" for="contentLeadin">${message:mvncms.common.content.leadin}</label></td>
+                <td><input t:type="TextField" size="90" t:id="contentLeadin"/></td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td><label t:type="Label" for="contentTagLine">${message:mvncms.common.content.tagline}</label></td>
+                <td><input t:type="TextField" size="90" t:id="contentTagLine"/></td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td><label t:type="Label" for="contentSourceName">${message:mvncms.common.content.sourcename}</label></td>
+                <td><input t:type="TextField" size="90" t:id="contentSourceName"/></td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td><label t:type="Label" for="contentSourceURL">${message:mvncms.common.content.sourceURL}</label></td>
+                <td><input t:type="TextField" size="90" t:id="contentSourceURL"/></td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td><label t:type="Label" for="contentAuthor">${message:mvncms.common.content.author}</label></td>
+                <td><input t:type="TextField" size="90" t:id="contentAuthor"/></td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td><label t:type="Label" for="contentDefaultImage">${message:mvncms.common.content.defaultimage}</label></td>
+                <td><input t:type="TextField" size="90" t:id="contentDefaultImage" t:value="contentDefaultImage"/></td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td><label t:type="Label" for="contentDefaultImageTitle">${message:mvncms.common.content.defaultimagetitle}</label></td>
+                <td><input t:type="TextField" size="90" t:id="contentDefaultImageTitle"/></td>
+              </tr>
+              <tr class="${prop:evenodd.next}">
+                <td><label t:type="Label" for="contentDefaultImageCaption">${message:mvncms.common.content.defaultimagecaption}</label></td>
+                <td><input t:type="TextField" size="90" t:id="contentDefaultImageCaption"/></td>
+              </tr>
+              <tr id="vietnameseKeyboardBlock" style="display: none" class="${prop:evenodd.next}">
+                <td>${message:mvncms.common.vietnamese_key}</td>
+                <td>
+                  <t:publishadmin.VietnameseKeyboardComponent inputList="literal:contentNiceName,contentTitle,contentBody,contentLead,contentSourceName,contentAuthor,contentDefaultImageTitle,contentDefaultImageCaption" />
+                </td>
+              </tr>
+              <tr class="portlet-section-footer">
+                <td colspan="2" align="center">
+                  <input type="submit" value="${message:mvncms.action.save}" class="portlet-form-button" />
+                  <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+                </td>
+              </tr>
+            </table>
+          </form>
+        </td>      
+      </tr>
+  </table>
+</t:publishadmin.border>

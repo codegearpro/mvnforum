@@ -1,0 +1,83 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/DataniumCityManagement.tml,v 1.1 2010/02/06 04:27:11 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.1 $
+ - $Date: 2010/02/06 04:27:11 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.dataniumcitymanagement.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    
+  <script type="text/javascript">
+    function validateDelete() {
+        return confirm('Do you want to delete?');
+    }
+  </script>
+    
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+  
+  <form t:type="Form" t:id="addDataniumCityForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <t:errors><div>&nbsp;</div></t:errors>
+    <table border="0" class="tborder center" width="95%" cellspacing="0" cellpadding="3">
+      <tr class="portlet-section-header">
+        <th colspan="2" align="left">${message:mvncms.dataniumcitymanagement.add}</th>
+      </tr>
+      <tr class="portlet-section-body">
+        <td><label t:type="Label" for="cityNameEn">${message:mvncms.common.dataniumcity.city_name_en}<span class="requiredfield"> *</span></label></td> 
+        <td><input t:type="TextField" t:id="cityNameEn" size="50" /></td>
+      </tr>
+      <tr class="portlet-section-body">
+        <td><label t:type="Label" for="cityNameVi">${message:mvncms.common.dataniumcity.city_name_vi}<span class="requiredfield"> *</span></label></td> 
+        <td><input t:type="TextField" t:id="cityNameVi" size="50" /></td>
+      </tr>
+      <tr class="portlet-section-body">
+        <td><label t:type="Label" for="cityDescEn">${message:mvncms.common.dataniumcity.city_desc_en}</label></td> 
+        <td><input t:type="TextField" t:id="cityDescEn" size="50" /></td>
+      </tr>
+      <tr class="portlet-section-body">
+        <td><label t:type="Label" for="cityDescVi">${message:mvncms.common.dataniumcity.city_desc_vi}</label></td> 
+        <td><input t:type="TextField" t:id="cityDescVi" size="50" /></td>
+      </tr>
+      <tr id="vietnameseKeyboardBlock" style="display: none">
+        <td>${message:mvncms.common.vietnamese_key}</td>
+        <td>
+          <t:publishadmin.VietnameseKeyboardComponent inputList="literal:cityNameEn,cityNameVi,cityDescEn,cityDescVi" />
+        </td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input type="submit" value="${message:mvncms.action.create}" class="portlet-form-button" />
+          <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+        </td>
+      </tr>
+    </table>
+  </form>
+  <div>&nbsp;</div>
+
+  <div class="textcenter">
+    <table t:type="grid" t:id="dataniumCitiesGrid" t:source="dataniumCities" t:row="dataniumCity"
+      t:add="edit, delete" t:empty="${message:grid.empty_message}"
+      t:include="cityID, cityNameEn, cityNameVi, cityDescEn, cityDescVi" 
+      t:rowsPerPage="postsPerPage" t:pagerPosition="top" align="center" width="95%" t:rowClass="prop:evenOdd.next">
+      
+      <t:parameter name="editCell">
+        <a t:type="PageLink" t:page="publishadmin/DataniumEditCity" t:context="dataniumCity.cityID" href="#">${message:mvncms.action.edit}</a>
+      </t:parameter>
+      <t:parameter name="deleteCell">
+          <a t:type="ActionLink" t:id="delete" t:context="list:dataniumCity.cityID" href="#" onclick="return validateDelete();" >${message:mvncms.action.delete}</a>
+      </t:parameter>
+    </table>
+  </div>
+  
+</t:publishadmin.border>

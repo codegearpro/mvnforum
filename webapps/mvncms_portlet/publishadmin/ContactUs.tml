@@ -1,0 +1,98 @@
+<!--
+ - $Header: /home/cvsroot/mvncms-portlet/srcweb/publishadmin/ContactUs.tml,v 1.3 2009/12/16 02:40:17 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.3 $
+ - $Date: 2009/12/16 02:40:17 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:x="tapestry-library:tapx">
+<head>
+  <title>${message:mvncms.contactus.title}</title>
+</head>
+<body>
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+
+  <table class="box_border" cellspacing="0" cellpadding="0" border="0" width="930" style="margin: 0pt auto;">
+    <tbody>
+      <tr>
+        <td>
+        
+        <div style="border-bottom: 2px solid rgb(0, 153, 0); margin: 10px; font-size: 16px; color: rgb(0, 153, 0); font-weight: bold;">
+          ${message:mvncms.contactus.title2} 
+        </div>
+        
+        <div style="margin: 10px; width: 49%; float: left;">
+          <t:If test="manageContactUs"> &nbsp; <div>(<a t:type="PageLink" t:page="publishadmin/ContactUsListAdmin">${message:mvncms.contactus.manage_contact_us}</a>) </div> </t:If> 
+          <ul class="list">
+              <div class="ck_paged_loop_pager" t:type="chenillekit/PagedLoop" t:empty="message:mvncms.contactus.table.empty" t:source="contactUsQuestionList" t:value="contactUsBean" t:rowsPerPage="postsPerPage">    
+                <li>
+                  <a t:type="PageLink" t:page="publishadmin/ContactUsDetail" t:context="contactUsBean.contactID" class="vb_link">${contactUsBean.contactTitle}</a>
+                  <span class="date">${getCreationDateFormat(contactUsBean.contactCreationDate)}</span>
+                </li>
+              </div>
+          </ul>
+        </div>
+        <div style="margin: 0pt 10px 10px 0px; float: right; width: 45%;">
+          <form t:type="Form" t:id="addQuestionForm" t:clientValidation="true">
+            <t:publishadmin.TokenField />
+            <t:errors><div>&nbsp;</div></t:errors>
+            
+            <div style="border: 1px solid rgb(204, 204, 204); background-color: rgb(255, 255, 255); margin-top: 20px; padding-bottom: 10px; align: center">
+            <div style="border-bottom: 1px solid rgb(194, 202, 211); margin: 10px; color: rgb(15, 91, 175); font-weight: bold; font-size: 16px;">${message:mvncms.contactus.contact_us}</div>
+              <p style="margin: 3px 0pt 3px 10px;">
+                <label t:type="Label" for="senderName">${message:mvncms.contactus.sender_name} <span class="requiredfield"> *</span></label>
+                <input t:type="TextField" t:id="senderName" class="inp"/>
+              </p>
+              <p style="margin: 3px 0pt 3px 10px;">
+                <label t:type="Label" for="senderEmail">${message:mvncms.contactus.sender_email} <span class="requiredfield"> *</span></label>
+                <input t:type="TextField" t:id="senderEmail" class="inp"/>
+              </p>
+              <p style="margin: 3px 0pt 3px 10px;">
+                <label t:type="Label" for="senderPhone">${message:mvncms.contactus.sender_phone} </label>
+                <input t:type="TextField" t:id="senderPhone" class="inp"/>
+              </p>
+              <!--  
+              <p style="margin: 3px 0pt 3px 10px;">
+                <label t:type="Label" for="category">${message:mvncms.contactus.category} <span class="requiredfield"> *</span></label>
+                <select t:type="Select" t:id="category" class="inp"/>
+              </p>
+              -->
+              <p style="margin: 3px 0pt 3px 10px;">
+                <label t:type="Label" for="contactTitle">${message:mvncms.contactus.title_of_content} <span class="requiredfield"> *</span></label>
+                <input t:type="TextField" t:id="contactTitle" class="inp"/>
+              </p>
+              <p style="margin: 3px 0pt 3px 10px;">
+                <label t:type="Label" for="contactContent">${message:mvncms.contactus.content} <span class="requiredfield"> *</span></label>
+                <input t:type="TextArea" t:id="contactContent" t:rows="10" class="inp"/>
+              </p>
+              
+              <t:publishadmin.Captcha />
+              
+              <p style="border-bottom: 1px solid rgb(194, 202, 211); margin: 3px 10px;"> </p>
+              <p style="text-align: center; margin-top: 10px;">
+                <input type="submit" value="${message:mvncms.contactus.send}" class="btn"/>
+                <input type="reset" value="${message:mvncms.action.reset}" class="btn"/>
+              </p>
+              
+            </div>
+            </form>
+          </div>
+         </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

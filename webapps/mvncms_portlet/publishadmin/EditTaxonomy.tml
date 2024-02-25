@@ -1,0 +1,62 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/EditTaxonomy.tml,v 1.15 2009/08/14 10:52:11 minhnn Exp $
+ - $Author: minhnn $
+ - $Revision: 1.15 $
+ - $Date: 2009/08/14 10:52:11 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.edittaxonomy.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+
+  <div>&nbsp;</div>
+  <form t:type="Form" t:id="editTaxonomyForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+  <!-- input type="hidden" t:id="taxonomyIDHidden" value="taxonomyID"/>
+   -->
+    <table border="0" class="tborder center" width="95%" cellspacing="0" cellpadding="3">
+      <tr class="portlet-section-header">
+        <th colspan="2" align="left">${message:mvncms.edittaxonomy.title}</th>
+      </tr>
+      <tr class="portlet-section-body">
+        <td align="left"><label t:type="Label" for="channelID">${message:mvncms.common.taxonomy.channel}<span class="requiredfield"> *</span></label></td>
+        <td><select t:type="Select" t:id="channelID" /></td>
+      </tr>
+      <tr class="portlet-section-alternate">
+        <td>${message:mvncms.common.taxonomy.taxonomyID}</td>
+        <td>${taxonomyID}</td>
+      </tr>
+      <tr class="portlet-section-body">
+        <td><label t:type="Label" for="taxonomyName">${message:mvncms.common.taxonomy.taxonomyname}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="taxonomyName" size="30" /></td>
+      </tr>
+      <tr class="portlet-section-alternate">
+        <td><label t:type="Label" for="taxonomyDesc">${message:mvncms.common.taxonomy.taxonomydescriptor}</label><span class="requiredfield"> *</span></td>
+        <td><input t:type="TextArea" t:id="taxonomyDesc" t:rows="15" t:cols="100" /></td>
+      </tr>
+      <tr id="vietnameseKeyboardBlock" style="display: none">
+        <td>${message:mvncms.common.vietnamese_key}</td>
+        <td><t:publishadmin.VietnameseKeyboardComponent inputList="literal:taxonomyName,taxonomyDesc" /></td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input type="submit" value="${message:mvncms.edittaxonomy.title}" class="portlet-form-button" />
+          <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+        </td>
+      </tr>
+    </table>
+  </form>
+  <div>&nbsp;</div>
+
+</t:publishadmin.border>

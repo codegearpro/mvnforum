@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE application PUBLIC
+"-//Apache Software Foundation//Tapestry Specification 4.0//EN"
+"http://jakarta.apache.org/tapestry/dtd/Tapestry_4_0.dtd">
+
+<application name="mvncms">
+  <meta key="org.apache.tapestry.page-class-packages" value="com.mvnsoft.mvncms.taplet"/>
+  <meta key="org.apache.tapestry.component-class-packages" value="com.mvnsoft.mvncms.taplet.comp"/>
+  <meta key="org.apache.tapestry.messages-encoding" value="UTF-8"/>
+  <meta key="org.apache.tapestry.messages-encoding_vi" value="UTF-8"/>
+  <meta key="org.apache.tapestry.messages-encoding_en" value="UTF-8"/>
+  <meta key="org.apache.tapestry.accepted-locales" value="en,vi"/>
+  <meta key="org.apache.tapestry.namespace-properties-name" value="classes.i18n.mvncms.mvncms_i18n"/>
+
+  <library id="Contrib" specification-path="/org/apache/tapestry/contrib/Contrib.library"/>
+  <library id="contrib" specification-path="/org/apache/tapestry/contrib/Contrib.library"/>
+  <library id="tacos" specification-path="/net/sf/tacos/Tacos.library"/>
+  <library id="sotacs" specification-path="classpath:/net/sf/sotacs/sotacs.library"/>
+  <library id="bf" specification-path="/net/sf/beanform/BeanForm.library"/>
+  <library id="menu" specification-path="classpath:/net/sourceforge/tapestry_jsmenu/menu.library"/>
+  <library id="bayeux" specification-path="/com/nordija/tapestry/bayeux/bayeux.library"/>  
+  
+  <!-- Create own Error Page 
+  <page name="Exception" specification-path="Exception.page"/>
+  -->
+
+  <page name="Home" specification-path="mvnplugin/mvncms/cms4/pages/Home.page"/>
+  <page name="AddBannerZoneChannel" specification-path="mvnplugin/mvncms/cms4/pages/AddBannerZoneChannel.page"/>
+  <page name="AddChannel" specification-path="mvnplugin/mvncms/cms4/pages/AddChannel.page"/>
+  <page name="AddContent" specification-path="mvnplugin/mvncms/cms4/pages/AddContent.page"/>
+  <page name="AddContentInToTaxonomy" specification-path="mvnplugin/mvncms/cms4/pages/AddContentInToTaxonomy.page"/>
+  <page name="AddContentType" specification-path="mvnplugin/mvncms/cms4/pages/AddContentType.page"/>
+  <page name="AddGoldPrice" specification-path="mvnplugin/mvncms/cms4/pages/AddGoldPrice.page"/>
+  <page name="AddInterview" specification-path="mvnplugin/mvncms/cms4/pages/AddInterview.page"/>
+  <page name="AddLotteryCity" specification-path="mvnplugin/mvncms/cms4/pages/AddLotteryCity.page"/>
+  <page name="AddLotteryDetail" specification-path="mvnplugin/mvncms/cms4/pages/AddLotteryDetail.page"/>
+  <page name="AddMoneyRate" specification-path="mvnplugin/mvncms/cms4/pages/AddMoneyRate.page"/>
+  <page name="AddUniversity" specification-path="mvnplugin/mvncms/cms4/pages/AddUniversity.page"/>
+  <page name="AddWeather" specification-path="mvnplugin/mvncms/cms4/pages/AddWeather.page"/>
+  <page name="ajaxEx" specification-path="mvnplugin/mvncms/cms4/pages/ajaxEx.page"/>
+  <page name="AnswerInterview" specification-path="mvnplugin/mvncms/cms4/pages/AnswerInterview.page"/>
+  <page name="CallBorder" specification-path="mvnplugin/mvncms/cms4/pages/CallBorder.page"/>
+  <page name="Channel" specification-path="mvnplugin/mvncms/cms4/pages/Channel.page"/>
+  <page name="CheckChannel" specification-path="mvnplugin/mvncms/cms4/pages/CheckChannel.page"/>
+  <page name="CNMSEditLayout" specification-path="mvnplugin/mvncms/cms4/pages/CNMSEditLayout.page"/>
+  <page name="ConfigCMS" specification-path="mvnplugin/mvncms/cms4/pages/ConfigCMS.page"/>
+  <page name="ConfigCMSView" specification-path="mvnplugin/mvncms/cms4/pages/ConfigCMSView.page"/>
+  <page name="ContactUsManagement" specification-path="mvnplugin/mvncms/cms4/pages/ContactUsManagement.page"/>
+  <page name="ContentPermissionManagement" specification-path="mvnplugin/mvncms/cms4/pages/ContentPermissionManagement.page"/>
+  <page name="CopyQuestion" specification-path="mvnplugin/mvncms/cms4/pages/CopyQuestion.page"/>
+  <page name="CustomError" specification-path="mvnplugin/mvncms/cms4/pages/CustomError.page"/>
+  <page name="DelChannel" specification-path="mvnplugin/mvncms/cms4/pages/DelChannel.page"/>
+  <page name="DelContent" specification-path="mvnplugin/mvncms/cms4/pages/DelContent.page"/>
+  <page name="DelContentFeedback" specification-path="mvnplugin/mvncms/cms4/pages/DelContentFeedback.page"/>
+  <page name="DeleteContactUs" specification-path="mvnplugin/mvncms/cms4/pages/DeleteContactUs.page"/>
+  <page name="DeleteContentType" specification-path="mvnplugin/mvncms/cms4/pages/DeleteContentType.page"/>
+  <page name="DeleteGoldPrice" specification-path="mvnplugin/mvncms/cms4/pages/DeleteGoldPrice.page"/>
+  <page name="DeleteLotteryCity" specification-path="mvnplugin/mvncms/cms4/pages/DeleteLotteryCity.page"/>
+  <page name="DeleteLotteryDetail" specification-path="mvnplugin/mvncms/cms4/pages/DeleteLotteryDetail.page"/>
+  <page name="DeleteMoneyRate" specification-path="mvnplugin/mvncms/cms4/pages/DeleteMoneyRate.page"/>
+  <page name="DeleteTaxonomy" specification-path="mvnplugin/mvncms/cms4/pages/DeleteTaxonomy.page"/>
+  <page name="DeleteUniversity" specification-path="mvnplugin/mvncms/cms4/pages/DeleteUniversity.page"/>
+  <page name="DeleteWeather" specification-path="mvnplugin/mvncms/cms4/pages/DeleteWeather.page"/>
+  <page name="DelInterview" specification-path="mvnplugin/mvncms/cms4/pages/DelInterview.page"/>
+  <page name="DelInterviewItem" specification-path="mvnplugin/mvncms/cms4/pages/DelInterviewItem.page"/>
+  
+  <page name="Deploy" specification-path="mvnplugin/mvncms/cms4/pages/Deploy.page"/>
+  <page name="EditAnswerInterview" specification-path="mvnplugin/mvncms/cms4/pages/EditAnswerInterview.page"/>
+  <page name="EditChannel" specification-path="mvnplugin/mvncms/cms4/pages/EditChannel.page"/>
+  <page name="EditContactUs" specification-path="mvnplugin/mvncms/cms4/pages/EditContactUs.page"/>
+  <page name="EditContent" specification-path="mvnplugin/mvncms/cms4/pages/EditContent.page"/>
+  <page name="EditContentFeedback" specification-path="mvnplugin/mvncms/cms4/pages/EditContentFeedback.page"/>
+  <page name="EditContentPermission" specification-path="mvnplugin/mvncms/cms4/pages/EditContentPermission.page"/>
+  <page name="EditContentType" specification-path="mvnplugin/mvncms/cms4/pages/EditContentType.page"/>
+  <page name="EditGoldPrice" specification-path="mvnplugin/mvncms/cms4/pages/EditGoldPrice.page"/>
+  <page name="EditInterview" specification-path="mvnplugin/mvncms/cms4/pages/EditInterview.page"/>
+  <page name="EditInterviewItem" specification-path="mvnplugin/mvncms/cms4/pages/EditInterviewItem.page"/>
+  <page name="EditLotteryCity" specification-path="mvnplugin/mvncms/cms4/pages/EditLotteryCity.page"/>
+  <page name="EditLotteryDetail" specification-path="mvnplugin/mvncms/cms4/pages/EditLotteryDetail.page"/>
+  <page name="EditMoneyRate" specification-path="mvnplugin/mvncms/cms4/pages/EditMoneyRate.page"/>
+  <page name="EditPublishDate" specification-path="mvnplugin/mvncms/cms4/pages/EditPublishDate.page"/>
+  <page name="EditTaxonomy" specification-path="mvnplugin/mvncms/cms4/pages/EditTaxonomy.page"/>
+  <page name="EditUniversity" specification-path="mvnplugin/mvncms/cms4/pages/EditUniversity.page"/>
+  <page name="EditWeather" specification-path="mvnplugin/mvncms/cms4/pages/EditWeather.page"/>
+  <page name="Error" specification-path="mvnplugin/mvncms/cms4/pages/Error.page"/>
+  <page name="example" specification-path="mvnplugin/mvncms/cms4/pages/example.page"/>
+  <page name="Exception" specification-path="mvnplugin/mvncms/cms4/pages/Exception.page"/>
+  <page name="InfoInDayPermissionManagement" specification-path="mvnplugin/mvncms/cms4/pages/InfoInDayPermissionManagement.page"/>
+  <page name="InterviewManagement" specification-path="mvnplugin/mvncms/cms4/pages/InterviewManagement.page"/>
+  <page name="ListContentFeedbacks" specification-path="mvnplugin/mvncms/cms4/pages/ListContentFeedbacks.page"/>
+  <page name="ListInterviews" specification-path="mvnplugin/mvncms/cms4/pages/ListInterviews.page"/>
+  <page name="Login" specification-path="mvnplugin/mvncms/cms4/pages/Login.page"/>
+  <page name="Misctasks" specification-path="mvnplugin/mvncms/cms4/pages/Misctasks.page"/>
+  <page name="My404Page" specification-path="mvnplugin/mvncms/cms4/pages/My404Page.page"/>
+  
+  <page name="Result" specification-path="mvnplugin/mvncms/cms4/pages/Result.page"/>
+  <page name="TaxonomyManagement" specification-path="mvnplugin/mvncms/cms4/pages/TaxonomyManagement.page"/>
+  <page name="UpdateReturnReason" specification-path="mvnplugin/mvncms/cms4/pages/UpdateReturnReason.page"/>
+  <page name="UserManagementLinks" specification-path="mvnplugin/mvncms/cms4/pages/UserManagementLinks.page"/>
+  <page name="ViewChart" specification-path="mvnplugin/mvncms/cms4/pages/ViewChart.page"/>
+  <page name="ViewContent" specification-path="mvnplugin/mvncms/cms4/pages/ViewContent.page"/>
+  <page name="ViewContentFeedback" specification-path="mvnplugin/mvncms/cms4/pages/ViewContentFeedback.page"/>
+  <page name="ViewInterview" specification-path="mvnplugin/mvncms/cms4/pages/ViewInterview.page"/>
+  <page name="ViewInterviewItem" specification-path="mvnplugin/mvncms/cms4/pages/ViewInterviewItem.page"/>
+  <page name="ViewTaxonomy" specification-path="mvnplugin/mvncms/cms4/pages/ViewTaxonomy.page"/>
+  <page name="Workflow" specification-path="mvnplugin/mvncms/cms4/pages/Workflow.page"/>
+  
+  <component-type type="ErrorMessageBox" specification-path="mvnplugin/mvncms/cms4/components/ErrorMessageBox.jwc"/>
+  <component-type type="Footer" specification-path="mvnplugin/mvncms/cms4/components/Footer.jwc"/>
+  <component-type type="Header" specification-path="mvnplugin/mvncms/cms4/components/Header.jwc"/>
+  <component-type type="ShowError" specification-path="mvnplugin/mvncms/cms4/components/ShowError.jwc"/>
+  <component-type type="SuccessMessageBox" specification-path="mvnplugin/mvncms/cms4/components/SuccessMessageBox.jwc"/>
+  <component-type type="VietnameseKeyboard" specification-path="mvnplugin/mvncms/cms4/components/VietnameseKeyboard.jwc"/>
+  <component-type type="Border" specification-path="mvnplugin/mvncms/cms4/components/Border.jwc"/>
+  <component-type type="ChannelTree" specification-path="mvnplugin/mvncms/cms4/components/ChannelTree.jwc"/>
+  <component-type type="ChannelTreeHeaderComponent" specification-path="mvnplugin/mvncms/cms4/components/ChannelTreeHeaderComponent.jwc"/>
+  <component-type type="ChannelTreeRowComponent" specification-path="mvnplugin/mvncms/cms4/components/ChannelTreeRowComponent.jwc"/>
+  
+  <extension name="org.apache.tapestry.specification-resolver-delegate" class="com.mvnsoft.mvncms.taplet.util.My404SpecificationResolverDelegate"/>
+</application>
+

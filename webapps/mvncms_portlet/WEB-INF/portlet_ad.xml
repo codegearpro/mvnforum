@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app 
+    xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd" 
+    version="1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd 
+                        http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd" 
+    id="mvnforum_portlet">
+
+    <portlet>
+        <description xml:lang="en">User Forum Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>UserForumPortlet</portlet-name>
+        <display-name>UserForumPortlet</display-name>
+        <portlet-class>com.mvnforum.portlet.core.UserForumPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>mvnForum</title>
+            <keywords>Forum, Collaboration</keywords>
+        </portlet-info>
+    </portlet>
+
+    <portlet>
+        <description xml:lang="en">Admin Forum Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>AdminForumPortlet</portlet-name>
+        <display-name>AdminForumPortlet</display-name>
+        <portlet-class>com.mvnforum.portlet.core.AdminForumPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>mvnForum Administration</title>
+            <keywords>Forum, Collaboration, Administration</keywords>
+        </portlet-info>
+    </portlet>
+
+    <portlet>
+        <description xml:lang="en">Recent Threads Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>RecentThreadsPortlet</portlet-name>
+        <display-name>RecentThreadsPortlet</display-name>
+        <portlet-class>com.mvnforum.portlet.core.RecentThreadsPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Recent Threads</title>
+            <keywords>Forum, Collaboration</keywords>
+        </portlet-info>
+    </portlet>
+
+    <portlet>
+        <description xml:lang="en">Hot Threads Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>HotThreadsPortlet</portlet-name>
+        <display-name>HotThreadsPortlet</display-name>
+        <portlet-class>com.mvnforum.portlet.core.HotThreadsPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Hot Threads</title>
+            <keywords>Forum, Collaboration</keywords>
+        </portlet-info>
+    </portlet>
+    
+    <portlet>
+        <description xml:lang="en">Admin Ad Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>AdminAdPortlet</portlet-name>
+        <portlet-class>com.mvnsoft.mvnad.portlet.core.AdminAdPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>mvnAd Administration</title>
+            <keywords>Ad, Collaboration, Administration</keywords>
+        </portlet-info>
+    </portlet>
+
+    <portlet>
+        <description xml:lang="en">User Ad Portlet from Huu Ngoc Jsc</description>
+        <portlet-name>UserAdPortlet</portlet-name>
+        <portlet-class>com.mvnsoft.mvnad.portlet.core.UserAdPortlet</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>mvnAd</title>
+            <keywords>Ad</keywords>
+        </portlet-info>
+    </portlet>
+    
+    <!-- @UserManagementPortlet@ -->
+
+</portlet-app>

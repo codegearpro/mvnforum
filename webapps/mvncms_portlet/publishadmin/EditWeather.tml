@@ -1,0 +1,74 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/EditWeather.tml,v 1.24 2009/08/14 02:41:37 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.24 $
+ - $Date: 2009/08/14 02:41:37 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.editweather.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+<script type="text/javascript">
+function addC() {
+  document.getElementById('weatherTemperature').value += 'Â°C';
+}
+function addF() {
+  document.getElementById('weatherTemperature').value += 'Â°F';
+}
+</script>
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+
+  <form t:type="Form" t:id="editWeatherForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <div><input t:type="chenillekit/Hidden" t:id="weatherID" /></div>
+    <t:errors><div>&nbsp;</div></t:errors>
+    <table border="0" width="95%" cellspacing="0" cellpadding="3" class="tborder center">
+      <tr class="portlet-section-header">
+        <td colspan="2">${message:mvncms.editweather.title}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td style="width: 40%;"><label t:type="Label" for="cityName">${message:mvncms.common.weather.cityname} ${message:mvncms.common.weather.cityname_ex}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="cityName" /></td>
+      </tr> 
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="weatherType">${message:mvncms.common.weather.type} ${message:mvncms.common.weather.type_ex}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="weatherType" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="weatherTemperature">${message:mvncms.common.weather.temperature} ${message:mvncms.common.weather.temperature_ex}<span class="requiredfield"> *</span></label></td>
+        <td>
+          <input t:type="TextField" t:id="weatherTemperature" />
+          <input type="button" value="${message:mvncms.action.append} &#176;C" onclick="javascript:addC()" />
+          <input type="button" value="${message:mvncms.action.append} &#176;F" onclick="javascript:addF()" />
+        </td>
+      </tr>
+      <tr id="vietnameseKeyboardBlock" style="display: none" class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.vietnamese_key}</td>
+        <td>
+          <t:publishadmin.VietnameseKeyboardComponent inputList="literal:cityName,weatherType" />
+        </td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="display">${message:mvncms.common.weather.display}</label></td>
+        <td><checkbox t:type="Checkbox" t:id="display" class="noborder" /></td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input type="submit" value="${message:mvncms.action.save}" class="portlet-form-button" />
+          <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+        </td>
+      </tr>
+    </table>
+  </form>
+  
+</t:publishadmin.border>

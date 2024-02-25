@@ -1,0 +1,6 @@
+<workflows>
+  <!-- you should config the path below correctly -->
+  <workflow name="osworkflow-content" type="file" location="../webapps/mvncms_portlet/WEB-INF/classes/osworkflow-content.xml" />
+  <workflow name="osworkflow-contentfeedback" type="file" location="../webapps/mvncms_portlet/WEB-INF/classes/osworkflow-contentfeedback.xml" />
+  <workflow name="osworkflow-interview" type="file" location="../webapps/mvncms_portlet/WEB-INF/classes/osworkflow-interview.xml" />
+</workflows>

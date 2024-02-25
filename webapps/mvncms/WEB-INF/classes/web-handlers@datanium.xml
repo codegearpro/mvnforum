@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page-handlers>
+  <properties>
+    <property name="root_channel_id" value="1" />
+    <property name="language" value="en" />
+    
+    <property name="yahooId" value="jupiter1511" />
+    <property name="skypeId" value="mvntester" />
+    <property name="msnId" value="jupiter1511@yahoo.com" />
+    <property name="hotline" value="+848 3837 0456" />
+    
+    <property name="wizard_email_from" value="thonh81@gmail.com" />
+    <property name="wizard_email_to" value="thonh82@gmail.com" />
+    <property name="wizard_email_cc" value="thonh83@gmail.com" />
+    <property name="wizard_email_bcc" value="thonh84@gmail.com" />
+    
+    <property name="contactus_email_from" value="thonh81@gmail.com" />
+    <property name="contactus_email_to" value="thonh82@gmail.com" />
+    <property name="contactus_email_cc" value="thonh83@gmail.com" />
+    <property name="contactus_email_bcc" value="thonh84@gmail.com" />
+  </properties>
+  
+  <page name="common" virtual="true">
+  </page>
+
+  <page name="CDS_URL_PAGE_LIST_MODE_1" action="" uri="/mvnplugin/mvncms/cds/standard/datanium/home.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@Home" />
+    <handler name="ListChildChannelsWebHandler@MailingListEn" />
+  </page>
+
+  <page name="CDS_URL_PAGE_LIST_MODE_0" action="" uri="/mvnplugin/mvncms/cds/standard/datanium/home.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@Home" />
+    <handler name="ListChildChannelsWebHandler@MailingListEn" />
+  </page>
+
+  <page name="CDS_URL_PAGE_VIEW" action="content" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_home.jsp">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ListChannelsHomeWebHandler@Home" /><!-- for Mailing list -->
+  </page>
+
+  <page name="search" action="/search" uri="/mvnplugin/mvncms/cds/standard/datanium/search.jsp">
+    <include page="common" />
+    <handler name="SearchPageWebHandler" />
+  </page>
+  
+<page name="common_list_home_en" virtual="true">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@Home" />
+    <handler name="ListChildChannelsWebHandler@MailingListEn" />
+  </page>
+  
+  <page name="common_list_home_vi" virtual="true">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@Home" />
+    <handler name="ListChildChannelsWebHandler@MailingListVi" />
+  </page>
+  
+  <page name="common_view_home" virtual="true">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ListContentsChannelWebHandler@Home" />
+  </page>
+  
+  <!--start mailinglist -->
+  <page name="common_list_mailinglist" virtual="true">
+    <include page="common" />
+    <handler name="ListChildChannelsWebHandler@MailingList" />
+    <handler name="ListContentsChannelWebHandler@MailingList" />
+  </page>
+  
+  <page name="common_view_mailinglist_en" virtual="true">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@MailingList" />
+    <handler name="ListChannelsHomeWebHandler@MailingListEn" />
+  </page>
+  
+  <page name="common_view_mailinglist_vi" virtual="true">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@MailingList" />
+    <handler name="ListChannelsHomeWebHandler@MailingListVi" />
+  </page>
+  <!--end mailinglist -->
+  
+  <!--start ourlib  -->
+<page name="common_list_ourlib" virtual="true">
+    <include page="common" />
+    <handler name="ListChildChannelsWebHandler@OurLib" />
+    <handler name="ListContentsChannelWebHandler@OurLib" />
+  </page>
+  
+  <page name="common_view_ourlib_en" virtual="true">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@OurLib" />
+    <handler name="ListChannelsHomeWebHandler@OurLibEn" />
+  </page>
+  
+  <page name="common_view_ourlib_vi" virtual="true">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@OurLib" />
+    <handler name="ListChannelsHomeWebHandler@OurLibVi" />
+  </page>
+ <!--end ourlib -->
+  
+  <!--start dbmangement  -->
+  <page name="common_list_dbmanagement" virtual="true">
+    <include page="common" />
+    <handler name="ListChildChannelsWebHandler@DbManagement" />
+    <handler name="ListContentsChannelWebHandler@DbManagement" />
+  </page>
+  
+  <page name="common_view_dbmanagement_en" virtual="true">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@DbManagement" />
+    <handler name="ListChannelsHomeWebHandler@DbManagementEn" />
+  </page>
+  
+  <page name="common_view_dbmanagement_vi" virtual="true">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@DbManagement" />
+    <handler name="ListChannelsHomeWebHandler@DbManagementVi" />
+  </page>
+  <!--end dbmangement -->
+  
+  <!--start aboutus  -->
+  <page name="common_list_aboutus" virtual="true">
+    <include page="common" />
+    <handler name="ListChildChannelsWebHandler@AboutUs" />
+    <handler name="ListContentsChannelWebHandler@AboutUs" />
+  </page>
+  
+  <page name="common_view_aboutus_en" virtual="true">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@AboutUs" />
+    <handler name="ListChannelsHomeWebHandler@AboutUsEn" />
+  </page>
+  
+  <page name="common_view_aboutus_vi" virtual="true">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@AboutUs" />
+    <handler name="ListChannelsHomeWebHandler@AboutUsVi" />
+  </page>
+  <!--end aboutus -->
+  
+  <page name="common_list_contactus" virtual="true">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@ContactUs" />
+  </page>
+  
+<page name="CDS_URL_PAGE_LIST_home" action="/home" uri="/mvnplugin/mvncms/cds/standard/datanium/home.jsp">
+    <include page="common_list_home_en" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_trangchu" action="/trangchu" uri="/mvnplugin/mvncms/cds/standard/datanium/home.jsp">
+    <include page="common_list_home_vi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_home" action="/home" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_home.jsp">
+    <include page="common_view_home" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_trangchu" action="/home" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_home.jsp">
+    <include page="common_view_home" />
+  </page>
+  
+  <!-- start mailinglist -->
+  <page name="CDS_URL_PAGE_LIST_mailinglist" action="/mailinglist" uri="/mvnplugin/mvncms/cds/standard/datanium/mailinglist.jsp">
+    <include page="common_list_mailinglist" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_danhsachkh" action="/danhsachkh" uri="/mvnplugin/mvncms/cds/standard/datanium/mailinglist.jsp">
+    <include page="common_list_mailinglist" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_AffluentConsumer" action="/viewAffluentConsumer" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_mailinglist.jsp">
+    <include page="common_view_mailinglist_en" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_KHCaoCap" action="/viewKHCaoCap" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_mailinglist.jsp">
+    <include page="common_view_mailinglist_vi" />
+  </page>
+
+  <page name="CDS_URL_PAGE_LIST_MomKids" action="/viewMomKids" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_mailinglist.jsp">
+    <include page="common_view_mailinglist_en" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_BaMeCoConNho" action="/viewBaMeCoConNho" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_mailinglist.jsp">
+    <include page="common_view_mailinglist_vi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_WhiteCollarProfessional" action="/viewWhiteCollarProfessional" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_mailinglist.jsp">
+    <include page="common_view_mailinglist_en" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_NhanVienVP" action="/viewNhanVienVP" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_mailinglist.jsp">
+    <include page="common_view_mailinglist_vi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_SmallMediumSizeBusinesses" action="/viewSmallMediumSizeBusinesses" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_mailinglist.jsp">
+    <include page="common_view_mailinglist_en" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_DoanhNghiep" action="/viewDoanhNghiep" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_mailinglist.jsp">
+    <include page="common_view_mailinglist_vi" />
+  </page>
+  <!-- end mailinglist -->
+  
+  <!-- start ourlib -->
+  <page name="CDS_URL_PAGE_LIST_ourlib" action="/ourlib" uri="/mvnplugin/mvncms/cds/standard/datanium/our_library.jsp">
+    <include page="common_list_ourlib" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_thuvienchungtoi" action="/thuvienchungtoi" uri="/mvnplugin/mvncms/cds/standard/datanium/our_library.jsp">
+    <include page="common_list_ourlib" />
+  </page>
+
+  <page name="CDS_URL_PAGE_LIST_WhatisDirectMarketing" action="/viewWhatisDirectMarketing" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_our_library.jsp">
+    <include page="common_view_ourlib_en" />
+  </page>
+  <page name="CDS_URL_PAGE_LIST_tiepthilagi" action="/viewtiepthilagi" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_our_library.jsp">
+    <include page="common_view_ourlib_vi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_DirectMarketingsRole" action="/viewDirectMarketingsRole" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_our_library.jsp">
+    <include page="common_view_ourlib_en" />
+  </page>
+  <page name="CDS_URL_PAGE_LIST_vaitro" action="/viewvaitro" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_our_library.jsp">
+    <include page="common_view_ourlib_vi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_BenefitsofDirectMarketing" action="/viewBenefitsofDirectMarketing" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_our_library.jsp">
+    <include page="common_view_ourlib_en" />
+  </page>
+  <page name="CDS_URL_PAGE_LIST_nghiepvu" action="/viewnghiepvu" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_our_library.jsp">
+    <include page="common_view_ourlib_vi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_CaseStudies" action="/viewCaseStudies" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_our_library.jsp">
+    <include page="common_view_ourlib_en" />
+  </page>
+  <page name="CDS_URL_PAGE_LIST_hoctap" action="/viewhoctap" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_our_library.jsp">
+    <include page="common_view_ourlib_vi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_FAQs" action="/viewFAQs" uri="/mvnplugin/mvncms/cds/standard/datanium/faqs.jsp">
+    <include page="common_view_ourlib_en" />
+  </page>
+  <page name="CDS_URL_PAGE_LIST_hoidap" action="/viewhoidap" uri="/mvnplugin/mvncms/cds/standard/datanium/faqs.jsp">
+    <include page="common_view_ourlib_vi" />
+  </page>
+  <!-- end ourlib -->
+  
+<!-- start dbmanagement -->
+  <page name="CDS_URL_PAGE_LIST_dbmanagement" action="/dbmanagement" uri="/mvnplugin/mvncms/cds/standard/datanium/db_management.jsp">
+    <include page="common_list_dbmanagement" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_Quanlycsdl" action="/Quanlycsdl" uri="/mvnplugin/mvncms/cds/standard/datanium/db_management.jsp">
+    <include page="common_list_dbmanagement" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_VerifiableData" action="/viewVerifiableData" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_db_management.jsp">
+    <include page="common_view_dbmanagement_en" />
+  </page>
+  <page name="CDS_URL_PAGE_LIST_Kiemchung" action="/viewKiemchung" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_db_management.jsp">
+    <include page="common_view_dbmanagement_vi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_DataCleansing" action="/viewDataCleansing" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_db_management.jsp">
+    <include page="common_view_dbmanagement_en" />
+  </page>
+  <page name="CDS_URL_PAGE_LIST_lamsach" action="/viewlamsach" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_db_management.jsp">
+    <include page="common_view_dbmanagement_vi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_Deduplication" action="/viewDeduplication" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_db_management.jsp">
+    <include page="common_view_dbmanagement_en" />
+  </page>
+  <page name="CDS_URL_PAGE_LIST_Trunglap" action="/viewTrunglap" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_db_management.jsp">
+    <include page="common_view_dbmanagement_vi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_DataSummarization" action="/viewDataSummarization" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_db_management.jsp">
+    <include page="common_view_dbmanagement_en" />
+  </page>
+  <page name="CDS_URL_PAGE_LIST_tongket" action="/viewtongket" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_db_management.jsp">
+    <include page="common_view_dbmanagement_vi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_CustomerProfiling" action="/viewCustomerProfiling" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_db_management.jsp">
+    <include page="common_view_dbmanagement_en" />
+  </page>
+  <page name="CDS_URL_PAGE_LIST_khachhang" action="/viewkhachhang" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_db_management.jsp">
+    <include page="common_view_dbmanagement_vi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_DatabaseAnalysis" action="/viewDatabaseAnalysis" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_db_management.jsp">
+    <include page="common_view_dbmanagement_en" />
+  </page>
+  <page name="CDS_URL_PAGE_LIST_phantich" action="/viewphantich" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_db_management.jsp">
+    <include page="common_view_dbmanagement_vi" />
+  </page>
+  
+  <!-- end dbmanagement -->
+
+  <!-- start aboutus -->
+  <page name="CDS_URL_PAGE_LIST_aboutus" action="/aboutus" uri="/mvnplugin/mvncms/cds/standard/datanium/aboutus.jsp">
+    <include page="common_list_aboutus" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_Thongtin" action="/Thongtin" uri="/mvnplugin/mvncms/cds/standard/datanium/aboutus.jsp">
+    <include page="common_list_aboutus" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_OurMission" action="/viewOurMission" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_aboutus.jsp">
+    <include page="common_view_aboutus_en" />
+  </page>
+  <page name="CDS_URL_PAGE_LIST_Nhiemvu" action="/viewNhiemvu" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_aboutus.jsp">
+    <include page="common_view_aboutus_vi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_OurPeople" action="/viewOurPeople" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_aboutus.jsp">
+    <include page="common_view_aboutus_en" />
+  </page>
+  <page name="CDS_URL_PAGE_LIST_Nhansu" action="/viewNhansu" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_aboutus.jsp">
+    <include page="common_view_aboutus_vi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_Download" action="/viewDownload" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_aboutus.jsp">
+    <include page="common_view_aboutus_en" />
+  </page>
+  <page name="CDS_URL_PAGE_LIST_Taive" action="/viewTaive" uri="/mvnplugin/mvncms/cds/standard/datanium/detail_aboutus.jsp">
+    <include page="common_view_aboutus_vi" />
+  </page>
+  <!-- end aboutus -->
+  
+  <page name="CDS_URL_PAGE_LIST_contactus" action="/contactus" uri="/mvnplugin/mvncms/cds/standard/datanium/contactus.jsp">
+    <include page="common_list_contactus" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_lienhe" action="/lienhe" uri="/mvnplugin/mvncms/cds/standard/datanium/contactus.jsp">
+    <include page="common_list_contactus" />
+  </page>
+  
+  <page name="sendcontact" action="/sendcontact" uri="/mvnplugin/mvncms/cds/standard/datanium/sendcontact.jsp">
+    <include page="common" />
+    <handler name="SendContactWebHandler" />
+  </page>
+  
+  <page name="wizard" action="/wizard" uri="/mvnplugin/mvncms/cds/standard/datanium/runwizard.jsp">
+    <include page="common" />
+    <handler name="DataniumWizardWebHandler" />
+  </page>
+  
+  <web-handlers>
+    
+    <web-handler name="SendContactWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.datanium.DataniumSendContactWebHandler" />
+    
+    <web-handler name="DataniumWizardWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.datanium.DataniumWizardWebHandler" />
+    
+    <!-- start mailinglist -->
+    <web-handler name="ListChannelsHomeWebHandler@MailingListEn" id="@MailingList" ref="ListChannelsHomeWebHandler">
+      <property name="channelId" value="5" />
+      <property name="rows" value="10" />
+    </web-handler>
+    
+    <web-handler name="ListChannelsHomeWebHandler@MailingListVi" id="@MailingList" ref="ListChannelsHomeWebHandler">
+      <property name="channelId" value="16" />
+      <property name="rows" value="10" />
+    </web-handler>
+    
+<web-handler name="ListChildChannelsWebHandler@MailingListEn" id="@MailingList" ref="ListChildChannelsWebHandler">
+      <property name="channelId" value="5" />
+      <property name="rows" value="10" />
+    </web-handler>
+    
+    <web-handler name="ListChildChannelsWebHandler@MailingListVi" id="@MailingList" ref="ListChildChannelsWebHandler">
+      <property name="channelId" value="16" />
+      <property name="rows" value="10" />
+    </web-handler>
+    
+    <web-handler name="ListChildChannelsWebHandler@MailingList" id="@MailingList" ref="ListChildChannelsWebHandler">
+    </web-handler>
+    <!-- end mailinglist -->
+    
+<web-handler name="ListContentsChannelWebHandler@Home" id="@Home" ref="ListContentsChannelWebHandler" />
+   
+    <web-handler name="ListContentsChannelWebHandler@MailingList" id="@MailingList" ref="ListContentsChannelWebHandler" />
+    
+    <!-- start ourlib -->
+    <web-handler name="ListChannelsHomeWebHandler@OurLibEn" id="@OurLib" ref="ListChannelsHomeWebHandler">
+      <property name="channelId" value="10" />
+      <property name="rows" value="10" />
+    </web-handler>
+    
+    <web-handler name="ListChannelsHomeWebHandler@OurLibVi" id="@OurLib" ref="ListChannelsHomeWebHandler">
+      <property name="channelId" value="22" />
+      <property name="rows" value="10" />
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandler@OurLib" id="@OurLib" ref="ListContentsChannelWebHandler" />
+    
+    <web-handler name="ListChildChannelsWebHandler@OurLib" id="@OurLib" ref="ListChildChannelsWebHandler" />
+ <!-- end ourlib -->
+    
+    <!-- start dbmanagement -->
+    <web-handler name="ListChannelsHomeWebHandler@DbManagementEn" id="@DbManagement" ref="ListChannelsHomeWebHandler">
+      <property name="channelId" value="21" />
+      <property name="rows" value="10" />
+    </web-handler>
+    
+    <web-handler name="ListChannelsHomeWebHandler@DbManagementVi" id="@DbManagement" ref="ListChannelsHomeWebHandler">
+      <property name="channelId" value="28" />
+      <property name="rows" value="10" />
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandler@DbManagement" id="@DbManagement" ref="ListContentsChannelWebHandler" />
+    
+    <web-handler name="ListChildChannelsWebHandler@DbManagement" id="@DbManagement" ref="ListChildChannelsWebHandler" />
+    <!-- end dbmanagement -->
+    
+    <!-- start aboutus -->
+    <web-handler name="ListChannelsHomeWebHandler@AboutUsEn" id="@AboutUs" ref="ListChannelsHomeWebHandler">
+      <property name="channelId" value="35" />
+      <property name="rows" value="10" />
+    </web-handler>
+  
+    <web-handler name="ListChannelsHomeWebHandler@AboutUsVi" id="@AboutUs" ref="ListChannelsHomeWebHandler">
+      <property name="channelId" value="40" />
+      <property name="rows" value="10" />
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandler@AboutUs" id="@AboutUs" ref="ListContentsChannelWebHandler" />
+
+    
+    <web-handler name="ListChildChannelsWebHandler@AboutUs" id="@AboutUs" ref="ListChildChannelsWebHandler" />
+    <!-- end aboutus -->
+    
+    <web-handler name="ListContentsChannelWebHandler@ContactUs" id="@ContactUs" ref="ListContentsChannelWebHandler" />
+  
+    <web-handler name="SearchPageWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.SearchPageWebHandler" />
+
+    <web-handler name="PrepareChannelsWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.PrepareChannelsWebHandler" />
+ 
+  </web-handlers>
+</page-handlers>

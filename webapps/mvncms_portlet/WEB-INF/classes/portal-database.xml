@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<external-database>
+    <member-table>
+        <table-name>mvnforumMember</table-name>
+        <id-field-name>MemberName</id-field-name>
+        <query-type>horizontal</query-type>
+        <query>SELECT DISTINCT * FROM  mvnforumMember where MemberName = ?</query>
+        <password-algorithm>MD5</password-algorithm>
+    </member-table>
+</external-database>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<baseElement>
+
+  <mvnforumenterpriseconfig>
+
+    <enable_cache_domainresolver>true</enable_cache_domainresolver>
+    <webservice_serverurl>http://localhost:8080/domainResolverServer/services/DomainResolver</webservice_serverurl>
+    
+    <enable_database_storage>false</enable_database_storage>
+    
+    <enable_login_info_in_cas>false</enable_login_info_in_cas>
+    <cas_validate_url>https://localhost:8443/cas/serviceValidate</cas_validate_url>
+    
+    <enable_login_info_in_openid>true</enable_login_info_in_openid>
+    <openid_realm>http://localhost:8080</openid_realm>
+    
+    <!--
+      When use with LDAP, <enable_jaas_login_context> or <enable_oid_login_context> , not both, will be true,    
+     -->
+    <enable_jaas_login_context>false</enable_jaas_login_context>
+    
+    <!--
+      If use Oracle Internet Directory, set this key to true and set <enable_jaas_login_context> to false  
+     -->
+    <enable_oid_login_context>false</enable_oid_login_context>
+    
+    <!--
+      Support types: default, oracle 
+     -->
+    <ldap_type>default</ldap_type>
+    
+    <enable_watch_mail_gateway>false</enable_watch_mail_gateway>
+    
+    <enable_gateway_with_confirmedcode>false</enable_gateway_with_confirmedcode>
+    
+    <enable_applet_upload_image>true</enable_applet_upload_image>
+    
+    <enable_request_private_forum>false</enable_request_private_forum>
+    
+    <enable_chat>false</enable_chat>
+    
+    <cms_news_view_mode>1</cms_news_view_mode>
+    
+    <cms_news_table_width>100</cms_news_table_width>
+    
+    <enable_view_vote_result>true</enable_view_vote_result>
+    
+    <enable_poll>true</enable_poll>
+    
+    <minutes_to_vote_poll_again>5</minutes_to_vote_poll_again>
+    
+    <enable_vote>true</enable_vote>
+    
+    <enable_revote>true</enable_revote>
+
+    <enable_private_album>true</enable_private_album>
+    
+    <enable_public_album>true</enable_public_album>
+    
+    <enable_album_type_shopping>false</enable_album_type_shopping>
+    
+    <enable_albumitem_poll>true</enable_albumitem_poll>
+    
+    <enable_albumitem_rate>true</enable_albumitem_rate>
+    
+    <minutes_to_rate_albumitem_again>5</minutes_to_rate_albumitem_again>
+    
+    <max_albumitem_width>1024</max_albumitem_width>
+    
+    <max_albumitem_height>768</max_albumitem_height>
+    
+    <!--
+       NOTE: max_album_disk_size : set the maximum album disk size
+             max_album_disk_size = -1  means no limit on the album disk size
+             You can use suffixes "K" or "KB" to specify the size in kilobytes,
+             "M" or "MB" to specify it in megabytes. Otherwise, the size is in bytes.
+       Example: max_album_disk_size = 1024 : maximum size is 1024 bytes = 1 KB
+       Example: max_album_disk_size = 1KB  : same as previous
+    -->
+        
+    <max_album_disk_size>102400KB</max_album_disk_size>
+    
+    <max_albumitem_attachment_size>10240KB</max_albumitem_attachment_size>
+    
+    <enable_show_album_member>false</enable_show_album_member>
+    
+    <default_pollid>0</default_pollid>
+    <default_albumid>0</default_albumid>
+    
+  </mvnforumenterpriseconfig>
+  
+</baseElement>

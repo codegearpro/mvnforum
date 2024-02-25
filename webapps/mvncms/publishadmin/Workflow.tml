@@ -1,0 +1,214 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/Workflow.tml,v 1.38 2009/10/27 05:00:11 trungth Exp $
+ - $Author: trungth $
+ - $Revision: 1.38 $
+ - $Date: 2009/10/27 05:00:11 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.workflow.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:x="tapestry-library:tapx">
+
+  <script type="text/javascript" src="${asset:context:/mvnplugin/mvncms/cms/jscripts/overlib/overlib.js}" />
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+  
+  <table border="0" width="95%" cellspacing="0" cellpadding="3" class="center">
+    <tr>
+      <td valign="top" style="width: 200px;">
+        <table cellspacing="0" cellpadding="3" width="100%" class="center">
+          <tr>
+            <td class="highlight">${message:mvncms.workflow.title}</td>
+          </tr>
+        </table>
+        <table class="tborder" width="95%" cellspacing="0" cellpadding="3">
+          <tr t:type="Loop" t:source="workflowItems" t:value="currentStep" class="prop:evenodd.next">
+            <td>
+              <t:if test="thisStep">
+                <b>
+                  <a t:type="EventLink" t:event="changeStep" t:context="currentStep.stepDescriptor.id" href="#">${currentStep.stepDescriptor.name}</a>
+                  [${currentStep.numberOfContentInThisStep}]
+                </b>
+                <t:parameter name="else">
+                  <a t:type="EventLink" t:event="changeStep" t:context="currentStep.stepDescriptor.id" href="#">${currentStep.stepDescriptor.name}</a>
+                  [${currentStep.numberOfContentInThisStep}]
+                </t:parameter>
+              </t:if>
+            </td>
+          </tr>
+        </table>
+        
+        <table cellspacing="0" cellpadding="3" width="100%" class="center">
+          <tr>
+            <td class="highlight">${message:mvncms.workflow.quickview}</td>
+          </tr>
+        </table>
+        <table border="0" class="tborder" width="100%" cellspacing="0" cellpadding="3">
+          <tr class="portlet-section-body">
+            <td>
+              <form t:type="Form" t:id="quickEditContentForm" t:clientValidation="true">
+                <t:publishadmin.TokenField />
+                <div>
+                  <label t:type="Label" for="quickContentID">${message:mvncms.workflow.contentID}</label> <input t:type="TextField" t:id="quickContentID" size="5" />
+                  <input type="submit" class="portlet-form-button" value="${message:mvncms.action.view}"/>
+                </div>
+              </form>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td valign="top">
+        <table cellspacing="0" cellpadding="3" width="100%" class="center">
+          <tr>
+            <td class="highlight">${message:mvncms.workflow.contents_workflow}</td>
+          </tr>
+        </table>
+        <form t:type="Form" t:id="filterForm" t:clientValidation="true">
+        <input t:type="chenillekit/Hidden" t:name="literal:stepID" t:value="stepID" />
+          <table width="100%">
+            <tr class="portlet-font">
+              <td colspan="3" align="left">${message:mvncms.workflow.filteredby}</td>
+            </tr>
+            <tr class="portlet-font">
+              <td class="no_wrap"><label t:type="Label" for="channelFilterID">${message:mvncms.workflow.channel}</label>&nbsp;
+                <select t:type="Select" t:id="channelFilterID" />
+              </td>
+              <td class="no_wrap"><label t:type="Label" for="filterMemberID">${message:mvncms.workflow.member}</label>&nbsp;
+                <select t:type="Select" t:id="filterMemberID" />
+              </td>
+              <td class="no_wrap">
+                <select t:type="Select" t:id="minOfFeedback" />
+                <label t:type="Label" for="minOfFeedback">${message:mvncms.workflow.feedback}</label>
+              </td>
+            </tr>
+            <tr class="portlet-font">
+              <td class="no_wrap">
+                <label t:type="Label" for="modifiedStartDate">${message:mvncms.workflow.from}</label>&nbsp;<x:datefield t:id="modifiedStartDate" format="literal:dd/MM/yyyy" />
+              </td>
+              <td class="no_wrap">
+                <label t:type="Label" for="modifiedEndDate">${message:mvncms.workflow.to}</label>&nbsp;<x:datefield t:id="modifiedEndDate" format="literal:dd/MM/yyyy" /> 
+              </td>
+              <td class="no_wrap">
+                <input type="submit" class="portlet-form-button" value="${message:mvncms.workflow.filter}"/>
+                <input type="reset" value="${message:mvncms.workflow.resetfilter}"/>
+              </td>
+            </tr>
+          </table>
+        </form>
+        <div>&nbsp;</div>
+        
+        <form t:type="Form" t:id="choosePageSizeForm" t:clientValidation="true">
+          <t:publishadmin.TokenField />
+          <input t:type="chenillekit/Hidden" t:name="literal:stepID" t:value="stepID" />
+          <table>
+            <tr class="portlet-font">
+              <td>
+                <label t:type="Label" for="pageSize">${message:mvncms.workflow.see1}</label>&nbsp;<select t:type="Select" t:id="pageSize" />&nbsp;${message:mvncms.workflow.see2}&nbsp;
+                <input type="submit" value="${message:mvncms.action.choose}"/>
+              </td>
+            </tr>
+          </table>
+        </form>
+        <div>&nbsp;</div>
+        
+        <div class="textcenter">
+          
+          <table t:type="Grid" t:id="contents" t:source="contentModel" t:row="content" t:rowsPerPage="pageSize" t:pagerPosition="top" t:rowClass="prop:evenodd.next"
+               t:add="${addColumns}" t:empty="${message:grid.empty_message}"
+               t:include="contentID, contentTitle"
+               style="margin:0px auto;" width="95%">
+            <t:parameter name="viewCell">
+              <div class="textcenter">
+                <img src="${asset:context:/mvnplugin/mvncms/images/icons/information.gif}" onmouseover="${onMouseOver}" onmouseout="return nd();" alt=""/><br />
+                <a href="${previewLink}" target="_blank">${message:mvncms.action.preview}</a>
+              </div>
+            </t:parameter>
+            <t:parameter name="editCell">
+              <div class="textcenter">
+                <a t:type="PageLink" t:page="publishadmin/EditContent" t:context="list:content.contentID" href="#" class="command">${message:mvncms.action.edit}</a>
+              </div>
+            </t:parameter>
+            <t:parameter name="deleteCell">
+              <div class="textcenter">
+                <a t:type="PageLink" t:page="publishadmin/DeleteContent" t:context="content.contentID" href="#" class="command">${message:mvncms.action.delete}</a>
+              </div>
+            </t:parameter>  
+            <t:parameter name="workflowCell">
+              <div class="textcenter">
+                <form t:type="Form" t:id="chooseActionForm" t:clientValidation="true">
+                  <t:publishadmin.TokenField />
+                  <div>
+                    <input t:type="chenillekit/Hidden" t:id="contentID" />
+                    <input t:type="chenillekit/Hidden" t:name="literal:stepID" t:value="stepID" />
+                    <select t:type="Select" t:id="actionID" />
+                    <input type="submit" value="${message:mvncms.action.ok}"/>
+                  </div>
+                </form>
+              </div>
+            </t:parameter>
+            <t:parameter name="deployedChannelsCell">
+              <div class="textcenter">
+                <img src="${asset:context:/mvnplugin/mvncms/images/icons/information.gif}" onmouseover="${onMouseOverByDeployedChannels}" onmouseout="return nd();" alt=""/>
+              </div>
+            </t:parameter>
+            <t:parameter name="deployCell">
+              <t:if test="showDeployLink">
+                <div class="textcenter">
+                  <a t:type="PageLink" t:page="publishadmin/Deploy" t:context="content.contentID" href="#" class="command">${message:mvncms.workflow.deploy}</a>
+                </div>
+              </t:if>
+            </t:parameter>
+            <t:parameter name="feedbacksCell">
+              <div class="textcenter">
+                <t:if test="showListFeedBacksLink">
+                  <a t:type="PageLink" t:page="publishadmin/EditContentType" t:context="content.contentID" href="#" class="command">${message:mvncms.workflow.listfeedbacks}</a>
+                  <t:parameter name="else">
+                    ${message:mvncms.workflow.nofeedbacks}
+                  </t:parameter>
+                </t:if>
+              </div>
+            </t:parameter>
+            <t:parameter name="interviewCell">
+              <div class="textcenter">
+                <t:if test="addInterviewLink">
+                  <t:if test="canAddInterview">
+                    <a t:type="PageLink" t:page="publishadmin/AddInterview" t:context="content.contentID" href="#" class="command">${message:mvncms.workflow.addinterview}</a>
+                  </t:if>
+                  <t:parameter name="else">
+                    <t:if test="canViewInterview">
+                        <a t:type="PageLink" t:page="publishadmin/ViewInterview" t:context="interviewID" href="#" class="command">${message:mvncms.workflow.viewinterview}</a>
+                    </t:if>
+                  </t:parameter>
+                </t:if>
+              </div>
+            </t:parameter>
+            <t:parameter name="taxonomyCell">
+              <t:if test="showTaxonomyLink">
+                <div class="textcenter">
+                  <a t:type="PageLink" t:page="publishadmin/TaxonomyManagement" class="command">${message:mvncms.workflow.addtotaxonomy}</a>
+                </div>
+              </t:if>
+            </t:parameter>
+            <t:parameter name="albumCell">
+              <t:if test="showAddAlbumLink">
+                <div class="textcenter">
+                  <a href="${genericAddLink}" class="command" target="_blank">${message:mvncms.workflow.addalbum}</a><br />
+                </div>
+              </t:if>
+            </t:parameter>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+          
+</t:publishadmin.border>

@@ -1,0 +1,30 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/ErrorPage.tml,v 1.15 2009/09/07 05:15:01 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.15 $
+ - $Date: 2009/09/07 05:15:01 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="literal:Error Page" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <div class="pagedesc">
+    ${message:mvncms.error.prompt}<br />
+    <b><i><span class="portlet-msg-error">${message}</span></i></b>
+    <br /><br />
+    <b>&raquo;&nbsp;</b><a class="command" href="javascript:history.back(1)">${message:mvncms.error.go_back}</a><br />
+    <b>&raquo;&nbsp;</b>${message:mvncms.error.it_is_an_error}
+    <a t:type="publishadmin.JavascriptEmail" t:id="webmasterEmail" href="#" />
+  </div>
+    
+</t:publishadmin.border>

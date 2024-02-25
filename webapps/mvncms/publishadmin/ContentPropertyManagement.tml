@@ -1,0 +1,92 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/ContentPropertyManagement.tml,v 1.9 2009/12/23 08:11:32 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.9 $
+ - $Date: 2009/12/23 08:11:32 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.contentpropertymanagement.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+  
+  <t:if test="showAdd">
+    <form t:type="Form" t:id="addContentPropertyForm" t:clientValidation="true">
+      <t:publishadmin.TokenField />
+      <t:errors><div>&nbsp;</div></t:errors>
+      <table border="0" class="tborder center" width="95%" cellspacing="0" cellpadding="3">
+        <tr class="portlet-section-header">
+          <th colspan="2" align="left">${message:mvncms.contentpropertymanagement.add_content_property}</th>
+        </tr>
+        <tr class="${prop:evenOdd.next}">
+          <td><label t:type="Label" for="propertyCode">${message:mvncms.common.contentproperty.code}</label></td>
+          <td><input t:type="TextField" t:id="propertyCode" size="50" /></td>
+        </tr>
+        <tr class="${prop:evenOdd.next}">
+          <td><label t:type="Label" for="propertyName">${message:mvncms.common.contentproperty.name}</label></td>
+          <td><input t:type="TextField" t:id="propertyName" size="50" /></td>
+        </tr>
+        <tr class="${prop:evenOdd.next}">
+          <td><label t:type="Label" for="propertyDataType">${message:mvncms.common.contentproperty.datatype}</label></td>
+          <td><select t:type="Select" t:id="propertyDataType"></select></td>
+        </tr>
+        <tr class="${prop:evenOdd.next}">
+          <td><label t:type="Label" for="propertyType">${message:mvncms.common.contentproperty.type}</label></td>
+          <td><select t:type="Select" t:id="propertyType"></select></td>
+        </tr>
+        <tr id="vietnameseKeyboardBlock" style="display: none">
+          <td>${message:mvncms.common.vietnamese_key}</td>
+          <td>
+            <t:publishadmin.VietnameseKeyboardComponent inputList="literal:propertyName" />
+          </td>
+        </tr>
+        <tr class="portlet-section-footer">
+          <td colspan="2" align="center">
+            <input type="submit" value="${message:mvncms.action.create}" class="portlet-form-button" />
+            <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <div>&nbsp;</div>
+  </t:if>
+
+  <div class="textcenter">
+    <table t:type="grid" t:id="contentPropertyGrid" t:source="contentProperties" t:row="contentProperty"
+      t:add="${addColumns}" t:empty="${message:grid.empty_message}"
+      t:include="propertyID, propertyCode, propertyName, propertyDataType, propertyType" 
+      t:rowsPerPage="postsPerPage" t:pagerPosition="top" align="center" width="95%" t:rowClass="prop:evenOdd.next">
+      
+      <t:parameter name="propertyDataTypeCell">
+        <t:publishadmin.BeanAtributeDisplay beanName="literal:ContentPropertyDataType" inputString="contentProperty.propertyDataType" />
+      </t:parameter>
+      <t:parameter name="propertyTypeCell">
+        <t:publishadmin.BeanAtributeDisplay beanName="literal:ContentPropertyType" input="contentProperty.propertyType" />
+      </t:parameter>
+      <t:parameter name="definedValuesCell">
+        <t:if test="definedValues">
+          <a t:type="PageLink" t:id="definedValues" t:context="list:contentProperty.propertyID" t:page="publishadmin/ContentPropDefinedValueManagement" href="#">${message:mvncms.contentpropertymanagement.defined_values}</a>
+        </t:if>
+      </t:parameter>
+      <t:parameter name="editCell">
+         <a t:type="PageLink" t:id="edit" t:context="list:contentProperty.propertyID" t:page="publishadmin/EditContentProperty" href="#">${message:mvncms.action.edit}</a>
+      </t:parameter>
+      <t:parameter name="deleteCell">
+        <t:if test="canDelete">
+          <a t:type="PageLink" t:id="delete" t:context="list:contentProperty.propertyID" t:page="publishadmin/DeleteContentProperty" href="#">${message:mvncms.action.delete}</a>
+        </t:if>
+      </t:parameter>
+    </table>
+  </div>
+  
+</t:publishadmin.border>

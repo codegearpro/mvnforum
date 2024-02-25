@@ -1,0 +1,97 @@
+input,textarea,select,table {
+    font-size: 100%;
+    margin: 0
+}
+
+img {
+    border: 0
+    height: 15px;
+    width: 15px;
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+body {
+    background: #fff;
+    margin: 0
+}
+
+.scrollable-table-area {
+    width: 100%;
+    height: 80%;
+    overflow-x: auto;
+    overflow-y: auto;
+    scrollbar-arrow-color: #FFFFFF;
+    scrollbar-base-color: #ECEAEA;
+    scrollbar-darkshadow-color: #FFFFFF;
+    scrollbar-3dlight-color: #ECEAEA;
+    scrollbar-highlight-color: #FFFFFF;
+    background-color: #FFFFFF;
+    margin-bottom: 2px;
+}
+
+.receiver {
+    font-size: 80%
+    margin-right: 5px;
+    overflow: hidden;
+    font-weight: bold;
+    color: white;
+}
+
+.output {
+    font-size: 90%;
+    width: 100%;
+    background-color: white;
+    border-left: 1px solid #999999;
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    font-size: 90%;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.timeStyle{
+    font-size: 100%;
+    color: red;
+    font-family: arial
+}
+
+.userIdStyle {
+    font-size: 100%;
+    color: green;
+    font-family: arial
+}
+
+.contentStyle {
+    font-size: 100%;
+    color: blue;
+    font-family: arial
+}
+
+.hidden {
+    display:none;
+}
+
+outputmessage {
+
+}
+
+.input {
+    font-size: 100%;
+    padding-top: 1px;
+    width: 100%;
+    background-color: white;
+    border-left: 1px solid #999999;
+    border-right: 1px solid #999999;
+    border: medium none;
+}
+
+.message {
+    border: 2px solid rgb(115, 166, 255);
+    background-color: white;
+    font-size: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    height: 40px;
+    width: 100%;
+}

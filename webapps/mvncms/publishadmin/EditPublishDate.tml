@@ -1,0 +1,71 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/EditPublishDate.tml,v 1.6 2009/09/14 08:20:38 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.6 $
+ - $Date: 2009/09/14 08:20:38 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.editpublishdate.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:x="tapestry-library:tapx">
+
+<br />
+<form t:type="Form" t:id="editPublishDateForm" t:clientValidation="true">
+  <t:publishadmin.TokenField />
+  <input t:type="chenillekit/Hidden" t:id="contentID"/>
+  <input t:type="chenillekit/Hidden" t:id="channelID"/>
+  <table border="0" class="tborder center" width="95%" cellspacing="1" cellpadding="3">
+    <tr class="portlet-section-header">
+      <td colspan="2">${message:mvncms.editpublishdate.info}</td>
+    </tr>
+    <tr class="portlet-section-body">
+      <td>${message:mvncms.common.content.contentid}</td>
+      <td>${contentID}</td>
+    </tr>
+    <tr class="portlet-section-alternate">
+      <td>${message:mvncms.common.content.title}</td>
+      <td>${contentTitle}</td>
+    </tr>
+    <tr class="portlet-section-body">
+      <td>${message:mvncms.common.channel.channelid}</td>
+      <td>${channelID}</td>
+    </tr>
+    <tr class="portlet-section-alternate">
+      <td>${message:mvncms.common.channel.name}</td>
+      <td>${channelName}</td>
+    </tr>
+    <tr class="portlet-section-body">
+      <td>${message:mvncms.editpublishdate.start_date}</td>
+      <td>
+        <input t:type="RadioGroup" t:id="startDate">
+          <input t:type="Radio" t:id="asSoonAsPossible" label="literal:message:mvncms.interview.startpossible" class="noborder"/>${message:mvncms.common.interview.start_possible}<br /> 
+          <input t:type="Radio" t:id="hasPublishStartDate" class="noborder"/>${message:mvncms.common.interview.start_date}<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<x:datefield t:id="publishStartDate" format="literal:dd/MM/yyyy" />
+        </input>
+      </td>
+    </tr>
+    <tr class="portlet-section-body">
+      <td>${message:mvncms.editpublishdate.end_date}</td>
+      <td>
+        <input t:type="RadioGroup" t:id="endDate">
+          <input t:type="Radio" t:id="neverExpire" class="noborder"/>${message:mvncms.common.interview.end_never}<br /> 
+          <input t:type="Radio" t:id="hasPublishEndDate" class="noborder"/>${message:mvncms.common.interview.end_date}<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<x:datefield t:id="publishEndDate" format="literal:dd/MM/yyyy" />
+        </input>
+      </td>
+    </tr>
+    <tr class="portlet-section-footer">
+      <td colspan="2" align="center">
+        <input type="submit" value="${message:mvncms.workflow.deploy.change}" class="portlet-form-button" />
+      </td>
+    </tr>
+  </table>
+</form>  
+</t:publishadmin.border>

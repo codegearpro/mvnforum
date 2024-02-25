@@ -1,0 +1,27 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/src/com/mvnsoft/mvncms/tapestry5/components/publishadmin/TabSetComponent.tml,v 1.6 2009/05/11 07:00:41 trungth Exp $
+ - $Author: trungth $
+ - $Revision: 1.6 $
+ - $Date: 2009/05/11 07:00:41 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  
+  <div id="${clientId}_panel" class="tabsetcomponent_panel">
+    <t:Loop t:id="panelIdsLoop" value="blockId">
+      <div id="panel_${blockId}" class="mvn_tab ${activePanel}">
+        ${panelTitle}
+      </div>
+    </t:Loop>
+  </div>
+  
+</t:container>

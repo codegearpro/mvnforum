@@ -1,0 +1,25 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/Error404.tml,v 1.2 2009/04/24 03:03:59 nhanld Exp $
+ - $Author: nhanld $
+ - $Revision: 1.2 $
+ - $Date: 2009/04/24 03:03:59 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  <head>
+    <title>Content Management System - 404 Not Found</title>
+  </head>
+  <body>
+    <h1>Not Found</h1>
+    <p>The requested page was not found on this server.</p>
+  </body>
+</html>

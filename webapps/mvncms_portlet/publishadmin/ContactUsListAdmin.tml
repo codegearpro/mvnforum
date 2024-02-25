@@ -1,0 +1,60 @@
+<!--
+ - $Header: /home/cvsroot/mvncms-portlet/srcweb/publishadmin/ContactUsListAdmin.tml,v 1.1 2009/11/24 09:15:14 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.1 $
+ - $Date: 2009/11/24 09:15:14 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:x="tapestry-library:tapx">
+<head>
+  <title>${message:mvncms.contactus.admin.list.title}</title>
+   <script type="text/javascript">
+    function validateDelete() {
+        return confirm('Bạn thực sự muốn xóa?');
+    }
+  </script>
+</head>
+<body>
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+
+  <table class="box_border" cellspacing="0" cellpadding="0" border="0" width="930" style="margin: 0pt auto;">
+    <tbody>
+      <tr>
+        <td>
+        
+          <div style="border-bottom: 2px solid rgb(0, 153, 0); margin: 10px; font-size: 16px; color: rgb(0, 153, 0); font-weight: bold;">${message:mvncms.contactus.admin.list.title}</div>
+          <div style="margin: 10px; width: 49%; float: left;">
+          <div>(<a t:type="PageLink" t:page="publishadmin/ContactUs">${message:mvncms.contactus.contact_us}</a>)</div>   
+
+            <ul class="list">    
+                <div class="ck_paged_loop_pager" t:type="chenillekit/PagedLoop" t:source="contactUsQuestionList" t:value="contactUsBean" t:rowsPerPage="postsPerPage" t:empty="message:mvncms.contactus.table.empty">
+                  <li>
+                    <a class="vb_link" t:type="PageLink" t:page="publishadmin/ContactUsDetail" t:context="contactUsBean.contactID">${contactUsBean.contactTitle}</a>
+                    <span class="date">${getCreationDateFormat(contactUsBean.contactCreationDate)}</span>
+                    <div>
+                        <a class="vb_link" t:type="ActionLink" t:id="delete" t:context="contactUsBean.contactID" onclick="return validateDelete();">${message:mvncms.action.delete}</a> &nbsp; | &nbsp;
+                        <a class="vb_link" t:type="PageLink" t:page="publishadmin/ContactUsRelyAdmin" t:context="contactUsBean.contactID">${getActionLabel(contactUsBean.contactAnswer)}</a>  
+                    </div>
+                  </li>
+                </div>
+            </ul>
+             
+          </div>
+         </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

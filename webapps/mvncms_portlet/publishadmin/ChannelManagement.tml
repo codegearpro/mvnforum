@@ -1,0 +1,90 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/ChannelManagement.tml,v 1.25 2009/10/28 09:38:11 nhanld Exp $
+ - $Author: nhanld $
+ - $Revision: 1.25 $
+ - $Date: 2009/10/28 09:38:11 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.channelmanagement.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+
+  <div class="pagedesc">
+    <a href="#" t:type="PageLink" t:page="publishadmin/AddChannel" class="command">${message:mvncms.addchannel.title}</a><br />
+    <t:if test="showContentTypeManagementLink"> 
+      <a href="#" t:type="PageLink" t:page="publishadmin/ContentTypeManagement" class="command">${message:mvncms.channelmanagement.content_type_management}</a><br />
+    </t:if>
+    <t:if test="showAddBannerZoneChannelLink"> 
+      <a href="#" t:type="PageLink" t:page="publishadmin/AddBannerZoneChannel" class="command">${message:mvncms.channelmanagement.link_banner_zone}</a>
+    </t:if>
+  </div>
+  <div>&nbsp;</div>
+  
+  <table class="tborder center" width="95%" cellspacing="0" cellpadding="3">
+    <tr class="portlet-section-header">
+      <td t:type="publishadmin/ChannelTreeHeader" t:maxDepth="maxDepth" t:body="message:mvncms.channelmanagement.channel_tree" style="width: 85%;" />
+      <td align="center" style="width: 5%;">${message:mvncms.common.channel.channelid}</td>
+      <td align="center" style="width: 5%;">${message:mvncms.common.channel.viewmode}</td>
+      <t:if test="showSortColumn">
+        <td align="center" style="width: 5%;">${message:mvncms.action.sort}</td>
+      </t:if>
+      <td align="center" style="width: 5%;">${message:mvncms.action.edit}</td>
+      <td align="center" style="width: 5%;">${message:mvncms.action.delete}</td>
+    </tr>
+    <t:if test="emptyChannelTree">
+      <tr class="portlet-section-body">
+        <td colspan="4" align="center">${message:mvncms.channelmanagement.no_channel}</td>
+      </tr>
+      <t:parameter name="else">
+        <tr t:type="Loop" t:source="orderedChannelIDs" t:value="currentChannelID" class="prop:evenodd.next">
+          <span t:type="publishadmin/ChannelTreeRow" t:maxDepth="maxDepth" t:currentChannelID="currentChannelID" />
+          <td align="center" style="width: 10%">
+              ${currentChannel.channelID}
+          </td>
+          <td align="center" style="width: 10%">
+            <t:publishadmin.BeanAtributeDisplay beanName="literal:currentChannel" atribute="literal:mode" input="currentChannel.channelViewMode" />
+          </td>
+          <t:if test="showSortColumn">
+            <td align="center">
+              <table width="100%" class="noborder">
+                <tr>
+                  <td align="center"  style="width: 40%;">
+                    <a t:type="ActionLink" t:id="updateOrderByDown" t:context="currentChannel.channelID" href="#"><img src="${asset:context:/mvnplugin/mvnforum/images/icon/down.gif}" alt="Down" class="no-border" /></a>
+                  </td>
+                  <td align="center" style="width: 40%;">${currentChannel.channelOrder}</td>
+                  <td align="center" style="width: 30%;">
+                  <t:if test="showUpdateOrderByUp"> 
+                    <a t:type="ActionLink" t:id="updateOrderByUp" t:context="currentChannel.channelID" href="#"><img src="${asset:context:/mvnplugin/mvnforum/images/icon/up.gif}" alt="Up" class="no-border" /></a>
+                  </t:if>
+                  </td>
+                </tr>
+              </table>      
+            </td>
+          </t:if>
+          <td align="center">
+          <t:if test="showEditLink">
+            <a t:type="PageLink" t:page="publishadmin/EditChannel" t:context="currentChannel.channelID" href="#" class="command">${message:mvncms.action.edit}</a>
+          </t:if> 
+          </td>
+          <td align="center">
+          <t:if test="showDeleteLink">
+            <a t:type="PageLink" t:page="publishadmin/DeleteChannel" t:context="currentChannel.channelID" href="#" class="command">${message:mvncms.action.delete}</a>
+          </t:if>
+          </td>
+        </tr>
+      </t:parameter>
+    </t:if>
+  </table>
+    
+</t:publishadmin.border>

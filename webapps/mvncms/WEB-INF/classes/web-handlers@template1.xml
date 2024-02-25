@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page-handlers>
+  <properties>
+    <property name="root_channel_id" value="1" />
+    <property name="language" value="en" />
+    <property name="url_pattern" value="/template1" />
+  </properties>
+  
+  <page name="common" virtual="true">
+    <handler name="ExtraContentsWebHandler@HotNewsTinCNTT" />
+    <handler name="ExtraContentsWebHandler@MostViewTinCNTT" />
+  </page>
+
+  <page name="CDS_URL_PAGE_LIST_MODE_1" action="" uri="/mvnplugin/mvncms/cds/standard/template1/listcontents_mode_1.jsp">
+    <include page="common" />
+    <handler name="TopNewsWebHandler@Home" />
+    <handler name="ListContentsHomeWebHandler@TinCNTT" />
+    <handler name="LiveFeedWebHandler@Jvn" />
+    <handler name="LiveFeedWebHandler@JWorld" />
+  </page>
+
+  <page name="CDS_URL_PAGE_LIST_MODE_0" action="" uri="/mvnplugin/mvncms/cds/standard/template1/listcontents_mode_0.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@TinCNTT" />
+    <handler name="LiveFeedWebHandler@Jvn" />
+    <handler name="LiveFeedWebHandler@JWorld" />
+  </page>
+
+  <page name="CDS_URL_PAGE_VIEW" action="content" uri="/mvnplugin/mvncms/cds/standard/template1/viewcontent.jsp">
+    <handler name="SingleContentWebHandler" />
+    <include page="common" />
+    <handler name="ExtraContentsWebHandler@ViewContent" />
+  </page>
+
+  <page name="search" action="/search" uri="/mvnplugin/mvncms/cds/standard/template1/search.jsp">
+    <include page="common" />
+    <handler name="SearchPageWebHandler" />
+    <handler name="PrepareChannelsWebHandler" />
+    <handler name="LiveFeedWebHandler@Jvn" />
+    <handler name="LiveFeedWebHandler@JWorld" />
+  </page>
+
+  <page name="confighome" action="/confighome" uri="/mvnplugin/mvncms/cds/standard/template1/confighome.jsp">
+    <handler name="TinCNTTConfigHomeWebHandler" />
+  </page>
+
+  <page name="ad" action="/ad" uri="/mvnplugin/mvncms/cds/standard/template1/ad.jsp" />
+  
+  <page name="newsinmvnforumlistmode" action="/newsinmvnforumlistmode" uri="/mvnplugin/mvncms/cds/standard/template1/news_in_mvnforum_list.jsp">
+    <handler name="NewsInMvnforumWebHandler" />
+  </page>
+  
+  <page name="newsinmvnforumtabmode" action="/newsinmvnforumtabmode" uri="/mvnplugin/mvncms/cds/standard/template1/news_in_mvnforum_tab.jsp">
+    <handler name="NewsInMvnforumWebHandler" />
+  </page>
+
+  <web-handlers>
+    <web-handler name="RSSHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.LiveFeedWebHandler" virtual="true">
+      <property name="item-path" value="/rss/channel/item" />
+      <property name="link-node" value="link" />
+      <property name="title-node" value="title" />
+      <property name="size" value="5" />
+      <property name="url" value=".." />
+      <property name="timeout" value="5" /><!-- minutes-->
+    </web-handler>
+
+    <web-handler name="LiveFeedWebHandler@Jvn" id="@Jvn" ref="RSSHandler">
+      <property name="url" value="http://localhost:8080/mvncms/mvnforum/rss?sort=ThreadLastPostDate&amp;order=DESC" />
+      <property name="timeout" value="10" />
+    </web-handler>
+
+    <web-handler name="LiveFeedWebHandler@JWorld" id="@JWorld" ref="RSSHandler">
+      <property name="url" value="http://feeds.pheedo.com/techtarget/tsscom/home" />
+      <property name="timeout" value="30" />
+      <!-- minutes-->
+    </web-handler>
+
+    <web-handler name="TopNewsWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.TopNewsWebHandler" virtual="true" />
+
+    <web-handler name="TopNewsWebHandler@Home" id="@Home" ref="TopNewsWebHandler">
+      <property name="rows" value="1" />
+    </web-handler>
+
+    <web-handler name="ListContentsHomeWebHandler@TinCNTT" id="@TinCNTT" ref="ListContentsHomeWebHandler" />
+
+    <web-handler name="ListContentsChannelWebHandler@TinCNTT" id="@TinCNTT" ref="ListContentsChannelWebHandler" />
+
+    <web-handler name="SearchPageWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.SearchPageWebHandler" />
+
+    <web-handler name="PrepareChannelsWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.PrepareChannelsWebHandler" />
+    
+    <web-handler name="TinCNTTConfigHomeWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.tincntt.TinCNTTConfigHomeWebHandler" />
+
+    <web-handler name="NewsInMvnforumWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.NewsInMvnforumWebHandler">
+      <property name="rows" value="4" />
+      <!-- channels
+        -1: all channels and we will ignore 'listchannels' value below
+      -->
+      <property name="channels" value="-1" />
+      <property name="listchannels" value="2,5,9,12,11" />
+      <!-- property name="dispatch" value="include" / -->
+    </web-handler>
+    
+    <web-handler name="ExtraContentsWebHandler@HotNewsTinCNTT" id="@HotNewsTinCNTT" ref="ExtraContentsWebHandler">
+      <property name="type" value="-1" />
+      <property name="order" value="ContentCreationDate:DESC" />
+      <property name="rows" value="5" />
+      <property name="channel" value="true" />
+    </web-handler>
+    
+    <web-handler name="ExtraContentsWebHandler@MostViewTinCNTT" id="@MostViewTinCNTT" ref="ExtraContentsWebHandler">
+      <property name="type" value="-1" />
+      <property name="order" value="ContentViewCount:DESC,ContentCreationDate:DESC" />
+      <property name="rows" value="5" />
+      <property name="channel" value="true" />
+    </web-handler>
+
+  </web-handlers>
+</page-handlers>

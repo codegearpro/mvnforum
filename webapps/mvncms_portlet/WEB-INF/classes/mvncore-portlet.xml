@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<baseElement>
+  <mvncore_portlet>
+    <portal_url_login>http://localhost:8080/pluto/privileged/</portal_url_login>
+    <portal_url_register>http://localhost:8080/pluto/portal/mvnforum-usermanagement</portal_url_register>
+  </mvncore_portlet>
+</baseElement>

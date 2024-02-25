@@ -1,0 +1,146 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/ConfigCMS.tml,v 1.28 2010/02/22 10:19:31 trungth Exp $
+ - $Author: trungth $
+ - $Revision: 1.28 $
+ - $Date: 2010/02/22 10:19:31 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.configcms.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+  <t:publishadmin.JavascriptCurrentPassword t:passwordField="literal:currentPassword" t:md5pwField="literal:md5pw" />
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+
+  <form t:type="Form" t:id="configCMSForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <t:errors><div>&nbsp;</div></t:errors>
+    <table border="0" width="95%" cellspacing="0" cellpadding="3" class="tborder center">
+      <tr class="portlet-section-header">
+      <td colspan="2">CMS Administration Configuration</td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td style="width: 30%;"><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.mvncms_home}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="mvnCmsHome">mvncms_home</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="TextField" t:id="mvnCmsHome" size="70" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.url_partern}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="urlPartern">url_partern</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="TextField" t:id="urlPartern" size="70" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.enable_brand_name}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="enableBrandName">enable_brand_name</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="Checkbox" t:id="enableBrandName" class="noborder" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.workflow_start_step_of_content}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="workflowStartStepOfContent">workflow_start_step_of_content</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="TextField" t:id="workflowStartStepOfContent" size="70" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.workflow_start_step_of_feedback}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="workflowStartStepOfFeedback">workflow_start_step_of_feedback</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="TextField" t:id="workflowStartStepOfFeedback" size="70" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.default_filter_channel}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="defaultFilterChannel">default_filter_channel</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="TextField" t:id="defaultFilterChannel" size="70" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.rows_per_page}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="rowsPerPage">rows_per_page</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="TextField" t:id="rowsPerPage" size="70" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.minutes_between_flush_content_view}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="minutesBetweenFlushContentView">minutes_between_flush_content_view</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="TextField" t:id="minutesBetweenFlushContentView" size="70" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.enable_debug_mode}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="enableDebugMode">enable_debug_mode</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="Checkbox" t:id="enableDebugMode" class="noborder" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.channel_contain_deleted_content}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="channelContainDeletedContent">channel_contain_deleted_content</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="TextField" t:id="channelContainDeletedContent" size="70" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.default_url_pattern}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="maxUploadFileSize">default_url_pattern</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="TextField" t:id="defaultURLPattern" size="70" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.max_charanters_in_title}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="maxCharactersInTitle">max_charanters_in_title</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="TextField" t:id="maxCharactersInTitle" size="70" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.max_charanters_in_summary}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="maxCharactersInSummary">max_charanters_in_summary</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="TextField" t:id="maxCharactersInSummary" size="70" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.max_charanters_in_body}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="maxCharactersInBody">max_charanters_in_body</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="TextField" t:id="maxCharactersInBody" size="70" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.max_upload_file_size}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="maxUploadFileSize">max_upload_file_size</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="TextField" t:id="maxUploadFileSize" size="70" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.enable_display_information_menu}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="enableDisplayInformationMenu">enable_display_information_menu</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="Checkbox" t:id="enableDisplayInformationMenu" class="noborder" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.enable_display_interview_management_link}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="enableDisplayInterviewManagementLink">enable_display_interview_management_link</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="Checkbox" t:id="enableDisplayInterviewManagementLink" class="noborder" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.enable_display_navigation_links_link}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="enableDisplayNavigationLinksLink">enable_display_navigation_links_link</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="Checkbox" t:id="enableDisplayNavigationLinksLink" class="noborder" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.enable_display_interview_column}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="enableDisplayInterviewColumn">enable_display_interview_column</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="Checkbox" t:id="enableDisplayInterviewColumn" class="noborder" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.enable_display_album_column}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="enableDisplayAlbumColumn">enable_display_album_column</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="Checkbox" t:id="enableDisplayAlbumColumn" class="noborder" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.enable_display_associate_banner_link}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="enableDisplayAssociateBannerLink">enable_display_associate_banner_link</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="Checkbox" t:id="enableDisplayAssociateBannerLink" class="noborder" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.enable_display_sort_column}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="enableDisplaySortColumn">enable_display_sort_column</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="Checkbox" t:id="enableDisplaySortColumn" class="noborder" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.enable_display_feedback_column}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="enableDisplayFeedbackColumn">enable_display_feedback_column</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="Checkbox" t:id="enableDisplayFeedbackColumn" class="noborder" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.enable_display_album_table}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="enableDisplayAlbumTable">enable_display_album_table</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="Checkbox" t:id="enableDisplayAlbumTable" class="noborder" /></td>
+    </tr>
+    <tr class="${prop:evenodd.next}">
+      <td><img src="${asset:context:/mvnplugin/mvnforum/images/icon/icon_help.gif}" onmouseover="return overlib('${message:mvncms.help.enable_display_index_page}')" onmouseout="return nd();" alt=""/><label t:type="Label" for="enableDisplayIndexPage">enable_display_index_page</label> <span class="requiredfield">*</span></td>
+      <td><input t:type="Checkbox" t:id="enableDisplayIndexPage" class="noborder" /></td>
+    </tr>
+    <tr class="${prop:evenOdd.next}">
+      <td><label t:type="Label" for="MemberCurrentMatkhau">${message:mvncms.common.password.current}<span class="requiredfield"> *</span></label></td>
+      <td>
+        <input t:type="PasswordField" t:id="MemberCurrentMatkhau" t:value="MemberCurrentMatkhau" t:onkeypress="checkEnter(event);" class="long_text" />
+        <input t:type="chenillekit/Hidden" t:id="md5pw" />
+      </td>
+    </tr>
+    <tr class="portlet-section-footer">
+      <td colspan="2" align="center">
+        <input type="submit" onclick="javascript:PrepareSubmitForm()" value="${message:mvncms.action.update_configuration_and_reload}" class="portlet-form-button" />
+        <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+        <a t:type="PageLink" t:page="publishadmin/ConfigCMSView"><input type="button" value="${message:mvncms.action.cancel}" class="liteoption" /></a>
+      </td>
+    </tr>
+    </table>
+  </form>
+</t:publishadmin.border>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page-handlers>
+
+  <properties>
+    <property name="root_channel_id" value="1" />
+
+    <property name="processor_impl" value="com.mvnsoft.mvncms.cds.standard.CDSDefaultModuleProcessor" />
+    <property name="url_pattern" value="/cms" />
+    <property name="language" value="en" />
+    <property name="url_extension" value="html" />
+    <property name="use_nicename" value="true" />
+    <property name="use_all_channels_in_url" value="true" />
+    <property name="enable_feedback" value="true" />
+    <property name="enable_feedback_attachment" value="true" />
+    
+    <property name="contents_in_list_page" value="14" />
+    <property name="detailed_contents_in_list_page" value="8" />
+    <property name="more_contents_in_view_page" value="6" />
+    <property name="most_read_contents" value="7" />
+    <property name="hottest_contents" value="5" />
+    <property name="new_contents" value="10" />
+    <property name="use_url_set_parameter" value="true" />
+    <property name="channels_per_row_in_menu" value="8" />
+    
+    <property name="minutes_to_reload_home_page" value="0" />
+    <property name="minutes_to_reload_channel_page" value="0" />
+    <property name="minutes_to_reload_content_page" value="0" />
+  </properties>
+
+  <page name="rssprocess" virtual="true">
+    <handler name="RSSPageWebHandler" />
+  </page>
+
+  <page name="atom" action="/atom" uri="/mvnplugin/mvncms/cds/generic/atom.jsp">
+    <include page="rssprocess" />
+  </page>
+  <page name="rss" action="/rss" uri="/mvnplugin/mvncms/cds/generic/rss.jsp">
+    <include page="rssprocess" />
+  </page>
+  <page name="rss2" action="/rss2" uri="/mvnplugin/mvncms/cds/generic/rss2.jsp">
+    <include page="rssprocess" />
+  </page>
+  <page name="preview" action="/preview" uri="/mvnplugin/mvncms/cds/generic/preview.jsp">
+    <handler name="PreviewPageWebHandler" />
+  </page>
+
+  <web-handlers>
+    
+    <web-handler name="SingleContentWebHandler" id="SingleContentWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.SingleContentWebHandler" />
+    <web-handler name="PrintWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.PrintWebHandler" />
+    <web-handler name="FeedbackWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.FeedbackWebHandler" />
+    <web-handler name="SelectChannelWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.SelectChannelWebHandler" />
+    <web-handler name="TaxonomyWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.TaxonomyWebHandler" />
+    <web-handler name="ForumLinkWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ForumLinkWebHandler" />
+    <web-handler name="InterviewWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.InterviewWebHandler" />
+    <web-handler name="PreviewPageWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.PreviewPageWebHandler" />
+    <web-handler name="RSSPageWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.RSSPageWebHandler" />
+    <web-handler name="SendMailWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.SendMailWebHandler" />
+
+    <web-handler name="QueryMarkWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.QueryMarkWebHandler" />
+    
+    <web-handler name="TotalCount" class="com.mvnsoft.mvncms.cds.standard.handler.impl.CountTotalContentsInChannelWebHandler" />
+    
+    <web-handler name="ListContentsHomeWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListContentsHomeWebHandler" virtual="true">
+      <property name="parent" value="1" />
+      <property name="type" value="-1" />
+      <property name="rows" value="5" />
+      <property name="order" value="ContentCreationDate:DESC" />
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListContentsChannelWebHandler" virtual="true">
+      <property name="order" value="ContentCreationDate:DESC" />
+      <property name="rows" value="20" />
+    </web-handler>
+    
+    <web-handler name="ListContentsInChannelWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListContentsInChannelWebHandler" virtual="true">
+    </web-handler>
+    
+    <web-handler name="ListChannelsHomeWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListChannelsHomeWebHandler" virtual="true">
+      <property name="channelId" value="1" />
+      <property name="type" value="-1" />
+      <property name="rows" value="5" />
+      <property name="order" value="" />
+    </web-handler>
+    
+    <web-handler name="ListChildChannelsWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListChildChannelsWebHandler" virtual="true">
+      <property name="channelId" value="-1" />
+      <property name="type" value="-1" />
+      <property name="rows" value="5" />
+      <property name="order" value="" />
+    </web-handler>
+    
+    <web-handler name="ExtraContentsWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ExtraContentsWebHandler" virtual="true">
+      <property name="type" value="-1" />
+      <property name="rows" value="10" />
+      <property name="order" value="ContentCreationDate:DESC" />
+      <property name="before" value="false" />
+      <property name="channel" value="false" />
+      <property name="content" value="true" />
+    </web-handler>
+    
+    <web-handler name="ExtraContentsWebHandler@Marquee" id="@Marquee" ref="ExtraContentsWebHandler">
+      <property name="type" value="-1" />
+      <property name="order" value="ContentCreationDate:DESC" />
+    </web-handler>
+
+    <web-handler name="ExtraContentsWebHandler@MostView" id="@MostView" ref="ExtraContentsWebHandler">
+      <property name="type" value="-1" />
+      <property name="order" value="ContentViewCount:DESC,ContentCreationDate:DESC" />
+      <property name="rows" value="5" />
+      <property name="channel" value="false" />
+    </web-handler>
+
+    <web-handler name="ExtraContentsWebHandler@HotNews" id="@HotNews" ref="ExtraContentsWebHandler">
+      <property name="type" value="-1" />
+      <property name="order" value="ContentCreationDate:DESC" />
+      <property name="rows" value="5" />
+      <property name="channel" value="false" />
+    </web-handler>
+
+    <web-handler name="ExtraContentsWebHandler@ViewContent" id="@ViewContent" ref="ExtraContentsWebHandler">
+      <property name="order" value="ContentCreationDate:DESC" />
+      <property name="before" value="true" />
+      <property name="channel" value="true" />
+      <property name="content" value="false" />
+    </web-handler>
+  </web-handlers>
+  
+  <!-- 
+    TODO:
+    
+    1. System Web Handlers ( in classes )                   OK
+    2. Configure specified web-handlers ( in mvncms.xml )   OK
+    3. History of Handlers (before, all handlers)           OK
+    4. Attribute Naming Convention (Request/Session.. )     OK
+    5. Generate handler Ids, allow to be customized ids     No
+    6. Inherite handlers, include pages, handlers           OK
+    7. .. No longer use URLMapHandler:                      ?
+    - Move mapping actions to web-handlers
+    - 
+    8. Error Handling for loading configuration             OK
+    
+  -->
+</page-handlers>

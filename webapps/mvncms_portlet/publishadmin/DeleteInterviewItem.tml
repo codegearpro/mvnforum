@@ -1,0 +1,88 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/DeleteInterviewItem.tml,v 1.20 2009/08/14 02:41:37 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.20 $
+ - $Date: 2009/08/14 02:41:37 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.deleteinterviewitem.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <form t:type="Form" t:id="deteteInterviewItemForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <t:errors><div>&nbsp;</div></t:errors>
+    <input t:type="chenillekit/Hidden" t:id="interviewItemID" />
+    <table border="0" width="95%" cellspacing="0" cellpadding="3" class="tborder center">
+      <tr class="portlet-section-header" align="center">
+        <td colspan="2">${message:mvncms.common.interviewitem.question.info}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}"> 
+        <td style="width: 40%;">${message:mvncms.common.interviewitem.name}</td>
+        <td>${interviewItemName}</td>
+      </tr> 
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interviewitem.gender}</td>
+        <td>
+          <t:publishadmin.BeanAtributeDisplay beanName="literal:interviewItem" atribute="literal:gender" input="interviewItemGender" />
+        </td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interviewitem.occupation}</td>
+        <td>${interviewItemOccupation}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interviewitem.address}</td>
+        <td>${interviewItemAddress}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interviewitem.email}</td>
+        <td>${interviewItemEmail}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interviewitem.phone}</td>
+        <td>${interviewItemPhone}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interviewitem.question}</td>
+        <td>${interviewItemQuestionContent}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interviewitem.question.creation_date}</td>
+        <td>${interviewItemQuestionCreationDate}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interviewitem.question.modified_date}</td>
+        <td>${interviewItemQuestionModifiedDate}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interviewitem.question.ip}</td>
+        <td>${interviewItemQuestionCreationIP}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="currentPassword">${message:mvncms.common.password.current}<span class="requiredfield"> *</span></label></td>
+        <td>
+          <input t:type="PasswordField" t:id="currentPassword" />
+          <input t:type="chenillekit/Hidden" t:id="md5pw" />
+        </td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input t:type="chenillekit/Hidden" t:id="interviewID" />
+          <input t:type="chenillekit/Hidden" t:id="contentID" />
+          <input type="submit" value="${message:mvncms.action.delete}" class="portlet-form-button" />&nbsp;
+        </td>
+      </tr>
+    </table>
+  </form>
+   
+</t:publishadmin.border>

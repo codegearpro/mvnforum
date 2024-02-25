@@ -1,0 +1,144 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/TaxonomyManagement.tml,v 1.23 2009/09/07 03:09:57 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.23 $
+ - $Date: 2009/09/07 03:09:57 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.taxonomymanagement.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+  <script type="text/javascript" src="${asset:context:/mvnplugin/mvncms/cms/jscripts/overlib/overlib.js}" />
+  <script type="text/javascript">
+  
+    function validateDelete() {
+        return confirm('Do you want to delete?');
+    }
+  
+    function showAddTaxonomy() {
+      document.getElementById("addTaxonomy").style.display = '';
+      document.getElementById("openAddTanonomyLink").style.display = 'none';
+      document.getElementById("closeAddTanonomyLink").style.display = '';
+    }
+    function closeAddTaxonomy() {
+      document.getElementById("addTaxonomy").style.display = 'none';
+      document.getElementById("openAddTanonomyLink").style.display = '';
+      document.getElementById("closeAddTanonomyLink").style.display = 'none';
+    }
+  
+    function showFilter() {
+      document.getElementById("filter").style.display = '';
+      document.getElementById("openFilterLink").style.display = 'none';
+      document.getElementById("closeFilterLink").style.display = '';
+    }
+    function closeFilter() {
+      document.getElementById("filter").style.display = 'none';
+      document.getElementById("openFilterLink").style.display = '';
+      document.getElementById("closeFilterLink").style.display = 'none';
+    }
+    
+    function onMouseOver(response)
+    {
+        $('onMouseOverResult').innerHTML = response;
+    }
+  </script>
+    
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+
+  <form t:type="Form" t:id="addTaxonomyForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <t:errors>&nbsp;</t:errors>
+    <table class="tborder" width="95%" cellspacing="0" cellpadding="3">
+      <tr class="portlet-section-header">
+        <td colspan="2">${message:mvncms.taxonomymanagement.add_taxonomy}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td width="40%">
+          <label t:type="Label" for="channelIDAdd">${message:mvncms.common.taxonomy.channel}</label><span class="requiredfield"> *</span>
+        </td>
+        <td>
+          <select t:type="Select" t:id="channelIDAdd" />   
+        </td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>
+          <label t:type="Label" for="taxonomyName">${message:mvncms.common.taxonomy.taxonomyname}</label><span class="requiredfield"> *</span>
+        </td>
+        <td>
+          <input t:type="TextField" t:id="taxonomyName" />
+        </td>
+      </tr>  
+      <tr class="${prop:evenodd.next}">
+        <td valign="top">
+          <label t:type="Label" for="taxonomyDesc">${message:mvncms.common.taxonomy.taxonomydescriptor}</label><span class="requiredfield"> *</span>
+        </td>
+        <td>
+          <input t:type="TextArea" t:id="taxonomyDesc" t:rows="4" t:cols="100" /> 
+        </td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>
+          <label t:type="Label" for="taxonomyViewOptionAdd">${message:mvncms.taxonomymanagement.viewoption}</label>
+        </td>
+        <td><select t:type="Select" t:id="taxonomyViewOptionAdd" /></td>
+      </tr>
+      <tr id="vietnameseKeyboardBlock" style="display: none" class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.vietnamese_key}</td>
+        <td>
+          <t:publishadmin.VietnameseKeyboardComponent inputList="literal:taxonomyName,taxonomyDesc" />
+        </td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">                
+          <input t:type="Submit" t:id="submitAddTaxonomy" t:value="${message:mvncms.taxonomymanagement.addataxonomy}" class="portlet-form-button" />
+        </td>
+      </tr>
+    </table>    
+  </form>
+  
+  <form t:type="Form" t:id="filterChannelForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <table border="0" width="95%" class="center">
+      <tr>
+        <td>
+          <span><label t:type="Label" for="channelIDFilter">${message:mvncms.common.taxonomy.channel}</label></span>&nbsp;&nbsp;
+          <select t:type="Select" t:id="channelIDFilter" />&nbsp;&nbsp;
+          <input t:type="Submit" t:id="submitChooseChannel" t:value="${message:mvncms.common.taxonomy.filter}" class="portlet-form-button" />
+        </td>
+      </tr>
+    </table>  
+  </form>
+  
+  <div class="textcenter">
+    <table t:type="Grid" t:id="gridTaxonomy" t:source="taxonomys" t:row="taxonomy" t:rowsPerPage="postsPerPage" t:pagerPosition="top" t:add="channel,edit,delete,choose" t:include="taxonomyID, taxonomyName, taxonomyCreationDate" t:empty="${message:grid.empty_message}" t:rowClass="prop:evenodd.next" style="margin:0px auto;" width="95%">[Grid here]
+      <t:parameter name="channelCell">
+        <img src="${asset:context:/mvnplugin/mvncms/images/help.gif}" alt="${message:mvncms.action.view}" onmouseover="${onMouseOver}" onmouseout="return nd();"/>
+      </t:parameter>             
+      <t:parameter name="editCell">
+        <a t:type="PageLink" t:page="publishadmin/EditTaxonomy" t:context="taxonomy.taxonomyID" href="#">${message:mvncms.action.edit}</a>
+      </t:parameter>
+      <t:parameter name="deleteCell">
+        <a t:type="PageLink" t:id="delete" t:page="publishadmin/DeleteTaxonomy" t:context="taxonomy.taxonomyID" href="#">${message:mvncms.action.delete}</a>
+      </t:parameter>
+      <t:parameter name="chooseCell">
+        <form t:type="Form" t:id="updateChannelForm" t:clientValidation="true">
+          <t:publishadmin.TokenField />
+          <div>
+            <input t:type="chenillekit/Hidden" t:id="taxonomyID"  t:value="taxonomyID" />
+            <select t:type="Select" t:id="taxonomyViewOptionBean" />&nbsp;<input t:type="Submit" t:id="Submit" t:value="${message:mvncms.action.change}"/>
+          </div>
+        </form>
+      </t:parameter>             
+     </table>   
+   </div>  
+</t:publishadmin.border>

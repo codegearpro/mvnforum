@@ -1,0 +1,35 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/src/com/mvnsoft/mvncms/tapestry5/components/publishadmin/NavigationLink.tml,v 1.17 2009/08/21 10:26:55 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.17 $
+ - $Date: 2009/08/21 10:26:55 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+<div class="nav center" style="margin-top: 3px;">
+  <img src="${asset:context:/mvnplugin/mvncms/images/nav.gif}" alt="" class="middle" />
+  <t:Loop source="links" value="link">
+    <t:If test="link.pageName">
+      <t:If test="haveParameters">
+        <a t:type="PageLink" t:page="publishadmin/${link.pageName}" t:context="parameters">${link.pageDesc}</a>&nbsp;&raquo;&nbsp;
+      <t:parameter name="else">
+        <a t:type="PageLink" t:page="publishadmin/${link.pageName}">${link.pageDesc}</a>&nbsp;&raquo;&nbsp;
+      </t:parameter>
+    </t:If>
+      <t:parameter name="else">
+        <span style="color:#ea9b0b; font-size:13px;">${link.pageDesc}</span>
+      </t:parameter>
+    </t:If>
+  </t:Loop>
+</div>
+<div>&nbsp;</div>
+</t:container>

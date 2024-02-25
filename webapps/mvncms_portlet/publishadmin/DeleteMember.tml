@@ -1,0 +1,111 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/DeleteMember.tml,v 1.2 2009/09/07 11:21:54 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.2 $
+ - $Date: 2009/09/07 11:21:54 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2009 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.deletemember.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+  <t:publishadmin.JavascriptCurrentPassword t:passwordField="literal:MemberCurrentMatkhau" t:md5pwField="literal:md5pw" />
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+
+  <form t:type="Form" t:id="deleteMemberForm" t:clientValidation="true">
+    <input t:type="publishadmin/TokenField" />
+    <input t:type="chenillekit/Hidden" t:id="memberID" />
+    <t:errors><div>&nbsp;</div></t:errors>
+    <table class="tborder" width="95%" align="center" cellpadding="3" cellspacing="0">
+      <tr class="portlet-section-header">
+        <td colspan="2">${message:mvncms.deletemember.review_before_delete}</td>
+      </tr>
+      <tr class="${prop:evenOdd.next}">
+        <td style="width:30%">${message:mvncms.common.member.login_name}</td>
+        <td style="width:70%">
+          <b>${memberBean.memberName}</b>
+          <t:if test="showMemberTitle">
+            (${memberTitle})
+          </t:if>
+          <t:if test="isOnline">
+            <font color="#008000">(Online)</font>
+            <t:parameter name="else">
+              (Offline)
+            </t:parameter>
+          </t:if>
+          <span style="color:${memberActivationStatusColor}">(${memberActivationStatus})</span>
+        </td>
+      </tr>
+      <t:if test="enableShowFirstName">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.first_name}</td>
+          <td>${memberBean.memberFirstname}</td>
+        </tr>
+      </t:if>
+      <t:if test="enableShowLastName">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.last_name}</td>
+          <td>${memberBean.memberLastname}</td>
+        </tr>
+      </t:if>
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.member.email}</td>
+        <td>
+        <t:if test="isGuest">
+          ${message:mvncms.common.not_applicable}
+          <t:parameter name="else">
+            <a href="mailto:${memberBean.memberEmail}">${memberBean.memberEmail}</a>
+            <t:if test="showFirstEmail">
+              (${message:mvncms.common.member.first_email}: <a href="mailto:${memberBean.memberFirstEmail}">${memberBean.memberFirstEmail}</a>)
+            </t:if>
+          </t:parameter>
+        </t:if>
+        </td>
+      </tr>
+      <t:if test="enableShowGender">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.gender}</td>
+          <td>
+            <t:if test="isGuest">
+              <img src="${asset:context:/mvnplugin/mvnforum/images/icon/male.gif}" border="0" alt="Male" /> ${message:mvncms.common.member.male}
+              <t:parameter name="else">
+                <img src="${asset:context:/mvnplugin/mvnforum/images/icon/female.gif}" border="0" alt="Female" /> ${message:mvncms.common.member.female}
+              </t:parameter>
+            </t:if>
+          </td>
+        </tr>
+      </t:if>
+      <t:if test="enableShowBirthday">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.birthday}</td>
+          <td>${memberBirthday}</td>
+        </tr>
+      </t:if>
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.deletemember.delete_sent_message}</td>
+        <td><t:checkbox style="background:transparent;border-width:0" t:id="deletesentmessages" /></td>
+      </tr>
+      <tr class="${prop:evenOdd.next}">
+        <td><label t:type="Label" for="MemberCurrentMatkhau">${message:mvncms.common.password.current}<span class="requiredfield"> *</span></label></td>
+        <td>
+          <input t:type="PasswordField" t:id="MemberCurrentMatkhau" t:value="MemberCurrentMatkhau" t:onkeypress="checkEnter(event);" size="30" />
+          <input t:type="chenillekit/Hidden" t:id="md5pw" />
+        </td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input type="submit" value="${message:mvncms.deletemember.button.confirm_delete}" class="portlet-form-button" />&nbsp;
+        </td>
+      </tr>
+    </table>
+  </form>
+
+</t:publishadmin.border>

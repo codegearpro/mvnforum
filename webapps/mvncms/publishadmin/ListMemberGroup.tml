@@ -1,0 +1,59 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/ListMemberGroup.tml,v 1.2 2010/02/22 10:19:31 trungth Exp $
+ - $Author: trungth $
+ - $Revision: 1.2 $
+ - $Date: 2010/02/22 10:19:31 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2009 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.listmembergroup.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+
+  <t:publishadmin.MessageBox key="successKey" />
+
+  <table class="tborder" width="95%" align="center" cellpadding="3" cellspacing="0">
+    <tr class="portlet-section-header">
+      <td colspan="2">${message:mvncms.common.group.header.group_info}</td>
+    </tr>
+    <tr class="${prop:evenOdd.next}">
+      <td style="width:30%">${message:mvncms.common.group.group_name}</td>
+      <td style="width:70%">${groupBean.groupName}</td>
+    </tr>
+    <tr class="${prop:evenOdd.next}">
+      <td>${message:mvncms.common.group.group_description}</td>
+      <td>${groupBean.groupDesc}</td>
+    </tr>
+  </table>
+  <br />
+  
+  <div style="width:95%; text-align:right; margin:0 auto;">
+    <a t:type="PageLink" t:context="list:groupID" t:page="publishadmin/AddMemberGroup">${message:mvncms.addmembergroup.title}</a>
+  </div>
+  <br />
+
+  <div align="center">
+    <table style="width:95%; text-align:left;" t:type="grid" t:id="memberGroupBeansGrid" t:source="memberBeans" t:row="memberBean"
+      t:add="delete" 
+      t:include="memberName, memberLastName, memberFirstName" 
+      t:reorder="memberName, memberLastName, memberFirstName, delete" 
+      t:empty="${message:grid.empty_message}"
+      t:rowsPerPage="10" t:pagerPosition="top" align="center" width="95%" t:rowClass="prop:evenOdd.next">
+      
+      <t:parameter name="deleteCell">
+        <div class="textcenter">
+          <a t:type="ActionLink" t:id="delete" t:context="list:memberBean.memberID">${message:mvncms.action.delete}</a>
+        </div>
+      </t:parameter>
+    </table>
+  </div>
+
+</t:publishadmin.border>

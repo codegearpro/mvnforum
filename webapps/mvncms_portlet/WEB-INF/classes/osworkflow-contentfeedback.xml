@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE workflow PUBLIC "-//OpenSymphony Group//DTD OSWorkflow 2.8//EN" "http://www.opensymphony.com/osworkflow/workflow_2_8.dtd">
+<workflow>
+  <meta name="lastModified">Thu Jun 21 10:39:51 ICT 2007</meta>
+  <meta name="created">Thu Jun 21 10:23:16 ICT 2007</meta>
+  <meta name="generator">OSWOrkflow Designer</meta>
+  
+  <initial-actions>
+    <action id="1" name="Start Draft">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="1" />
+      </results>
+    </action>
+    <action id="2" name="Start Approving 1">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="2" />
+      </results>
+    </action>
+    <action id="3" name="Start Approved 1">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="3" />
+      </results>
+    </action>
+    <action id="4" name="Start Approving 2">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="4" />
+      </results>
+    </action>
+    <action id="5" name="Start Published">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="5" />
+      </results>
+    </action>
+  </initial-actions>
+  
+  <common-actions>
+    <action id="1000" name="Change to Draft">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="1">
+          <post-functions>
+            <function type="beanshell">
+              <arg name="script">System.out.println("Changed to Wait for Edit.");</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeContentFeedbackWorkflowStatus</arg>
+              <arg name="nextStepID">1</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeContentFeedbackStatus</arg>
+              <arg name="status">UNLOCKED</arg>
+            </function>
+          </post-functions>
+        </unconditional-result>
+      </results>
+    </action>
+    <action id="1001" name="Change to Approving 1">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="2">
+          <post-functions>
+            <function type="beanshell">
+              <arg name="script">System.out.println("Changed to Approving 1.");</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeContentFeedbackWorkflowStatus</arg>
+              <arg name="nextStepID">2</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeContentFeedbackStatus</arg>
+              <arg name="status">LOCKING</arg>
+            </function>
+          </post-functions>
+        </unconditional-result>
+      </results>
+    </action>
+
+    <action id="1002" name="Change to Approved 1">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="3">
+          <post-functions>
+            <function type="beanshell">
+              <arg name="script">System.out.println("Changed to Approved 1.");</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeContentFeedbackWorkflowStatus</arg>
+              <arg name="nextStepID">3</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeContentFeedbackStatus</arg>
+              <arg name="status">UNLOCKED</arg>
+            </function>
+          </post-functions>
+        </unconditional-result>
+      </results>
+    </action>
+
+    <action id="1003" name="Change to Approving 2">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="4">
+          <post-functions>
+            <function type="beanshell">
+              <arg name="script">System.out.println("Changed to Approving 2.");</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeContentFeedbackWorkflowStatus</arg>
+              <arg name="nextStepID">4</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeContentFeedbackStatus</arg>
+              <arg name="status">LOCKING</arg>
+            </function>
+          </post-functions>
+        </unconditional-result>
+      </results>
+    </action>
+
+    <action id="1004" name="Change to Published">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="5">
+          <post-functions>
+            <function type="beanshell">
+              <arg name="script">System.out.println("Changed to Published.");</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeContentFeedbackWorkflowStatus</arg>
+              <arg name="nextStepID">5</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeContentFeedbackStatus</arg>
+              <arg name="status">PUBLISHED</arg>
+            </function>
+          </post-functions>
+        </unconditional-result>
+      </results>
+    </action>
+  </common-actions>
+
+  <steps>
+    <step id="1" name="Draft">
+      <actions>
+        <common-action id="1001" />
+        <common-action id="1002" />
+        <common-action id="1004" />
+      </actions>
+    </step>
+    <step id="2" name="Approving 1">
+      <actions>
+        <common-action id="1002" />
+      </actions>
+    </step>
+    <step id="3" name="Approved">
+      <actions>
+        <common-action id="1003" />
+        <common-action id="1004" />
+      </actions>
+    </step>
+    <step id="4" name="Approving 2">
+      <actions>
+        <common-action id="1004" />
+      </actions>
+    </step>
+    <step id="5" name="Published">
+      <actions>
+        <common-action id="1000" />
+      </actions>
+    </step>
+  </steps>
+  
+</workflow>

@@ -1,0 +1,7 @@
+<osworkflow>
+    <persistence class="com.opensymphony.workflow.spi.memory.MemoryWorkflowStore" />
+    <!-- workflows.xml trong classpath -->
+    <factory class="com.opensymphony.workflow.loader.XMLWorkflowFactory">
+        <property key="resource" value="workflows.xml" />
+    </factory>
+</osworkflow>

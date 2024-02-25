@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<baseElement>
+
+    <mvncmsconfig>
+        <mvncms_home>../webapps/mvncms_portlet/WEB-INF/mvnCmsHome</mvncms_home>
+        <url_pattern>/cmsadmin</url_pattern>
+        <enable_brand_name>true</enable_brand_name>
+
+        <workflow_start_step_of_content>1</workflow_start_step_of_content>
+        <workflow_start_step_of_feedback>1</workflow_start_step_of_feedback>
+
+        <default_filter_channel>0</default_filter_channel>
+
+        <rows_per_page>6</rows_per_page>
+        <minutes_between_flush_content_view>30</minutes_between_flush_content_view>
+        <mvncms_service_implementation>com.mvnsoft.mvncms.portlet.service.impl.MVNCMSServiceImplPortlet</mvncms_service_implementation>
+        <enable_debug_mode>true</enable_debug_mode>
+        
+        <enable_display_information_menu>true</enable_display_information_menu>
+        <enable_display_interview_management_link>true</enable_display_interview_management_link>
+        <enable_display_navigation_links_link>true</enable_display_navigation_links_link>
+        <enable_display_interview_column>true</enable_display_interview_column>
+        <enable_display_album_column>true</enable_display_album_column>
+        <enable_display_associate_banner_link>true</enable_display_associate_banner_link>
+        <enable_display_sort_column>true</enable_display_sort_column>
+        <enable_display_feedback_column>true</enable_display_feedback_column>
+        <enable_display_album_table>true</enable_display_album_table>
+        <enable_display_index_page>true</enable_display_index_page>
+        
+        <max_characters_in_title>0</max_characters_in_title>
+        <max_characters_in_summary>0</max_characters_in_summary>
+        <max_characters_in_body>0</max_characters_in_body>
+        
+        <default_url_pattern>/vi</default_url_pattern>
+        
+        <!--
+           NOTE: max_upload_file_size : set the maximum upload file size
+                 You can use suffixes "K" or "KB" to specify the size in kilobytes,
+                 "M" or "MB" to specify it in megabytes. Otherwise, the size is in bytes.
+           Example: max_upload_file_size = 1024 : maximum size is 1024 bytes = 1 KB
+           Example: max_upload_file_size = 1KB  : same as previous
+        -->
+        <max_upload_file_size>1024KB</max_upload_file_size>
+        
+        <channel_contain_deleted_content>2</channel_contain_deleted_content>
+        
+    </mvncmsconfig>
+
+</baseElement>

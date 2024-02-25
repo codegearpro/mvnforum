@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE workflow PUBLIC "-//OpenSymphony Group//DTD OSWorkflow 2.8//EN" "http://www.opensymphony.com/osworkflow/workflow_2_8.dtd">
+<workflow>
+  <meta name="lastModified">Thu Jun 21 10:39:51 ICT 2007</meta>
+  <meta name="created">Thu Jun 21 10:23:16 ICT 2007</meta>
+  <meta name="generator">OSWOrkflow Designer</meta>
+  <initial-actions>
+    <action id="1" name="Start Draft">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="1" />
+      </results>
+    </action>
+    <action id="2" name="Start Distributing">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="2" />
+      </results>
+    </action>
+    <action id="3" name="Start Answering">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="3" />
+      </results>
+    </action>
+    <action id="4" name="Start Wait for Approve">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="4" />
+      </results>
+    </action>
+    <action id="5" name="Start Approving">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="5" />
+      </results>
+    </action>
+    <action id="6" name="Start Published">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="6" />
+      </results>
+    </action>
+  </initial-actions>
+  <common-actions>
+    <action id="1000" name="Change to Draft">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="1">
+          <post-functions>
+            <function type="beanshell">
+              <arg name="script">System.out.println("Change to Draft.");</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeInterviewWorkflowStatus</arg>
+              <arg name="nextStepID">1</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeInterviewStatus</arg>
+              <arg name="status">DRAFT</arg>
+            </function>
+          </post-functions>
+        </unconditional-result>
+      </results>
+    </action>
+
+    <action id="1001" name="Change to Distributing">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="2">
+          <post-functions>
+            <function type="beanshell">
+              <arg name="script">System.out.println("Changed to Distributing.");</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeInterviewWorkflowStatus</arg>
+              <arg name="nextStepID">2</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeInterviewStatus</arg>
+              <arg name="status">LOCKING</arg>
+            </function>
+          </post-functions>
+        </unconditional-result>
+      </results>
+    </action>
+
+    <action id="1002" name="Change to Answering">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="3">
+          <post-functions>
+            <function type="beanshell">
+              <arg name="script">System.out.println("Changed to Answering.");</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeInterviewWorkflowStatus</arg>
+              <arg name="nextStepID">3</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeInterviewStatus</arg>
+              <arg name="status">LOCKING</arg>
+            </function>
+          </post-functions>
+        </unconditional-result>
+      </results>
+    </action>
+
+    <action id="1003" name="Change to Wait for Approve">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="4">
+          <post-functions>
+            <function type="beanshell">
+              <arg name="script">System.out.println("Changed to Wait for Approve.");</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeInterviewWorkflowStatus</arg>
+              <arg name="nextStepID">4</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeInterviewStatus</arg>
+              <arg name="status">UNLOCKED</arg>
+            </function>
+          </post-functions>
+        </unconditional-result>
+      </results>
+    </action>
+
+    <action id="1004" name="Change to Approving">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="5">
+          <post-functions>
+            <function type="beanshell">
+              <arg name="script">System.out.println("Changed to Approving.");</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeInterviewWorkflowStatus</arg>
+              <arg name="nextStepID">5</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeInterviewStatus</arg>
+              <arg name="status">LOCKING</arg>
+            </function>
+          </post-functions>
+        </unconditional-result>
+      </results>
+    </action>
+
+    <action id="1005" name="Change to Published">
+      <results>
+        <unconditional-result old-status="Finished" status="Finished" step="6">
+          <post-functions>
+            <function type="beanshell">
+              <arg name="script">System.out.println("Changed to Published.");</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeInterviewWorkflowStatus</arg>
+              <arg name="nextStepID">6</arg>
+            </function>
+            <function type="class">
+              <arg name="class.name">com.mvnsoft.mvncms.workflow.function.FunctionChangeInterviewStatus</arg>
+              <arg name="status">PUBLISHED</arg>
+            </function>
+          </post-functions>
+        </unconditional-result>
+      </results>
+    </action>
+  </common-actions>
+
+  <steps>
+    <step id="1" name="Draft">
+      <meta name="status">DRAFT</meta>
+      <actions>
+        <common-action id="1001" />
+      </actions>
+    </step>
+    <step id="2" name="Distributing">
+      <meta name="status">LOCKING</meta>
+      <actions>
+        <common-action id="1002" />
+      </actions>
+    </step>
+    <step id="3" name="Answering">
+      <meta name="status">LOCKING</meta>
+      <actions>
+        <common-action id="1003" />
+      </actions>
+    </step>
+    <step id="4" name="Wait for Approve">
+      <meta name="status">UNLOCKED</meta>
+      <actions>
+        <common-action id="1004" />
+      </actions>
+    </step>
+    <step id="5" name="Approving">
+      <meta name="status">LOCKING</meta>
+      <actions>
+        <common-action id="1005" />
+      </actions>
+    </step>
+    <step id="6" name="Published">
+      <meta name="status">PUBLISHED</meta>
+      <actions>
+        <common-action id="1000" />
+      </actions>
+    </step>
+  </steps>
+</workflow>

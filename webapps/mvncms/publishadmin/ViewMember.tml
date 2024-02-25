@@ -1,0 +1,286 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/ViewMember.tml,v 1.4 2009/08/27 09:28:34 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.4 $
+ - $Date: 2009/08/27 09:28:34 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2009 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.viewmember.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+   
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.Messagebox key="successKey" />
+  
+  <table class="tborder" width="95%" align="center" cellpadding="3" cellspacing="0">
+    <tr class="pagedesc">
+      <td width="150">
+        <a t:type="PageLink" t:context="list:memberID" t:page="publishadmin/EditMember">${message:mvncms.editmember.title}</a>
+      </td>
+    </tr>
+  </table>
+  <br />
+  
+  <table class="tborder" width="95%" align="center" cellpadding="3" cellspacing="0">
+    <tr class="portlet-section-header">
+      <td colspan="2">${message:mvncms.common.member.header.member_info}</td>
+    </tr>
+    <tr class="${prop:evenOdd.next}">
+      <td style="width:30%">${message:mvncms.common.member.login_name}</td>
+      <td style="width:70%">
+        <b>${memberBean.memberName}</b>
+        <t:if test="showMemberTitle">
+          (${memberTitle})
+        </t:if>
+        <t:if test="isOnline">
+          <font color="#008000">(Online)</font>
+          <t:parameter name="else">
+            (Offline)
+          </t:parameter>
+        </t:if>
+        <span style="color:${memberActivationStatusColor}">(${memberActivationStatus})</span>
+      </td>
+    </tr>
+    <t:if test="enableShowFirstName">
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.member.first_name}</td>
+        <td>${memberBean.memberFirstname}</td>
+      </tr>
+    </t:if>
+    <t:if test="enableShowLastName">
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.member.last_name}</td>
+        <td>${memberBean.memberLastname}</td>
+      </tr>
+    </t:if>
+    <tr class="${prop:evenOdd.next}">
+      <td>${message:mvncms.common.member.email}</td>
+      <td>
+      <t:if test="isGuest">
+        ${message:mvncms.common.not_applicable}
+        <t:parameter name="else">
+          <a href="mailto:${memberBean.memberEmail}">${memberBean.memberEmail}</a>
+          <t:if test="showFirstEmail">
+            (${message:mvncms.common.member.first_email}: <a href="mailto:${memberBean.memberFirstEmail}">${memberBean.memberFirstEmail}</a>)
+          </t:if>
+        </t:parameter>
+      </t:if>
+      </td>
+    </tr>
+    <t:if test="enableShowGender">
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.member.gender}</td>
+        <td>
+          <t:if test="isGuest">
+            <img src="${asset:context:/mvnplugin/mvnforum/images/icon/male.gif}" border="0" alt="Male" /> ${message:mvncms.common.member.male}
+            <t:parameter name="else">
+              <img src="${asset:context:/mvnplugin/mvnforum/images/icon/female.gif}" border="0" alt="Female" /> ${message:mvncms.common.member.female}
+            </t:parameter>
+          </t:if>
+        </td>
+      </tr>
+    </t:if>
+    <t:if test="enableShowBirthday">
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.member.birthday}</td>
+        <td>${memberBirthday}</td>
+      </tr>
+    </t:if>
+    <t:if test="enableShowEmailVisible">
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.member.show_email}</td>
+        <td>
+          <t:if test="isGuest">
+            ${message:mvncms.common.not_applicable}
+            <t:parameter name="else">
+              <t:if test="memberBean.memberEmailVisible">
+                  <img src="${asset:context:/mvnplugin/mvnforum/images/icon/yes.gif}" alt=""/>
+                <t:parameter name="else">
+                  <img src="${asset:context:/mvnplugin/mvnforum/images/icon/no.gif}" alt=""/>
+                </t:parameter>
+              </t:if>
+            </t:parameter>
+          </t:if>
+        </td>
+      </tr>
+    </t:if>
+    <t:if test="enableShowNameVisible">
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.member.name_visible}</td>
+        <td>
+          <t:if test="memberBean.memberNameVisible">
+              <img src="${asset:context:/mvnplugin/mvnforum/images/icon/yes.gif}" alt=""/>
+            <t:parameter name="else">
+              <img src="${asset:context:/mvnplugin/mvnforum/images/icon/no.gif}" alt=""/>
+            </t:parameter>
+          </t:if>
+        </td>
+      </tr>
+    </t:if>
+    <t:if test="enableShowPostsPerPage">
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.member.posts_per_page}</td>
+        <td>${memberBean.memberPostsPerPage}</td>
+      </tr>
+    </t:if>
+    <t:unless test="isGuest">
+      <t:if test="enableShowAddress">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.address}</td>
+          <td>${memberBean.memberAddress}</td>
+        </tr>
+      </t:if>
+      <t:if test="enableShowCity">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.city}</td>
+          <td>${memberBean.memberCity}</td>
+        </tr>
+      </t:if>
+      <t:if test="enableShowState">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.state}</td>
+          <td>${memberBean.memberState}</td>
+        </tr>
+      </t:if>
+      <t:if test="enableShowCountry">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.country}</td>
+          <td>${memberBean.memberCountry}</td>
+        </tr>
+      </t:if>
+      <t:if test="enableShowPhone">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.phone}</td>
+          <td>${memberBean.memberPhone}</td>
+        </tr>
+      </t:if>
+      <t:if test="enableShowMobile">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.mobile}</td>
+          <td>${memberBean.memberMobile}</td>
+        </tr>
+      </t:if>
+      <t:if test="enableShowFax">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.fax}</td>
+          <td>${memberBean.memberFax}</td>
+        </tr>
+      </t:if>
+      <t:if test="enableShowCareer">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.career}</td>
+          <td>${memberBean.memberCareer}</td>
+        </tr>
+      </t:if>
+      <t:if test="enableShowHomepage">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.homepage}</td>
+          <td><a href="${memberBean.memberHomepage}">${memberBean.memberHomepage}</a></td>
+        </tr>
+      </t:if>
+      <t:if test="enableShowCoolLink1">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.cool_link} 1</td>
+          <td><a href="${memberBean.memberCoolLink1_http}">${memberBean.memberCoolLink1}</a></td>
+        </tr>
+      </t:if>
+      <t:if test="enableShowCoolLink2">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.cool_link} 2</td>
+          <td><a href="${memberBean.memberCoolLink2_http}">${memberBean.memberCoolLink2}</a></td>
+        </tr>
+      </t:if>
+      <t:if test="enableShowYahoo">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.yahoo}</td>
+          <td>
+            <t:if test="showYahoo">
+              <a href="http://edit.yahoo.com/config/send_webmesg?.target=${memberBean.memberYahoo}&amp;.src=pg"><img src="${asset:context:/mvnplugin/mvnforum/images/icon/yim.gif}" border="0" alt="${memberBean.memberYahoo}" /></a>&nbsp;&nbsp;&nbsp;${memberBean.memberYahoo}
+            </t:if>
+          </td>
+        </tr>
+      </t:if>
+      <t:if test="enableShowAOL">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.aol}</td>
+          <td>
+            <t:if test="showYahoo">
+              <a href="aim:goim?screenname=${memberBean.memberAol}&amp;message=Hello+Are+you+there?"><img src="${asset:context:/mvnplugin/mvnforum/images/icon/aim.gif}" border="0" alt="${memberBean.memberAol}" /></a>&nbsp;&nbsp;&nbsp;${memberBean.memberAol}
+            </t:if>
+          </td>
+        </tr>
+      </t:if>
+      <t:if test="enableShowICQ">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.icq}</td>
+          <td>
+            <t:if test="showICQ">
+              <a href="http://wwp.icq.com/scripts/search.dll?to=${memberBean.memberIcq}"><img src="http://web.icq.com/whitepages/online?icq=${memberBean.memberIcq}&amp;img=5" border="0" alt="${memberBean.memberIcq}" /></a>&nbsp;&nbsp;&nbsp;${memberBean.memberIcq}
+            </t:if>
+          </td>
+        </tr>
+      </t:if>
+      <t:if test="enableShowMSN">
+        <tr class="${prop:evenOdd.next}">
+          <td>${message:mvncms.common.member.msn}</td>
+          <td>${memberBean.memberMsn}</td>
+        </tr>
+      </t:if>
+    </t:unless>
+    <t:if test="enableShowJoinDate">
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.member.join_date}</td>
+        <td>${memberCreationDate}</td>
+      </tr>
+    </t:if>
+    <t:if test="enableShowLastLogin">
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.member.last_login}</td>
+        <td>${memberLastLogon}</td>
+      </tr>
+    </t:if>
+    <t:if test="enableShowModifiedDate">
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.member.last_profile_update}</td>
+        <td>${memberModifiedDate}</td>
+      </tr>
+    </t:if>
+    <t:if test="enableShowPostCount">
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.member.post_count}</td>
+        <td>${memberBean.memberPostCount}</td>
+      </tr>
+    </t:if>
+    <t:if test="enableShowViewCount">
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.member.view_count}</td>
+        <td>${memberBean.memberViewCount}</td>
+      </tr>
+    </t:if>
+    <t:if test="canAdminSystem">
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.member.first_ip}</td>
+        <td>${memberBean.memberFirstIP}</td>
+      </tr>
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.member.last_ip}</td>
+        <td>${memberBean.memberLastIP}</td>
+      </tr>
+    </t:if>
+    <t:if test="enableShowSignature">
+      <tr class="${prop:evenOdd.next}">
+        <td>${message:mvncms.common.member.signature}</td>
+        <td>${memberBean.memberSignature}</td>
+      </tr>
+    </t:if>
+  </table>
+
+</t:publishadmin.border>

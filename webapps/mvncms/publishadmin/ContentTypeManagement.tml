@@ -1,0 +1,63 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/ContentTypeManagement.tml,v 1.23 2009/09/10 04:35:25 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.23 $
+ - $Date: 2009/09/10 04:35:25 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.contenttypemanagement.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+  
+  <form t:type="Form" t:id="addContentTypeForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <t:errors><div>&nbsp;</div></t:errors>
+    <table border="0" class="tborder center" width="95%" cellspacing="0" cellpadding="3">
+      <tr class="portlet-section-header">
+        <th colspan="2" align="left">${message:mvncms.contenttypemanagement.add_content_type}</th>
+      </tr>
+      <tr class="portlet-section-body">
+        <td><label t:type="Label" for="contentTypeName">${message:mvncms.common.contenttype.contenttypename}<span class="requiredfield"> *</span></label></td> 
+        <td><input t:type="TextField" t:id="contentTypeName" size="50" /></td>
+      </tr>
+      <tr id="vietnameseKeyboardBlock" style="display: none">
+        <td>${message:mvncms.common.vietnamese_key}</td>
+        <td>
+          <t:publishadmin.VietnameseKeyboardComponent inputList="literal:contentTypeName" />
+        </td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input type="submit" value="${message:mvncms.action.create}" class="portlet-form-button" />
+          <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+        </td>
+      </tr>
+    </table>
+  </form>
+  <div>&nbsp;</div>
+
+  <div class="textcenter">
+    <table t:type="Grid" t:source="contentTypes" t:row="contentType" t:rowsPerPage="postsPerPage" t:pagerPosition="top" t:rowClass="prop:evenodd.next" t:empty="${message:grid.empty_message}"
+           t:add="edit, delete" t:include="contentTypeID, contentTypeName"
+           style="margin:0px auto;" width="95%">
+      <t:parameter name="editCell">
+        <a t:type="PageLink" t:page="publishadmin/EditContentType" t:context="contentType.contentTypeID" href="#">${message:mvncms.action.edit}</a>
+      </t:parameter>
+      <t:parameter name="deleteCell">
+          <a t:type="PageLink" t:page="publishadmin/DeleteContentType" t:context="contentType.contentTypeID" href="#">${message:mvncms.action.delete}</a>
+      </t:parameter>  
+    </table>
+  </div>
+  
+</t:publishadmin.border>

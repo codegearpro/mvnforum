@@ -1,0 +1,871 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page-handlers>
+
+  <page name="common" virtual="true">
+    <handler name="ExtraContentsWebHandler@HotNewsTinCNTT" />
+    <handler name="ExtraContentsWebHandler@MostViewTinCNTT" />
+  </page>
+
+  <page name="CDS_URL_PAGE_LIST_MODE_1" action="" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/home.jsp">
+    <include page="common" />
+    <handler name="ListContentsHomeWebHandler@VnbcEn" />
+    <handler name="ListContentsChannelWebHandler@VnbcEn" />
+    <handler name="QuestionAnswerEn" />
+    <handler name="PollModuleWebHandlerEn" />
+    <handler name="Partners@PartnersHomeEn" />
+  </page>
+
+  <page name="CDS_URL_PAGE_LIST_MODE_0" action="" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/home.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@VnbcVi" />
+    <handler name="ListContentsHomeWebHandler@VnbcVi" />
+    <handler name="QuestionAnswer@HomeVi" />
+    <handler name="PollModuleWebHandlerVi" />
+    <handler name="HotNewsLink@LinkVi" />
+    <handler name="Partners@PartnersHomeVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW" action="content" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_tin_tuc.jsp">
+    <include page="common" />
+    <handler name="ListContentsHomeWebHandler@VnbcVi" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ExtraContentsWebHandler@ViewContentNews" />
+    <handler name="Product@DetailNewsVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_home" action="/home" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/home.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@VnbcEn" />
+    <handler name="ListContentsHomeWebHandler@VnbcEn" />
+    <handler name="QuestionAnswer@HomeEn" />
+    <handler name="PollModuleWebHandlerEn" />
+    <handler name="HotNewsLink@LinkEn" />
+    <handler name="Partners@PartnersHomeEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_trangchu" action="/trangchu" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/home.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@VnbcVi" />
+    <handler name="ListContentsHomeWebHandler@VnbcVi" />
+    <handler name="QuestionAnswer@HomeVi" />
+    <handler name="PollModuleWebHandlerVi" />
+    <handler name="HotNewsLink@LinkVi" />
+    <handler name="Partners@PartnersHomeVi" />
+  </page>
+    
+  <page name="CDS_URL_PAGE_LIST_news" action="/news" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/hot_news.jsp">
+    <include page="common" />
+    <handler name="ListContentsHomeWebHandler@VnbcEn" />
+    <handler name="ListContentsChannelWebHandler@VnbcEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_tintuc" action="/tintuc" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/hot_news.jsp">
+    <include page="common" />
+    <handler name="ListContentsHomeWebHandler@VnbcVi" />
+    <handler name="ListContentsChannelWebHandler@VnbcVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_news" action="content" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_tin_tuc.jsp">
+    <include page="common" />
+    <handler name="ListContentsHomeWebHandler@VnbcEn" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ListContentsChannelWebHandler@VnbcEn" />
+    <handler name="Product@DetailNewsEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_tintuc" action="content" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_tin_tuc.jsp">
+    <include page="common" />
+    <handler name="ListContentsHomeWebHandler@VnbcVi" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ListContentsChannelWebHandler@VnbcVi" />
+    <handler name="Product@DetailNewsVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_introduce" action="content" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_introduce.jsp">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="IntroduceEn" />
+    <handler name="ProductEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_gioithieu" action="content" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_introduce.jsp">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="IntroduceVi" />
+    <handler name="ProductVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_product" action="content" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ProductServidesEn" />
+    <handler name="ProductServides@DetailIntroduceEn" />
+    <handler name="ListContentsChannelWebHandler@VnbcEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_sanphamdichvu" action="content" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ProductServidesVi" />
+    <handler name="ProductServides@DetailIntroduceVi" />
+    <handler name="ListContentsChannelWebHandler@VnbcVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_qa" action="content" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_qa.jsp">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_hoidap" action="content" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_qa.jsp">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_legal" action="content" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_legal.jsp">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_doc" action="content" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_doc.jsp">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_homelegal" action="content" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/cac_van_ban_phap_luat.jsp">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_homedoc" action="content" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tailieu_thamkhao.jsp">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_employment" action="content" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_employment.jsp">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ListContentsChannelWebHandler@EmploymentEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_tuyendung" action="content" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_employment.jsp">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ListContentsChannelWebHandler@EmploymentVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_Employment" action="content" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_employment.jsp">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ListContentsChannelWebHandler@EmploymentEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_dichvuchuyenmach" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="ProductVi" />
+    <handler name="ListContentsChannelWebHandler@ProductVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_switchingService" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="ProductEn" />
+    <handler name="ListContentsChannelWebHandler@ProductEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_dichvuchuyenmach" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="ProductVi" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ListContentsChannelWebHandler@ProductVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_switchingService" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="ProductEn" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ListContentsChannelWebHandler@ProductEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_atm_auto_branch" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="ProductVi" />
+    <handler name="ListContentsChannelWebHandler@ProductVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_atmautobranchEn" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="ProductEn" />
+    <handler name="ListContentsChannelWebHandler@ProductEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_atm_auto_branch" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="ProductVi" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ListContentsChannelWebHandler@ProductVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_atmautobranchEn" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="ProductEn" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ListContentsChannelWebHandler@ProductEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_chothue_ATM" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="ProductVi" />
+    <handler name="ListContentsChannelWebHandler@ProductVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_chothue_ATM" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="ProductVi" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ListContentsChannelWebHandler@ProductVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_chothueatmEn" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="ProductEn" />
+    <handler name="ListContentsChannelWebHandler@ProductEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_chothueatmEn" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="ProductEn" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ListContentsChannelWebHandler@ProductEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_bao_tri_van_hanh_ATM" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="ProductVi" />
+    <handler name="ListContentsChannelWebHandler@ProductVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_bao_tri_van_hanh_ATM" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="ProductVi" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ListContentsChannelWebHandler@ProductVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_atmMaintenance" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="ProductEn" />
+    <handler name="ListContentsChannelWebHandler@ProductEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_atmMaintenance" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_product.jsp">
+    <include page="common" />
+    <handler name="ProductEn" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ListContentsChannelWebHandler@ProductEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_recruitmentNeeds" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_employment.jsp">
+    <include page="common" />
+    <handler name="Product@EmploymentEn" />
+    <handler name="ListContentsChannelWebHandler@EmploymentEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_nhucautuyendung" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_employment.jsp">
+    <include page="common" />
+    <handler name="Product@EmploymentVi" />
+    <handler name="ListContentsChannelWebHandler@EmploymentVi" />
+  </page>
+
+  <page name="CDS_URL_PAGE_LIST_introduce" action="/introduce" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/gioi_thieu.jsp">
+    <include page="common" />
+    <handler name="IntroduceEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_gioithieu" action="/gioithieu" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/gioi_thieu.jsp">
+    <include page="common" />
+    <handler name="IntroduceVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_ProductServides" action="/produce" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/san_pham_dich_vu.jsp">
+    <include page="common" />
+    <handler name="ProductEn" />
+    <handler name="HotNewsProduct@LinkEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_sanphamdichvu" action="/sanphamdichvu" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/san_pham_dich_vu.jsp">
+    <include page="common" />
+    <handler name="ProductVi" />
+    <handler name="HotNewsProduct@LinkVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_Employment" action="/employment" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tuyen_dung.jsp">
+    <include page="common" />
+    <handler name="Employment" />
+    <handler name="ListChannelInEmployment@En" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_tuyendung" action="/tuyendung" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tuyen_dung.jsp">
+    <include page="common" />
+    <handler name="TuyenDung" />
+    <handler name="ListChannelInEmployment@Vi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_qa" action="/qa" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/hoi_dap.jsp">
+    <include page="common" />
+    <handler name="ListContentsHomeWebHandler@ListChannelHoiDapEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_hoidap" action="/hoidap" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/hoi_dap.jsp">
+    <include page="common" />
+    <handler name="ListContentsHomeWebHandler@ListChannelHoiDapVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_thuvien" action="/library" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/thu_vien.jsp">
+    <include page="common" />
+    <handler name="ThuVien" />
+    <handler name="ListPropertyOfContentWebHandler@linhvuc" />
+    <handler name="ListPropertyOfContentWebHandler@hinhthuc" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_Library" action="/thuvien" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/thu_vien.jsp">
+    <include page="common" />
+    <handler name="Library" />
+    <handler name="ListPropertyOfContentWebHandler@linhvuc" />
+    <handler name="ListPropertyOfContentWebHandler@hinhthuc" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_Contact" action="/contact" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/lien_he.jsp">
+    <include page="common" />
+    <handler name="ContactEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_lienhe" action="/lienhe" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/lien_he.jsp">
+    <include page="common" />
+    <handler name="ContactVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_privatePermission" action="/privatePermission" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/privatePermission.jsp">
+    <include page="common" />
+    <handler name="PrivatePermissionEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_quyenRiengTu" action="/quyenRiengTu" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/privatePermission.jsp">
+    <include page="common" />
+    <handler name="PrivatePermissionVi" />
+  </page>
+  
+  <page name="sitemap" action="/sitemap" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/sitemap.jsp">
+    <include page="common" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_tinvnbc" action="/tinvnbc" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tin_vnbc.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandlerVnbcVi@tinvnbc" />
+    <handler name="Product@DetailNewsVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_news_VNBC" action="/tinvnbc" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_tin_tuc.jsp">
+    <include page="common" />
+    <handler name="ListContentsHomeWebHandler@VnbcEn" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ExtraContentsWebHandler@ViewContentNews" />
+    <handler name="Product@DetailNewsEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_news_VNBC" action="/news_VNBC" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tin_vnbc.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandlerVnbcEn@tinvnbc" />
+    <handler name="Product@DetailNewsEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_tintcnh" action="/tintcnh" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tin_vnbc.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandlerVnbcVi@tintcnh" />
+    <handler name="Product@DetailNewsVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_news_finance_banking" action="/news_finance_banking" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tin_vnbc.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandlerVnbcEn@tintcnh" />
+    <handler name="Product@DetailNewsEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_news_finance_banking" action="/tinvnbc" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_tin_tuc.jsp">
+    <include page="common" />
+    <handler name="ListContentsHomeWebHandler@VnbcEn" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ExtraContentsWebHandler@ViewContentNews" />
+    <handler name="Product@DetailNewsEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_tintuc3" action="/tintuc3" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tin_vnbc.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandlerVnbcVi@tintuc3" />
+    <handler name="Product@DetailNewsVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_News3" action="/news3" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tin_vnbc.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandlerVnbcEn@tintuc3" />
+    <handler name="Product@DetailNewsEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_News3" action="/tinvnbc" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_tin_tuc.jsp">
+    <include page="common" />
+    <handler name="ListContentsHomeWebHandler@VnbcEn" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ExtraContentsWebHandler@ViewContentNews" />
+    <handler name="Product@DetailNewsEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_tintuc4" action="/tintuc4" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tin_vnbc.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandlerVnbcVi@tintuc4" />
+    <handler name="Product@DetailNewsVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_News4" action="/news4" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tin_vnbc.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandlerVnbcEn@tintuc4" />
+    <handler name="Product@DetailNewsEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_News4" action="/tinvnbc" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_tin_tuc.jsp">
+    <include page="common" />
+    <handler name="ListContentsHomeWebHandler@VnbcEn" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ExtraContentsWebHandler@ViewContentNews" />
+    <handler name="Product@DetailNewsEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_tintuc5" action="/tintuc5" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tin_vnbc.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandlerVnbcVi@tintuc5" />
+    <handler name="Product@DetailNewsVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_News5" action="/news5" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tin_vnbc.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandlerVnbcEn@tintuc5" />
+    <handler name="Product@DetailNewsEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_News5" action="/tinvnbc" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_tin_tuc.jsp">
+    <include page="common" />
+    <handler name="ListContentsHomeWebHandler@VnbcEn" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ExtraContentsWebHandler@ViewContentNews" />
+    <handler name="Product@DetailNewsEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_tintuc6" action="/tintuc6" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tin_vnbc.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandlerVnbcVi@tintuc6" />
+    <handler name="Product@DetailNewsVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_News6" action="/news6" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tin_vnbc.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandlerVnbcEn@tintuc6" />
+    <handler name="Product@DetailNewsEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_News6" action="/tinvnbc" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_tin_tuc.jsp">
+    <include page="common" />
+    <handler name="ListContentsHomeWebHandler@VnbcEn" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ExtraContentsWebHandler@ViewContentNews" />
+    <handler name="Product@DetailNewsEn" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_tintuc7" action="/tintuc7" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tin_vnbc.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandlerVnbcVi@tintuc7" />
+    <handler name="Product@DetailNewsVi" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_LIST_News7" action="/news7" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/tin_vnbc.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandlerVnbcEn@tintuc7" />
+  </page>
+  
+  <page name="CDS_URL_PAGE_VIEW_News7" action="/tinvnbc" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/detail_tin_tuc.jsp">
+    <include page="common" />
+    <handler name="ListContentsHomeWebHandler@VnbcEn" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ExtraContentsWebHandler@ViewContentNews" />
+    <handler name="Product@DetailNewsEn" />
+  </page>
+  
+  <page name="sendcontact" action="/sendcontact" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/sendcontact.jsp">
+    <include page="common" />
+    <handler name="SendContactWebHandler" />
+  </page>
+  
+  <page name="search" action="/search" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/search_inner.jsp">
+    <include page="common" />
+    <handler name="SearchPageWebHandler" />
+    <handler name="PrepareChannelsWebHandler" />
+  </page>
+  
+  <page name="searchLibary" action="/searchLibary" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/resultSearchLibrary.jsp">
+    <handler name="SearchLibaryPageWebHandler@legal" />
+    <handler name="SearchLibaryPageWebHandler@reference" />
+    <handler name="ListPropertyOfContentWebHandler@linhvuc" />
+    <handler name="ListPropertyOfContentWebHandler@hinhthuc" />
+  </page>
+  
+  <page name="login" action="/login" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/login.jsp">
+    <handler name="LoginAjax" />
+  </page>
+  
+  <page name="logout" action="/logout" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/login.jsp">
+    <handler name="LogoutAjax" />
+  </page>
+  
+  <page name="register" action="/register" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/login.jsp">
+    <handler name="RegisterAjax" />
+  </page>
+  
+  <page name="viewpoll_result" action="/viewpoll_result" uri="/mvnplugin/mvnforum/user/votepollsuccessx.jsp">
+    <include page="common" />
+    <handler name="PrepareViewPollWebHandler" />
+  </page>
+  
+  <page name="votepoll_process" action="/votepoll_process" uri="/mvnplugin/mvncms/cds/standard/vnbc_vi/vote_poll_success.jsp">
+    <include page="common" />
+    <handler name="ProcessVotePollWebHandler" />
+    <handler name="ProcessVotePollForRenderWebHandler" />
+  </page>
+  
+  <web-handlers>
+    
+    <web-handler name="VNBCListContentsInChannelWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.vnbc.VNBCListContentsInChannelWebHandler" />
+    
+    <web-handler name="ProcessVotePollWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ProcessVotePollWebHandler" />
+    
+    <web-handler name="ProcessVotePollForRenderWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ProcessVotePollForRenderWebHandler" />
+    
+    <web-handler name="PrepareViewPollWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.PrepareViewPollWebHandler" />
+    
+    <web-handler name="PrepareChannelsWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.PrepareChannelsWebHandler" />
+    
+    <web-handler name="SearchPageWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.SearchPageWebHandler" />
+    
+    <web-handler name="SendContactWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.SendContactWebHandler" />
+    
+    <web-handler name="ListContentsHomeWebHandler@VnbcEn" id="@Vnbc" ref="ListContentsHomeWebHandler">
+      <property name="rows" value="10" />
+      <property name="channelID" value="17"/>
+    </web-handler>
+    
+    <web-handler name="LoginAjax" class="com.mvnsoft.mvncms.cds.standard.handler.impl.vnbc.LoginAjaxWebHandler"/>
+    
+    <web-handler name="LogoutAjax" class="com.mvnsoft.mvncms.cds.standard.handler.impl.vnbc.LogoutAjaxWebHandler"/>
+    
+    <web-handler name="RegisterAjax" class="com.mvnsoft.mvncms.cds.standard.handler.impl.vnbc.RegisterAjaxWebHandler"/>
+    
+    <web-handler name="ListContentsHomeWebHandler@VnbcVi" id="@Vnbc" ref="ListContentsHomeWebHandler">
+      <property name="rows" value="10" />
+      <property name="channelID" value="1"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsHomeWebHandler@ListChannelNewsVi" id="@Vnbc" ref="ListContentsHomeWebHandler">
+      <property name="rows" value="10" />
+      <property name="channelID" value="1"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsHomeWebHandler@ListChannelNewsEn" id="@Vnbc" ref="ListContentsHomeWebHandler">
+      <property name="rows" value="10" />
+      <property name="channelID" value="17"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsHomeWebHandler@ListChannelHoiDapVi" id="@HoiDap" ref="ListContentsHomeWebHandler">
+      <property name="rows" value="100" />
+      <property name="channelID" value="4"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsHomeWebHandler@ListChannelHoiDapEn" id="@HoiDap" ref="ListContentsHomeWebHandler">
+      <property name="rows" value="100" />
+      <property name="channelID" value="20"/>
+    </web-handler>
+
+    <web-handler name="ListContentsChannelWebHandler@VnbcEn" id="@Vnbc" ref="ListContentsChannelWebHandler" >
+      <property name="channelID" value="17"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandler@VnbcVi" id="@Vnbc" ref="ListContentsChannelWebHandler" >
+      <property name="channelID" value="1"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandlerVnbcVi@tinvnbc" ref="ListContentsChannelWebHandler" >
+      <property name="channelID" value="7"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandlerVnbcEn@tinvnbc" ref="ListContentsChannelWebHandler" >
+      <property name="channelID" value="24"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandlerVnbcVi@tintcnh" ref="ListContentsChannelWebHandler" >
+      <property name="channelID" value="8"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandlerVnbcEn@tintcnh" ref="ListContentsChannelWebHandler" >
+      <property name="channelID" value="25"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandlerVnbcVi@tintuc3" ref="ListContentsChannelWebHandler" >
+      <property name="channelID" value="35"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandlerVnbcEn@tintuc3" ref="ListContentsChannelWebHandler" >
+      <property name="channelID" value="47"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandlerVnbcVi@tintuc4" ref="ListContentsChannelWebHandler" >
+      <property name="channelID" value="36"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandlerVnbcEn@tintuc4" ref="ListContentsChannelWebHandler" >
+      <property name="channelID" value="48"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandlerVnbcVi@tintuc5" ref="ListContentsChannelWebHandler" >
+      <property name="channelID" value="37"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandlerVnbcEn@tintuc5" ref="ListContentsChannelWebHandler" >
+      <property name="channelID" value="49"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandlerVnbcVi@tintuc6" ref="ListContentsChannelWebHandler" >
+      <property name="channelID" value="38"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandlerVnbcEn@tintuc6" ref="ListContentsChannelWebHandler" >
+      <property name="channelID" value="50"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandlerVnbcVi@tintuc7" ref="ListContentsChannelWebHandler" >
+      <property name="channelID" value="39"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandlerVnbcEn@tintuc7" ref="ListContentsChannelWebHandler" >
+      <property name="channelID" value="51"/>
+    </web-handler>
+    
+    <web-handler name="ListContentsChannelWebHandler@ProductVi" id="@Product" ref="ListContentsChannelWebHandler" />
+    
+    <web-handler name="ListContentsChannelWebHandler@ProductEn" id="@Product" ref="ListContentsChannelWebHandler" />
+    
+    <web-handler name="ListContentsChannelWebHandler@EmploymentEn" id="@Employment" ref="ListContentsChannelWebHandler" >
+      <property name="rows" value="1000" />
+    </web-handler>
+
+    <web-handler name="ListContentsChannelWebHandler@EmploymentVi" id="@Employment" ref="ListContentsChannelWebHandler" >
+      <property name="rows" value="1000" />
+    </web-handler>
+
+    <web-handler name="TopNewsWebHandler" class="com.mvnsoft.mvncms.cds.standard.handler.impl.TopNewsWebHandler" virtual="true" />
+
+    <web-handler name="TopNewsWebHandler@HomeEn" id="@Home" ref="TopNewsWebHandler">
+      <property name="rows" value="17" />
+    </web-handler>
+    
+    <web-handler name="TopNewsWebHandler@HomeVi" id="@Home" ref="TopNewsWebHandler">
+      <property name="rows" value="1" />
+    </web-handler>
+  
+    <web-handler name="IntroduceVi" ref="ListContentsChannelWebHandler">
+      <property name="channelId" value="2" />
+    </web-handler>
+    
+    <web-handler name="IntroduceEn" ref="ListContentsChannelWebHandler">
+      <property name="channelId" value="18" />
+    </web-handler>
+    
+    <web-handler name="Partners@PartnersHomeVi" id="@PartnersHome" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="41" />
+    </web-handler>
+    
+    <web-handler name="Partners@PartnersHomeEn" id="@PartnersHome" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="40" />
+    </web-handler>
+    
+    <web-handler name="TotalQuestionAnswerVi" ref="TotalCount">
+      <property name="channelId" value="4" />
+    </web-handler>
+    
+    <web-handler name="TotalQuestionAnswerEn" ref="TotalCount">
+      <property name="channelId" value="20" />
+    </web-handler>
+    
+    <web-handler name="TotalRecruitmentNeedsVi" ref="TotalCount">
+      <property name="channelId" value="43" />
+    </web-handler>
+    
+    <web-handler name="TotalRecruitmentNeedsEn" ref="TotalCount">
+      <property name="channelId" value="42" />
+    </web-handler>
+    
+    <web-handler name="TotalLibaryVi" ref="TotalCount">
+      <property name="channelId" value="5" />
+    </web-handler>
+    
+    <web-handler name="TotalLibaryEn" ref="TotalCount">
+      <property name="channelId" value="21" />
+    </web-handler>
+    
+    <web-handler name="ProductServides@DetailNewsVi" id="@DetailNews" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="3" />
+    </web-handler>
+    
+    <web-handler name="ProductServides@DetailNewsEn" id="@DetailNews" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="19" />
+    </web-handler>
+    
+    <web-handler name="ProductServides@DetailIntroduceVi" id="@DetailIntroduce" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="3" />
+    </web-handler>
+    
+    <web-handler name="ProductServides@DetailIntroduceEn" id="@DetailIntroduce" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="19" />
+    </web-handler>
+    
+    <web-handler name="SearchLibaryPageWebHandler@legal" id="@legal" class="com.mvnsoft.mvncms.cds.standard.handler.impl.vnbc.SearchLibaryPageWebHandler">
+      <property name="channelId" value="11" />
+    </web-handler>
+    
+    <web-handler name="SearchLibaryPageWebHandler@reference" id="@reference" class="com.mvnsoft.mvncms.cds.standard.handler.impl.vnbc.SearchLibaryPageWebHandler">
+      <property name="channelId" value="12" />
+    </web-handler>
+    
+    <web-handler name="ProductServidesVi" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="3" />
+    </web-handler>
+    
+    <web-handler name="ProductServidesEn" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="19" />
+    </web-handler>
+    
+    <web-handler name="QuestionAnswerVi" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="4" />
+    </web-handler>
+    
+    <web-handler name="QuestionAnswerEn" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="20" />
+    </web-handler>
+    
+    <web-handler name="QuestionAnswer@HomeVi" id="@Home" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="4" />
+    </web-handler>
+    
+    <web-handler name="QuestionAnswer@HomeEn" id="@Home" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="20" />
+    </web-handler>
+    
+    <web-handler name="PrivatePermissionEn" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="57" />
+    </web-handler>
+    
+    <web-handler name="PrivatePermissionVi" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="58" />
+    </web-handler>
+    
+    <web-handler name="ThuVien" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListChannelsHomeWebHandler">
+      <property name="channelId" value="5" />
+    </web-handler>
+    
+    <web-handler name="ListPropertyOfContentWebHandler@hinhthuc" id="@hinhthuc" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListPropertyOfContentWebHandler">
+      <property name="propertyID" value="4" />
+    </web-handler>
+    
+    <web-handler name="ListPropertyOfContentWebHandler@linhvuc" id="@linhvuc" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListPropertyOfContentWebHandler">
+      <property name="propertyID" value="5" />
+    </web-handler>
+    
+    <web-handler name="Library" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListChannelsHomeWebHandler">
+      <property name="channelId" value="21" />
+    </web-handler>
+    
+    <web-handler name="ProductVi" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListChannelsHomeWebHandler">
+      <property name="channelId" value="3" />
+    </web-handler>
+    
+    <web-handler name="ProductEn" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListChannelsHomeWebHandler">
+      <property name="channelId" value="19" />
+    </web-handler>
+    
+    <web-handler name="Product@EmploymentVi" id="@Employment" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListChannelsHomeWebHandler">
+      <property name="channelId" value="3" />
+    </web-handler>
+    
+    <web-handler name="Product@EmploymentEn" id="@Employment" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListChannelsHomeWebHandler">
+      <property name="channelId" value="19" />
+    </web-handler>
+    
+    <web-handler name="ListChannelInEmployment@En" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListChannelsHomeWebHandler">
+      <property name="channelId" value="22" />
+    </web-handler>
+
+    <web-handler name="ListChannelInEmployment@Vi" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListChannelsHomeWebHandler">
+      <property name="channelId" value="6" />
+    </web-handler>
+    
+    <web-handler name="Product@DetailNewsVi" id="@DetailNews" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListChannelsHomeWebHandler">
+      <property name="channelId" value="3" />
+    </web-handler>
+    
+    <web-handler name="Product@DetailNewsEn" id="@DetailNews" class="com.mvnsoft.mvncms.cds.standard.handler.impl.ListChannelsHomeWebHandler">
+      <property name="channelId" value="19" />
+    </web-handler>
+
+    <web-handler name="Employment" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="22" />
+    </web-handler>
+
+    <web-handler name="TuyenDung" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="6" />
+    </web-handler>
+    
+    <web-handler name="ContactVi" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="26" />
+    </web-handler>
+    
+    <web-handler name="ContactEn" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="23" />
+    </web-handler>
+    
+    <web-handler name="HotNewsLink@LinkVi" id="@Link" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="1" />
+    </web-handler>
+    
+    <web-handler name="HotNewsLink@LinkEn" id="@Link" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="17" />
+    </web-handler>
+    
+    <web-handler name="HotNewsProduct@LinkVi" id="@Link" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="3" />
+    </web-handler>
+    
+    <web-handler name="HotNewsProduct@LinkEn" id="@Link" ref="ListContentsInChannelWebHandler">
+      <property name="channelId" value="19" />
+    </web-handler>
+    
+    <web-handler name="PollModuleWebHandlerVi" class="com.mvnsoft.mvncms.cds.standard.handler.impl.PollModuleWebHandler">
+      <property name="pollId" value="1" />
+    </web-handler>
+    
+    <web-handler name="PollModuleWebHandlerEn" class="com.mvnsoft.mvncms.cds.standard.handler.impl.PollModuleWebHandler">
+      <property name="pollId" value="2" />
+    </web-handler>
+    
+    <web-handler name="ExtraContentsWebHandler@ViewContentNews" id="@ViewContentNews" ref="ExtraContentsWebHandler">
+      <property name="order" value="ContentCreationDate:DESC" />
+      <property name="before" value="true" />
+      <property name="channel" value="true" />
+      <property name="content" value="false" />
+      <property name="children" value="false" />
+    </web-handler>
+    
+  </web-handlers>
+</page-handlers>

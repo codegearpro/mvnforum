@@ -1,0 +1,44 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/DataniumMailContactManagement.tml,v 1.1 2010/02/10 08:16:51 trungth Exp $
+ - $Author: trungth $
+ - $Revision: 1.1 $
+ - $Date: 2010/02/10 08:16:51 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.dataniummailcontactmanagement.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+
+  <div class="textcenter">
+    <table t:type="grid" t:id="dataniumCitiesGrid" t:source="dataniumMailContacts" t:row="dataniumMailContact"
+      t:add="targetName, cityName, ageGroupName" t:empty="${message:grid.empty_message}"
+      t:include="contactName, contactEmail, contactPhone, handPhone, landLine, genderMale, genderFemale" 
+      t:rowsPerPage="postsPerPage" t:pagerPosition="top" align="center" width="95%" t:rowClass="prop:evenOdd.next">
+
+      <t:parameter name="targetNameCell">
+        <t:loop source="targetBeans" value="target">
+          ${target.targetNameEn} ;
+        </t:loop>
+      </t:parameter>
+      
+      <t:parameter name="cityNameCell">
+        ${cityName}
+      </t:parameter>
+      
+      <t:parameter name="ageGroupNameCell">
+        ${ageGroupName}
+      </t:parameter>
+      
+    </table>
+  </div>
+  
+</t:publishadmin.border>

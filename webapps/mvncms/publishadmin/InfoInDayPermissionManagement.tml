@@ -1,0 +1,77 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/InfoInDayPermissionManagement.tml,v 1.27 2009/09/07 05:15:01 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.27 $
+ - $Date: 2009/09/07 05:15:01 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.usermanagementlinks.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+ <script type="text/javascript">
+    function validateDelete() {
+        return confirm('Do you want to delete?');
+    }
+  </script>
+
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+
+  <form t:type="Form" t:id="infoIndayPermissionForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <t:errors><div>&nbsp;</div></t:errors>
+    <table class="tborder center" width="95%" cellspacing="0" cellpadding="3">
+      <tr class="portlet-section-header">
+        <td colspan="2">
+            ${message:mvncms.informationindaypermissionmanagement.title}
+        </td>
+      </tr>  
+      
+      <tr class="portlet-section-body">
+        <td colspan="2"> 
+            <label t:type="Label" for="groupIDChoose">${message:mvncms.contentpermissionmanagement.choose_group}</label>
+            <select t:type="Select" t:id="groupIDChoose" />
+        </td>
+      </tr>
+      <tr class="portlet-section-alternate">
+        <td colspan="2">
+            <label t:type="Label" for="updateInfo">${message:mvncms.informationindaypermissionmanagement.updateinfo}</label>
+            <checkbox t:type="Checkbox" t:id="updateInfo" class="noborder" />
+        </td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input type="submit" value="${message:mvncms.action.edit}" />
+        </td>
+      </tr>
+    </table>
+  </form>
+  <div>&nbsp;</div>
+  
+  <div class="textcenter">
+    <table t:type="Grid" t:source="groupBeans" t:row="groupBean" t:rowsPerPage="postsPerPage" t:pagerPosition="top" t:add="RemoveThisGroup" t:empty="${message:grid.empty_message}" t:include="groupID, groupName" style="margin:0px auto;" width="95%" t:rowClass="prop:evenodd.next">[Grid here]
+      <t:parameter name="RemoveThisGroupCell">
+        <div class="textcenter">
+          <form t:type="Form" t:id="deleteGroupForm" t:clientValidation="true">
+            <t:publishadmin.TokenField />
+            <div>
+              <input t:type="chenillekit/Hidden" t:id="groupID" />
+              <input type="submit" value="${message:mvncms.informationindaypermissionmanagement.removethisgroup}"/>
+            </div>
+          </form>
+        </div>
+      </t:parameter>
+    </table>
+  </div>
+  <div>&nbsp;</div>
+          
+</t:publishadmin.border>

@@ -1,0 +1,91 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/MoneyRateManagement.tml,v 1.29 2009/09/07 03:09:57 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.29 $
+ - $Date: 2009/09/07 03:09:57 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.moneyratemanagement.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  <script type="text/javascript">
+    function validateDelete() {
+        return confirm('Do you want to delete?');
+    }
+  </script>
+  
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <t:publishadmin.MessageBox key="successKey" />
+
+  <form t:type="Form" t:id="addMoneyRateForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <t:errors><div>&nbsp;</div></t:errors>
+    <table border="0" width="95%" cellspacing="0" cellpadding="3" class="tborder center">
+      <tr class="portlet-section-header">
+        <td colspan="2">${message:mvncms.moneyratemanagement.add}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td style="width: 40%;"><label t:type="Label" for="moneyCode">${message:mvncms.common.moneyrate.moneycode} ${message:mvncms.common.moneyrate.moneycode_ex}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="moneyCode" /></td>
+      </tr> 
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="moneyName">${message:mvncms.common.moneyrate.moneyname} ${message:mvncms.common.moneyrate.moneyname_ex}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="moneyName" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="moneyInRate">${message:mvncms.common.moneyrate.buy} ${message:mvncms.common.moneyrate.buy_ex}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="moneyInRate" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="moneyOutRate">${message:mvncms.common.moneyrate.sell} ${message:mvncms.common.moneyrate.sell_ex}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="moneyOutRate" /></td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td><label t:type="Label" for="moneyTranferRate">${message:mvncms.common.moneyrate.transfer} ${message:mvncms.common.moneyrate.transfer_ex}<span class="requiredfield"> *</span></label></td>
+        <td><input t:type="TextField" t:id="moneyTranferRate" /></td>
+      </tr>
+      <tr id="vietnameseKeyboardBlock" style="display: none" class="${prop:evenodd.next}">
+        <td>
+          ${message:mvncms.common.vietnamese_key}
+        </td>
+        <td>
+          <t:publishadmin.VietnameseKeyboardComponent inputList="literal:moneyCode,moneyName" />
+        </td>
+      </tr>
+      <tr class="portlet-section-footer">
+        <td colspan="2" align="center">
+          <input type="submit" value="${message:mvncms.action.create}" class="portlet-form-button" />
+          <input type="reset" value="${message:mvncms.action.reset}" class="liteoption" />
+        </td>
+      </tr>
+    </table>
+  </form>
+  <div>&nbsp;</div>
+  
+  <div class="textcenter">
+    <table t:type="Grid" t:source="moneyRates" t:row="moneyRate" t:rowsPerPage="postsPerPage" t:pagerPosition="top" t:add="edit, delete" t:include="moneyCode, moneyName, moneyInRate, moneyOutRate, moneyTranferRate"
+           style="margin:0px auto;" width="95%" t:rowClass="prop:evenodd.next" t:empty="${message:grid.empty_message}">
+      <t:parameter name="editCell">
+        <a t:type="PageLink" t:page="publishadmin/EditMoneyRate" t:context="moneyRate.moneyID" href="#">${message:mvncms.action.edit}</a>
+      </t:parameter>
+      <t:parameter name="deleteCell">
+        <form t:type="form" t:id="delMoneyRateForm">
+          <t:publishadmin.TokenField />
+          <div>
+            <input t:type="chenillekit/Hidden" t:id="moneyRateID" /> 
+            <input type="submit" onclick="return validateDelete();" value="${message:mvncms.action.delete}"/>
+          </div>
+        </form>
+      </t:parameter>
+     </table>
+   </div>
+  
+</t:publishadmin.border>

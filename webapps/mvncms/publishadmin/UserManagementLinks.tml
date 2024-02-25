@@ -1,0 +1,30 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/UserManagementLinks.tml,v 1.10 2009/05/06 03:50:54 trungth Exp $
+ - $Author: trungth $
+ - $Revision: 1.10 $
+ - $Date: 2009/05/06 03:50:54 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.usermanagementlinks.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <div class="pagedesc">
+    <a href="${forumManagermentLink}" class="command" target="_blank">${message:mvncms.usermanagementlink.forummanagerment}</a><br />
+    <a href="${forumAddMemberLink}" class="command" target="_blank">${message:mvncms.usermanagementlink.addmember}</a><br />
+    <a href="${groupManagementLink}" class="command" target="_blank">${message:mvncms.usermanagementlink.groupmanagement}</a><br />
+    <a href="${listPollsLink}" class="command" target="_blank">${message:mvncms.usermanagementlink.pollmanagement}</a><br />
+    <a href="${listAlbumsLink}" class="command" target="_blank">${message:mvncms.usermanagementlink.albummanagement}</a><br />
+    <a href="${listAlbumItemTagsLink}" class="command" target="_blank">${message:mvncms.usermanagementlink.albumitemtagmanagement}</a><br />
+  </div>  
+        
+</t:publishadmin.border>

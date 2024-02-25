@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page-handlers>
+  <page name="common" virtual="true">
+    <handler name="ExtraContentsWebHandler@Marquee" />
+    <handler name="ExtraContentsWebHandler@MostView" />
+  </page>
+
+  <page name="CDS_URL_PAGE_LIST_MODE_1" action="" uri="/mvnplugin/mvncms/cds/standard/jvn2/listcontents_mode_1.jsp">
+    <include page="common" />
+    <handler name="ListContentsHomeWebHandler@Jvn" />
+  </page>
+
+  <page name="CDS_URL_PAGE_LIST_MODE_0" action="" uri="/mvnplugin/mvncms/cds/standard/jvn2/listcontents_mode_0.jsp">
+    <include page="common" />
+    <handler name="ListContentsChannelWebHandler@Jvn" />
+  </page>
+
+  <page name="CDS_URL_PAGE_VIEW" action="content" uri="/mvnplugin/mvncms/cds/standard/jvn2/viewcontent.jsp">
+    <include page="common" />
+    <handler name="SingleContentWebHandler" />
+    <handler name="ExtraContentsWebHandler@ViewContent" />
+  </page>
+  
+</page-handlers>

@@ -1,0 +1,61 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/ContentPermissionManagement.tml,v 1.22 2009/06/30 11:25:47 xuantl Exp $
+ - $Author: xuantl $
+ - $Revision: 1.22 $
+ - $Date: 2009/06/30 11:25:47 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.contentpermissionmanagement.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+  
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+  
+  <form t:type="Form" t:id="contentPermissionManagementForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    <t:errors><div>&nbsp;</div></t:errors>
+    <table class="tborder center" width="95%" cellspacing="0" cellpadding="3">
+      <tr class="portlet-section-body">
+        <td colspan="2"> 
+          <label t:type="Label" for="groupID">${message:mvncms.contentpermissionmanagement.choose_group}</label>
+          <select t:type="Select" t:id="groupID" />
+        </td>
+      </tr>
+    </table>
+    <div>&nbsp;</div>
+      
+    <table class="tborder center" width="95%" cellspacing="0" cellpadding="3">
+      <tr class="portlet-section-header">
+        <td style="width: 1%;" align="center"> 
+           ${message:mvncms.contentpermissionmanagement.choose_channel} 
+        </td>
+        <td t:type="publishadmin/ChannelTreeHeader" t:maxDepth="maxDepth" t:body="message:mvncms.contentpermissionmanagement.yourchannel" style="width: 85%;" />
+      </tr>
+       
+      <t:radiogroup t:id="channelID">
+         <tr t:type="Loop" t:source="orderedChannelID" t:value="currentChannelID" class="prop:evenodd.next">
+          <td style="width: 1%;">
+            <t:radio t:value="currentChannelID" class="noborder" />
+          </td>
+          <span t:type="publishadmin/ChannelTreeRow" t:maxDepth="maxDepth" t:currentChannelID="currentChannelID" />
+        </tr>
+      </t:radiogroup>
+      
+      <tr class="portlet-section-footer">
+        <td colspan="${colspan}" align="center">
+          <input t:type="Submit" t:id="continue" value="${message:mvncms.action.continue}" class="portlet-form-button" />
+          <input t:type="Submit" t:id="continueWithAllChannels" value="${message:mvncms.contentpermissionmanagement.continuewithallchannel}" class="portlet-form-button" />
+        </td>
+      </tr>
+    </table>
+  </form>
+  <div>&nbsp;</div>
+ 
+</t:publishadmin.border>

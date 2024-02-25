@@ -1,0 +1,93 @@
+<!--
+ - $Header: /home/cvsroot/mvncms/srcweb/publishadmin/CopyQuestion.tml,v 1.15 2009/08/14 02:41:37 thonh Exp $
+ - $Author: thonh $
+ - $Revision: 1.15 $
+ - $Date: 2009/08/14 02:41:37 $
+ -
+ - ====================================================================
+ -
+ - Copyright (C) 2002-2007 by MyVietnam.net
+ -
+ - MyVietnam.net PROPRIETARY/CONFIDENTIAL PROPERTIES. Use is subject to license terms.
+ - You CANNOT use this software unless you receive a written permission from MyVietnam.net
+ -
+ - @author: MyVietnam.net developers
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:publishadmin.border title="message:mvncms.copyquestion.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+ 
+  <t:publishadmin.NavigationLink links="navigationLinks" />
+   
+  <form t:type="Form" t:id="copyInterviewForm" t:clientValidation="true">
+    <t:publishadmin.TokenField />
+    
+    <t:errors><div>&nbsp;</div></t:errors>
+    
+    <table border="0" class="tborder center" width="95%" cellspacing="0" cellpadding="3">
+      <tr class="portlet-section-header">
+        <th colspan="2">${message:mvncms.interview.info}</th>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td style="width: 40%;">${message:mvncms.common.interview.id}</td>
+        <td>${interviewID}</td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interview.contentid}</td>
+        <td>
+          ${contentID}
+        </td>
+      </tr>  
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interview.member_name}</td>
+        <td>
+          ${memberName}
+        </td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interview.subject}</td>
+        <td>
+          ${interviewSubject}
+        </td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interview.summary}</td>
+        <td>
+          ${interviewSummary}
+        </td>
+      </tr>
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interview.content}</td>
+        <td>
+          ${interviewContent}
+        </td>
+      </tr>  
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interview.note}</td>
+        <td>
+          ${interviewNote}
+        </td>
+      </tr>  
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interview.distributors}</td>
+        <td>
+          ${interviewDistributorList}
+        </td>
+      </tr>  
+      <tr class="${prop:evenodd.next}">
+        <td>${message:mvncms.common.interview.answerers}</td>
+        <td>
+          ${interviewAnswererList}
+        </td>
+      </tr>  
+      <tr class="${prop:evenodd.next}">
+        <td style="width: 40%;"><label t:type="Label" for="curInterviewID">${message:mvncms.common.interview.workflow.choose_question_copy}<span class="requiredfield"> *</span></label></td>
+        <td>
+            <input t:type="chenillekit/Hidden" t:id="contentID" />
+            <select t:type="Select" t:id="curInterviewID" />
+            <input type="submit" value="${message:mvncms.action.ok}" class="portlet-form-button" />
+        </td>
+      </tr>
+    </table>
+  </form>
+ 
+</t:publishadmin.border>
